@@ -1,100 +1,142 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, ArrowUpRight } from 'lucide-react';
 
 export default function Navbar({ onRequestTalent, onJoinNetwork }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 25);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { label: 'Solutions', href: '#services' },
-    { label: 'Approach', href: '#approach' },
-    { label: 'Talent', href: '#talent' },
-    { label: 'Employers', href: '#employers' },
-    { label: 'Why GESTSS', href: '#why-us' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
-      {/* Floating Pill Navbar */}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-out ${
+        scrolled
+          ? 'pt-3 sm:pt-4 px-4'
+          : 'pt-3 sm:pt-5 px-4 sm:px-8'
+      }`}
+    >
+      {/* Animated Navbar: Expanded full-width at top, compressed pill with border on scroll */}
       <nav
-        className={`flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-500 ${
+        className={`flex items-center justify-between transition-all duration-500 ease-out ${
           scrolled
-            ? 'bg-white/70 backdrop-blur-2xl shadow-lg shadow-black/10 border border-slate-200/60'
-            : 'bg-slate-950 shadow-xl border border-slate-800'
+            ? 'w-full max-w-3xl bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-slate-200/80 rounded-full py-2 px-3 sm:px-5 gap-3'
+            : isHomePage
+            ? 'w-full max-w-7xl bg-transparent border border-transparent shadow-none rounded-2xl py-3 sm:py-4 px-3 sm:px-6'
+            : 'w-full max-w-7xl bg-slate-950/40 backdrop-blur-md border border-white/10 shadow-lg rounded-2xl py-3 sm:py-4 px-3 sm:px-6'
         }`}
       >
         {/* Brand: Logo emblem + Wordmark */}
-        <a href="#" className="flex items-center gap-2.5 pl-1.5 pr-3 group">
-          <div className="w-9 h-9 rounded-xl overflow-hidden bg-white/10 p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-white/40 shadow-sm p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform border border-white/60">
             <img
               src="/LOGO.webp"
               alt="GESTSS Logo"
               className="w-full h-full object-contain rounded-lg"
             />
           </div>
-          <div className="hidden sm:block bg-white rounded-lg px-2 py-1">
+          <div className="bg-white/95 rounded-lg px-2.5 py-1 shadow-sm border border-slate-200/50 flex-shrink-0">
             <img
               src="/LOGISIDE-NAME.webp"
               alt="GESTSS"
               className="h-5 sm:h-6 object-contain"
             />
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-0.5 px-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-300 ${scrolled ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-100' : 'text-slate-300 hover:text-white hover:bg-white/10'}`}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 flex-shrink-0">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                to={link.href}
+                className={`px-3 py-1.5 text-sm font-semibold rounded-full whitespace-nowrap flex-shrink-0 transition-all duration-300 ${
+                  scrolled
+                    ? isActive
+                      ? 'text-emerald-700 bg-emerald-50 text-[13px]'
+                      : 'text-slate-700 hover:text-slate-950 hover:bg-slate-100/80 text-[13px]'
+                    : isHomePage
+                    ? isActive
+                      ? 'text-emerald-800 bg-white/60'
+                      : 'text-slate-800 hover:text-gestss-green-800 hover:bg-white/40'
+                    : isActive
+                    ? 'text-emerald-300 bg-white/15'
+                    : 'text-slate-200 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* CTA Button */}
-        <button
-          onClick={onRequestTalent}
-          className={`hidden sm:flex items-center gap-1.5 ml-1 px-5 py-2 rounded-full text-[13px] font-bold transition-all duration-300 shadow-sm ${scrolled ? 'bg-slate-950 text-white hover:bg-slate-800' : 'bg-white text-slate-950 hover:bg-slate-100'}`}
-        >
-          <span>Get Started</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </button>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <button
+            onClick={onRequestTalent}
+            className={`hidden sm:flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap flex-shrink-0 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
+              scrolled
+                ? 'bg-slate-950 text-white hover:bg-slate-800'
+                : isHomePage
+                ? 'bg-slate-900 text-white hover:bg-slate-800'
+                : 'bg-emerald-400 text-slate-950 hover:bg-emerald-300'
+            }`}
+          >
+            <span>Get Started</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </button>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden p-2 ml-1 rounded-full transition-colors ${scrolled ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-100' : 'text-slate-300 hover:text-white hover:bg-white/10'}`}
-          aria-label="Toggle Navigation"
-        >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={`lg:hidden p-2 rounded-full transition-colors ${
+              scrolled
+                ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-100'
+                : isHomePage
+                ? 'text-slate-900 hover:bg-white/40'
+                : 'text-white hover:bg-white/10'
+            }`}
+            aria-label="Toggle Navigation"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="fixed inset-x-0 top-[72px] z-40 mx-4 mt-1 rounded-2xl bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl p-5 space-y-2 lg:hidden">
+        <div className="fixed inset-x-0 top-[76px] z-40 mx-4 rounded-2xl bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl p-5 space-y-2 lg:hidden">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
             >
               <span>{link.label}</span>
               <ChevronRight className="w-4 h-4 text-slate-500" />
-            </a>
+            </Link>
           ))}
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
             <button

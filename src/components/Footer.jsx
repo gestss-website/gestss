@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp, Heart, ShieldCheck, Zap, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer({ onRequestTalent, onJoinNetwork }) {
@@ -82,44 +83,44 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
           <div>
             <h5 className="font-bold text-white uppercase tracking-wider mb-4">Core Solutions</h5>
             <ul className="space-y-2.5">
-              <li><a href="#services" className="hover:text-emerald-400 transition-colors">Specialized Green-Energy Recruitment</a></li>
-              <li><a href="#services" className="hover:text-emerald-400 transition-colors">EV Infrastructure Workforce Solutions</a></li>
-              <li><a href="#services" className="hover:text-emerald-400 transition-colors">Solar &amp; Renewable-Energy Staffing</a></li>
-              <li><a href="#services" className="hover:text-emerald-400 transition-colors">Flexible Staffing Models</a></li>
-              <li><a href="#services" className="hover:text-emerald-400 transition-colors">Turnkey Commissioning Crews</a></li>
+              <li><Link to="/#services" className="hover:text-emerald-400 transition-colors">Specialized Green-Energy Recruitment</Link></li>
+              <li><Link to="/#services" className="hover:text-emerald-400 transition-colors">EV Infrastructure Workforce Solutions</Link></li>
+              <li><Link to="/#services" className="hover:text-emerald-400 transition-colors">Solar &amp; Renewable-Energy Staffing</Link></li>
+              <li><Link to="/#services" className="hover:text-emerald-400 transition-colors">Flexible Staffing Models</Link></li>
+              <li><Link to="/#services" className="hover:text-emerald-400 transition-colors">Turnkey Commissioning Crews</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="font-bold text-white uppercase tracking-wider mb-4">Talent Disciplines</h5>
             <ul className="space-y-2.5">
-              <li><a href="#talent" className="hover:text-emerald-400 transition-colors">Solar PV Installation &amp; O&amp;M</a></li>
-              <li><a href="#talent" className="hover:text-emerald-400 transition-colors">EVSE Level 2 &amp; DCFC Technicians</a></li>
-              <li><a href="#talent" className="hover:text-emerald-400 transition-colors">Renewable &amp; Electrical Engineering</a></li>
-              <li><a href="#talent" className="hover:text-emerald-400 transition-colors">Grid Integration &amp; Substation</a></li>
-              <li><a href="#talent" className="hover:text-emerald-400 transition-colors">Site Surveyors &amp; Drone Mapping</a></li>
+              <li><Link to="/#talent" className="hover:text-emerald-400 transition-colors">Solar PV Installation &amp; O&amp;M</Link></li>
+              <li><Link to="/#talent" className="hover:text-emerald-400 transition-colors">EVSE Level 2 &amp; DCFC Technicians</Link></li>
+              <li><Link to="/#talent" className="hover:text-emerald-400 transition-colors">Renewable &amp; Electrical Engineering</Link></li>
+              <li><Link to="/#talent" className="hover:text-emerald-400 transition-colors">Grid Integration &amp; Substation</Link></li>
+              <li><Link to="/#talent" className="hover:text-emerald-400 transition-colors">Site Surveyors &amp; Drone Mapping</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="font-bold text-white uppercase tracking-wider mb-4">Workforce Ecosystem</h5>
             <ul className="space-y-2.5">
-              <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Us &amp; Our Vision</a></li>
-              <li><a href="#approach" className="hover:text-emerald-400 transition-colors">Understanding Before Matching</a></li>
-              <li><a href="#approach" className="hover:text-emerald-400 transition-colors">Quality, Safety &amp; Compliance</a></li>
-              <li><a href="#upskilling" className="hover:text-emerald-400 transition-colors">Career Transitions &amp; Upskilling</a></li>
-              <li><a href="#why-us" className="hover:text-emerald-400 transition-colors">Diversity &amp; Inclusive Hiring</a></li>
+              <li><Link to="/about" className="hover:text-emerald-400 transition-colors font-semibold text-emerald-300">About Us &amp; Our Vision</Link></li>
+              <li><Link to="/#approach" className="hover:text-emerald-400 transition-colors">Understanding Before Matching</Link></li>
+              <li><Link to="/#approach" className="hover:text-emerald-400 transition-colors">Quality, Safety &amp; Compliance</Link></li>
+              <li><Link to="/#upskilling" className="hover:text-emerald-400 transition-colors">Career Transitions &amp; Upskilling</Link></li>
+              <li><Link to="/#why-us" className="hover:text-emerald-400 transition-colors">Diversity &amp; Inclusive Hiring</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="font-bold text-white uppercase tracking-wider mb-4">Direct Portals</h5>
             <ul className="space-y-2.5">
-              <li><a href="#employers" className="hover:text-emerald-400 transition-colors">For Clean Energy Employers</a></li>
-              <li><a href="#candidates" className="hover:text-emerald-400 transition-colors">For Professionals &amp; Technicians</a></li>
-              <li><a href="#why-us" className="hover:text-emerald-400 transition-colors">The 6 Value Pillars</a></li>
-              <li><a href="#contact" className="hover:text-emerald-400 transition-colors">Contact &amp; MSME Desk</a></li>
-              <li><a href="#contact" className="hover:text-emerald-400 transition-colors">Staffing FAQs</a></li>
+              <li><Link to="/#employers" className="hover:text-emerald-400 transition-colors">For Clean Energy Employers</Link></li>
+              <li><Link to="/#candidates" className="hover:text-emerald-400 transition-colors">For Professionals &amp; Technicians</Link></li>
+              <li><Link to="/#why-us" className="hover:text-emerald-400 transition-colors">The 6 Value Pillars</Link></li>
+              <li><Link to="/contact" className="hover:text-emerald-400 transition-colors font-semibold text-emerald-300">Contact &amp; MSME Desk</Link></li>
+              <li><Link to="/contact#faq" className="hover:text-emerald-400 transition-colors">Staffing FAQs</Link></li>
             </ul>
           </div>
 

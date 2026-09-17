@@ -1,22 +1,29 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Users, Sparkles, Building2, BatteryCharging, SunMedium } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import heroBg from '../../HERO-IMAGE.webp';
 
 export default function Hero({ onRequestTalent, onJoinNetwork }) {
   return (
-    <section className="relative pt-32 sm:pt-36 lg:pt-40 overflow-hidden bg-[#f8fafc]">
-      {/* Subtle ambient glows behind content */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] pointer-events-none -z-10">
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-gestss-green-400/10 rounded-full blur-[100px]" />
-        <div className="absolute top-10 right-1/4 w-72 h-72 bg-gestss-blue-400/10 rounded-full blur-[100px]" />
-        <div className="absolute top-32 left-1/2 w-56 h-56 bg-gestss-solar-400/8 rounded-full blur-[80px]" />
+    <section className="relative isolate min-h-[85vh] lg:min-h-screen flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-24 overflow-hidden">
+      {/* Hero Background Image covering the entire area behind navbar and hero text */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img
+          src={heroBg}
+          alt="Clean Energy Horizon — Solar PV, Wind Turbines, EV Charging, and Modern Transit"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Very subtle overlay to ensure text contrast while keeping image bright and visible */}
+        <div className="absolute inset-0 bg-white/25 pointer-events-none" />
+        {/* Soft bottom transition into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-36 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
         {/* Centered Text Block */}
         <div className="text-center max-w-3xl mx-auto space-y-6">
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-black tracking-tight font-display text-slate-900 leading-[1.08]">
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-black tracking-tight font-display text-slate-900 leading-[1.08] drop-shadow-sm">
             Powering the Clean-Energy{' '}
             <br className="hidden sm:block" />
             Transition with the Right{' '}
@@ -40,7 +47,7 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
             A specialized workforce solutions firm connecting clean-energy enterprises
             with compliance-ready professionals across Solar PV, EV Infrastructure,
             Renewable Engineering, and Grid Systems.
@@ -58,28 +65,12 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
 
             <button
               onClick={onJoinNetwork}
-              className="px-7 py-3.5 rounded-full font-bold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-300"
+              className="px-7 py-3.5 rounded-full font-bold text-sm text-slate-800 bg-white/90 hover:bg-white border border-slate-200/80 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 backdrop-blur-sm transition-all duration-300"
             >
               Learn more
             </button>
           </div>
 
-        </div>
-
-        {/* Hero Image — seamlessly integrated, no card border */}
-        <div className="mt-12 lg:mt-16 relative mx-auto max-w-6xl">
-          {/* Soft vignette glow behind the image */}
-          <div className="absolute inset-0 -bottom-20 bg-gradient-to-b from-transparent via-transparent to-[#f8fafc] z-10 pointer-events-none" />
-
-          <div className="relative rounded-t-[2rem] sm:rounded-t-[2.5rem] overflow-hidden">
-            <img
-              src="/HERO-IMAGE.webp"
-              alt="Clean Energy Horizon — Solar PV, Wind Turbines, EV Charging, and Modern Transit"
-              className="w-full h-auto object-cover object-center"
-            />
-            {/* Bottom fade to blend into page */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-44 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/80 to-transparent pointer-events-none" />
-          </div>
         </div>
 
       </div>

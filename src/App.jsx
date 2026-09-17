@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutVision from './components/AboutVision';
-import ServicesGrid from './components/ServicesGrid';
-import ProcessApproach from './components/ProcessApproach';
-import UpskillingSection from './components/UpskillingSection';
-import TalentMatrix from './components/TalentMatrix';
-import DualPortals from './components/DualPortals';
-import PillarsWhyUs from './components/PillarsWhyUs';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import TalentRequestModal from './components/TalentRequestModal';
 import CareerApplyModal from './components/CareerApplyModal';
 
@@ -28,77 +24,70 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-gestss-green-700 selection:text-white relative">
-      {/* Navigation */}
-      <Navbar 
-        onRequestTalent={() => handleOpenTalentModal()} 
-        onJoinNetwork={handleOpenNetworkModal} 
-      />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-gestss-green-700 selection:text-white relative flex flex-col justify-between">
+        
+        {/* Global Responsive Navigation */}
+        <Navbar 
+          onRequestTalent={() => handleOpenTalentModal()} 
+          onJoinNetwork={handleOpenNetworkModal} 
+        />
 
-      {/* Hero Section */}
-      <Hero 
-        onRequestTalent={() => handleOpenTalentModal()} 
-        onJoinNetwork={handleOpenNetworkModal} 
-      />
+        {/* Multi-Page Routes */}
+        <div className="flex-grow">
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <HomePage 
+                  onRequestTalent={() => handleOpenTalentModal()} 
+                  onJoinNetwork={handleOpenNetworkModal} 
+                  onSelectRole={(role) => handleOpenTalentModal(role)} 
+                />
+              } 
+            />
+            <Route 
+              path="/about" 
+              element={
+                <AboutPage 
+                  onRequestTalent={() => handleOpenTalentModal()} 
+                  onJoinNetwork={handleOpenNetworkModal} 
+                />
+              } 
+            />
+            <Route 
+              path="/contact" 
+              element={
+                <ContactPage 
+                  onRequestTalent={() => handleOpenTalentModal()} 
+                  onJoinNetwork={handleOpenNetworkModal} 
+                />
+              } 
+            />
+            {/* Catch-all redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
 
-      {/* About Us, Purpose, Vision, Mission */}
-      <AboutVision 
-        onRequestTalent={() => handleOpenTalentModal()} 
-      />
+        {/* Global Brand Footer */}
+        <Footer 
+          onRequestTalent={() => handleOpenTalentModal()} 
+          onJoinNetwork={handleOpenNetworkModal} 
+        />
 
-      {/* What We Do: Core Solutions */}
-      <ServicesGrid 
-        onRequestTalent={() => handleOpenTalentModal()} 
-      />
+        {/* Global Interactive Modals */}
+        <TalentRequestModal 
+          isOpen={talentModalOpen} 
+          onClose={() => setTalentModalOpen(false)} 
+          initialRole={selectedRole} 
+        />
 
-      {/* Our Approach & Compliance Pipeline */}
-      <ProcessApproach 
-        onRequestTalent={() => handleOpenTalentModal()} 
-      />
-
-      {/* Workforce Upskilling & Partnerships */}
-      <UpskillingSection 
-        onRequestTalent={() => handleOpenTalentModal()} 
-        onJoinNetwork={handleOpenNetworkModal} 
-      />
-
-      {/* Key Areas of Talent (Filterable Matrix) */}
-      <TalentMatrix 
-        onSelectRole={(role) => handleOpenTalentModal(role)} 
-      />
-
-      {/* Portals: For Employers & For Professionals */}
-      <DualPortals 
-        onRequestTalent={() => handleOpenTalentModal()} 
-        onJoinNetwork={handleOpenNetworkModal} 
-      />
-
-      {/* Why Work With Us: 6 Pillars & Diversity */}
-      <PillarsWhyUs />
-
-      {/* Contact Hub, MSME Desk & FAQs */}
-      <ContactSection 
-        onRequestTalent={() => handleOpenTalentModal()} 
-        onJoinNetwork={handleOpenNetworkModal} 
-      />
-
-      {/* Global Brand Footer */}
-      <Footer 
-        onRequestTalent={() => handleOpenTalentModal()} 
-        onJoinNetwork={handleOpenNetworkModal} 
-      />
-
-      {/* Interactive Modals */}
-      <TalentRequestModal 
-        isOpen={talentModalOpen} 
-        onClose={() => setTalentModalOpen(false)} 
-        initialRole={selectedRole} 
-      />
-
-      <CareerApplyModal 
-        isOpen={networkModalOpen} 
-        onClose={() => setNetworkModalOpen(false)} 
-      />
-    </div>
+        <CareerApplyModal 
+          isOpen={networkModalOpen} 
+          onClose={() => setNetworkModalOpen(false)} 
+        />
+      </div>
+    </BrowserRouter>
   );
 }
