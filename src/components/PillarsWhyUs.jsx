@@ -88,18 +88,25 @@ export default function PillarsWhyUs() {
           </p>
         </div>
 
+        {/* Mobile Swipe Hint */}
+        <div className="flex lg:hidden items-center justify-between gap-2 px-3 py-1.5 rounded-full bg-slate-200/80 text-slate-700 text-xs font-semibold mb-3 w-fit">
+          <span>↔ Swipe horizontally to view full interconnected hub</span>
+        </div>
+
         {/* ========================================================================= */}
         {/* MAGIC UI ANIMATED BEAM SHOWCASE (Connecting 6 Cards with Bended S-Curves)  */}
         {/* ========================================================================= */}
-        <div 
-          ref={containerRef}
-          className="relative flex h-[540px] sm:h-[580px] w-full items-center justify-between p-4 sm:p-8 md:p-12 my-12 rounded-3xl bg-slate-50/70 border border-slate-200/80 shadow-[0_15px_35px_-5px_rgba(15,23,42,0.05)] overflow-hidden"
-        >
-          {/* Ambient Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="overflow-x-auto pb-6 pt-1 scrollbar-thin scrollbar-thumb-slate-300">
+          <div className="min-w-[780px] lg:min-w-full">
+            <div 
+              ref={containerRef}
+              className="relative flex h-[540px] sm:h-[580px] w-full items-center justify-between p-6 sm:p-8 md:p-12 rounded-3xl bg-slate-50/70 border border-slate-200/80 shadow-[0_15px_35px_-5px_rgba(15,23,42,0.05)] overflow-hidden"
+            >
+              {/* Ambient Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Left Column: 3 Pillar Cards */}
-          <div className="flex flex-col justify-between h-full py-4 z-10">
+              {/* Left Column: 3 Pillar Cards */}
+              <div className="flex flex-col justify-between h-full py-4 z-10">
             {/* Card 1 */}
             <div 
               ref={card1Ref}
@@ -296,6 +303,8 @@ export default function PillarsWhyUs() {
             gradientStopColor="#0284c7"
           />
         </div>
+      </div>
+    </div>
 
         {/* 6 Pillars Detailed Breakdown Grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
