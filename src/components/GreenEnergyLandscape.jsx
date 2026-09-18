@@ -88,10 +88,6 @@ export default function GreenEnergyLandscape() {
         <div className="max-w-3xl mb-12 sm:mb-16">
           {/* Green accent line */}
           <div className="w-12 h-1.5 bg-emerald-500 rounded-full mb-4" />
-          
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-800 bg-emerald-100/80 px-3.5 py-1 rounded-full border border-emerald-200 inline-block mb-3">
-            The Green Energy Landscape
-          </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight leading-[1.15]">
             The Numbers Behind <br />

@@ -76,10 +76,6 @@ export default function PillarsWhyUs() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-gestss-green-700" />
-            The GESTSS Advantage
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight">
             Why Work <span className="text-gradient-green">With Us?</span>
           </h2>
@@ -88,153 +84,148 @@ export default function PillarsWhyUs() {
           </p>
         </div>
 
-        {/* Mobile Swipe Hint */}
-        <div className="flex lg:hidden items-center justify-between gap-2 px-3 py-1.5 rounded-full bg-slate-200/80 text-slate-700 text-xs font-semibold mb-3 w-fit">
-          <span>↔ Swipe horizontally to view full interconnected hub</span>
-        </div>
-
         {/* ========================================================================= */}
-        {/* MAGIC UI ANIMATED BEAM SHOWCASE (Connecting 6 Cards with Bended S-Curves)  */}
+        {/* MAGIC UI ANIMATED BEAM SHOWCASE (Interconnected hub on Mobile & Desktop)   */}
+        {/* Fully responsive with NO horizontal scroll                                 */}
         {/* ========================================================================= */}
-        <div className="overflow-x-auto pb-6 pt-1 scrollbar-thin scrollbar-thumb-slate-300">
-          <div className="min-w-[780px] lg:min-w-full">
-            <div 
-              ref={containerRef}
-              className="relative flex h-[580px] sm:h-[620px] w-full items-center justify-between p-2 sm:p-4 md:p-6 overflow-visible"
-            >
-              {/* Ambient Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="w-full pb-4 pt-1">
+          <div 
+            ref={containerRef}
+            className="relative flex h-[480px] sm:h-[580px] lg:h-[620px] w-full items-center justify-between p-0.5 sm:p-4 md:p-6 overflow-visible"
+          >
+            {/* Ambient Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Left Column: 3 Pillar Cards */}
-              <div className="flex flex-col justify-between h-full py-4 z-10">
-            {/* Card 1 */}
-            <div 
-              ref={card1Ref}
-              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
-            >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
-                <Target className="w-5 h-5" />
+            {/* Left Column: 3 Pillar Cards */}
+            <div className="flex flex-col justify-between h-full py-1 sm:py-4 z-10 w-[128px] xs:w-[145px] sm:w-64 md:w-80 shrink-0">
+              {/* Card 1 */}
+              <div 
+                ref={card1Ref}
+                className="w-full p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-start gap-1.5 sm:gap-3.5 group cursor-pointer"
+              >
+                <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                  <Target className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[9.5px] xs:text-[10px] sm:text-sm font-bold text-slate-900 block group-hover:text-emerald-700 transition-colors leading-tight">
+                    {pillars[0].title}
+                  </span>
+                  <p className="text-[7.5px] xs:text-[8px] sm:text-[11px] text-slate-600 font-normal leading-snug sm:leading-relaxed mt-0.5 sm:mt-1 line-clamp-3 sm:line-clamp-none">
+                    {pillars[0].desc}
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-emerald-700 transition-colors">
-                  {pillars[0].title}
-                </span>
-                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
-                  {pillars[0].desc}
-                </p>
+
+              {/* Card 2 */}
+              <div 
+                ref={card2Ref}
+                className="w-full p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-start gap-1.5 sm:gap-3.5 group cursor-pointer"
+              >
+                <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                  <Users2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[9.5px] xs:text-[10px] sm:text-sm font-bold text-slate-900 block group-hover:text-blue-700 transition-colors leading-tight">
+                    {pillars[1].title}
+                  </span>
+                  <p className="text-[7.5px] xs:text-[8px] sm:text-[11px] text-slate-600 font-normal leading-snug sm:leading-relaxed mt-0.5 sm:mt-1 line-clamp-3 sm:line-clamp-none">
+                    {pillars[1].desc}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div 
+                ref={card3Ref}
+                className="w-full p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-start gap-1.5 sm:gap-3.5 group cursor-pointer"
+              >
+                <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                  <Binary className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[9.5px] xs:text-[10px] sm:text-sm font-bold text-slate-900 block group-hover:text-amber-700 transition-colors leading-tight">
+                    {pillars[2].title}
+                  </span>
+                  <p className="text-[7.5px] xs:text-[8px] sm:text-[11px] text-slate-600 font-normal leading-snug sm:leading-relaxed mt-0.5 sm:mt-1 line-clamp-3 sm:line-clamp-none">
+                    {pillars[2].desc}
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Card 2 */}
-            <div 
-              ref={card2Ref}
-              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
-            >
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
-                <Users2 className="w-5 h-5" />
+            {/* Center Hub: GESTSS Core Engine */}
+            <div className="flex flex-col items-center justify-center z-10 px-1 sm:px-4 shrink-0">
+              <div 
+                ref={centerRef}
+                className="w-10 h-10 xs:w-12 xs:h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white border-2 border-emerald-500 shadow-lg sm:shadow-2xl shadow-emerald-500/30 flex items-center justify-center p-1.5 sm:p-3 hover:scale-105 transition-transform"
+              >
+                <img
+                  src="/LOGO.webp"
+                  alt="GESTSS"
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
-              <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
-                  {pillars[1].title}
-                </span>
-                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
-                  {pillars[1].desc}
-                </p>
-              </div>
+              <span className="mt-1 sm:mt-3 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[7.5px] sm:text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-900 border border-emerald-300/80 shadow-sm whitespace-nowrap">
+                GESTSS Engine
+              </span>
             </div>
 
-            {/* Card 3 */}
-            <div 
-              ref={card3Ref}
-              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
-            >
-              <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
-                <Binary className="w-5 h-5" />
+            {/* Right Column: 3 Pillar Cards */}
+            <div className="flex flex-col justify-between h-full py-1 sm:py-4 z-10 w-[128px] xs:w-[145px] sm:w-64 md:w-80 shrink-0">
+              {/* Card 4 */}
+              <div 
+                ref={card4Ref}
+                className="w-full p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-start gap-1.5 sm:gap-3.5 group cursor-pointer"
+              >
+                <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                  <Sliders className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[9.5px] xs:text-[10px] sm:text-sm font-bold text-slate-900 block group-hover:text-emerald-700 transition-colors leading-tight">
+                    {pillars[3].title}
+                  </span>
+                  <p className="text-[7.5px] xs:text-[8px] sm:text-[11px] text-slate-600 font-normal leading-snug sm:leading-relaxed mt-0.5 sm:mt-1 line-clamp-3 sm:line-clamp-none">
+                    {pillars[3].desc}
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-amber-700 transition-colors">
-                  {pillars[2].title}
-                </span>
-                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
-                  {pillars[2].desc}
-                </p>
-              </div>
-            </div>
-          </div>
 
-          {/* Center Hub: GESTSS Core Engine */}
-          <div className="flex flex-col items-center justify-center z-10 px-2 sm:px-4">
-            <div 
-              ref={centerRef}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white border-2 border-emerald-500 shadow-2xl shadow-emerald-500/30 flex items-center justify-center p-2.5 sm:p-3 hover:scale-105 transition-transform"
-            >
-              <img
-                src="/LOGO.webp"
-                alt="GESTSS"
-                className="w-full h-full object-contain rounded-full"
-              />
-            </div>
-            <span className="mt-3 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-100 text-emerald-900 border border-emerald-300/80 shadow-sm whitespace-nowrap">
-              GESTSS Engine
-            </span>
-          </div>
+              {/* Card 5 */}
+              <div 
+                ref={card5Ref}
+                className="w-full p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-start gap-1.5 sm:gap-3.5 group cursor-pointer"
+              >
+                <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                  <GraduationCap className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[9.5px] xs:text-[10px] sm:text-sm font-bold text-slate-900 block group-hover:text-blue-700 transition-colors leading-tight">
+                    {pillars[4].title}
+                  </span>
+                  <p className="text-[7.5px] xs:text-[8px] sm:text-[11px] text-slate-600 font-normal leading-snug sm:leading-relaxed mt-0.5 sm:mt-1 line-clamp-3 sm:line-clamp-none">
+                    {pillars[4].desc}
+                  </p>
+                </div>
+              </div>
 
-          {/* Right Column: 3 Pillar Cards */}
-          <div className="flex flex-col justify-between h-full py-4 z-10">
-            {/* Card 4 */}
-            <div 
-              ref={card4Ref}
-              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
-            >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
-                <Sliders className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-emerald-700 transition-colors">
-                  {pillars[3].title}
-                </span>
-                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
-                  {pillars[3].desc}
-                </p>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div 
-              ref={card5Ref}
-              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
-            >
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
-                <GraduationCap className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
-                  {pillars[4].title}
-                </span>
-                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
-                  {pillars[4].desc}
-                </p>
+              {/* Card 6 */}
+              <div 
+                ref={card6Ref}
+                className="w-full p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-start gap-1.5 sm:gap-3.5 group cursor-pointer"
+              >
+                <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                  <HeartHandshake className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[9.5px] xs:text-[10px] sm:text-sm font-bold text-slate-900 block group-hover:text-amber-700 transition-colors leading-tight">
+                    {pillars[5].title}
+                  </span>
+                  <p className="text-[7.5px] xs:text-[8px] sm:text-[11px] text-slate-600 font-normal leading-snug sm:leading-relaxed mt-0.5 sm:mt-1 line-clamp-3 sm:line-clamp-none">
+                    {pillars[5].desc}
+                  </p>
+                </div>
               </div>
             </div>
-
-            {/* Card 6 */}
-            <div 
-              ref={card6Ref}
-              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
-            >
-              <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
-                <HeartHandshake className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-amber-700 transition-colors">
-                  {pillars[5].title}
-                </span>
-                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
-                  {pillars[5].desc}
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* Bended Animated Beams Connecting All 6 Cards into GESTSS Hub */}
           <AnimatedBeam
@@ -304,7 +295,6 @@ export default function PillarsWhyUs() {
           />
         </div>
       </div>
-    </div>
 
         {/* Diversity & Inclusion Section with exact content */}
         <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-emerald-50/60 border border-emerald-100/90 relative overflow-hidden">

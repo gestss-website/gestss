@@ -89,11 +89,6 @@ export default function ProcessApproach() {
         
         {/* Section Header (matching the top box in user's sketch) */}
         <div className="text-center max-w-3xl mx-auto relative z-10 mb-8 sm:mb-12 px-2 sm:px-0">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
-            Our Methodology
-          </div>
-          
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight">
             Our Approach
           </h2>

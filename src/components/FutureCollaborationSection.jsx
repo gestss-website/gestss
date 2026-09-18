@@ -12,11 +12,6 @@ export default function FutureCollaborationSection({ onRequestTalent, onJoinNetw
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            Get Started
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-white leading-tight">
             Let's Build the Future Together
           </h2>

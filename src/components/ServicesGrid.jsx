@@ -114,10 +114,6 @@ export default function ServicesGrid({ onRequestTalent }) {
         
         {/* Mobile / Tablet Header (shown only below lg) */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 lg:hidden">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gestss-green-100 text-gestss-green-900 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-            Specialized Services
-          </div>
           <h2 className="text-2xl sm:text-4xl font-bold font-display text-slate-900 tracking-tight">
             What We Do
           </h2>
@@ -144,10 +140,6 @@ export default function ServicesGrid({ onRequestTalent }) {
             
             {/* Desktop Center Header directly between Left and Right cards */}
             <div className="text-center px-4 mb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gestss-green-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-2.5">
-                <Sparkles className="w-3.5 h-3.5" />
-                Specialized Services
-              </div>
               <h2 className="text-3xl xl:text-4xl font-bold font-display text-slate-900 tracking-tight leading-tight">
                 What We Do
               </h2>

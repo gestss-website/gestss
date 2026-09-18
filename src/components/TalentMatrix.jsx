@@ -245,33 +245,33 @@ export default function TalentMatrix({ onSelectRole }) {
         const mr7 = mCard7Ref.current.getBoundingClientRect();
         const mr8 = mCard8Ref.current.getBoundingClientRect();
 
-        // 1 -> 2 (Vertical drop down in Col 1)
-        const c1X_12 = mr1.left - mc.left + mr1.width / 2;
-        const p1To2 = `M ${c1X_12},${mr1.bottom - mc.top} L ${c1X_12},${mr2.top - mc.top}`;
+        // 1 -> 2 (Vertical drop down Col 1)
+        const midX12 = (mr1.left + mr2.left) / 2 - mc.left + (mr1.width + mr2.width) / 4;
+        const p1To2 = `M ${midX12},${mr1.bottom - mc.top} L ${midX12},${mr2.top - mc.top}`;
 
-        // 2 -> 3 (Horizontal bridge right from Col 1 to Col 2)
-        const midY23 = (mr2.top - mc.top + mr2.height / 2 + mr3.top - mc.top + mr3.height / 2) / 2;
+        // 2 -> 3 (Horizontal Right Row 2)
+        const midY23 = (mr2.top + mr3.top) / 2 - mc.top + (mr2.height + mr3.height) / 4;
         const p2To3 = `M ${mr2.right - mc.left},${midY23} L ${mr3.left - mc.left},${midY23}`;
 
-        // 3 -> 4 (Vertical drop down in Col 2)
-        const c2X_34 = mr3.left - mc.left + mr3.width / 2;
-        const p3To4 = `M ${c2X_34},${mr3.bottom - mc.top} L ${c2X_34},${mr4.top - mc.top}`;
+        // 3 -> 4 (Vertical drop down Col 2)
+        const midX34 = (mr3.left + mr4.left) / 2 - mc.left + (mr3.width + mr4.width) / 4;
+        const p3To4 = `M ${midX34},${mr3.bottom - mc.top} L ${midX34},${mr4.top - mc.top}`;
 
-        // 4 -> 5 (Horizontal bridge left from Col 2 to Col 1)
-        const midY45 = (mr4.top - mc.top + mr4.height / 2 + mr5.top - mc.top + mr5.height / 2) / 2;
+        // 4 -> 5 (Horizontal Left Row 3: Card 4 on right connects left into Card 5)
+        const midY45 = (mr4.top + mr5.top) / 2 - mc.top + (mr4.height + mr5.height) / 4;
         const p4To5 = `M ${mr4.left - mc.left},${midY45} L ${mr5.right - mc.left},${midY45}`;
 
-        // 5 -> 6 (Vertical drop down in Col 1)
-        const c1X_56 = mr5.left - mc.left + mr5.width / 2;
-        const p5To6 = `M ${c1X_56},${mr5.bottom - mc.top} L ${c1X_56},${mr6.top - mc.top}`;
+        // 5 -> 6 (Vertical drop down Col 1)
+        const midX56 = (mr5.left + mr6.left) / 2 - mc.left + (mr5.width + mr6.width) / 4;
+        const p5To6 = `M ${midX56},${mr5.bottom - mc.top} L ${midX56},${mr6.top - mc.top}`;
 
-        // 6 -> 7 (Horizontal bridge right from Col 1 to Col 2)
-        const midY67 = (mr6.top - mc.top + mr6.height / 2 + mr7.top - mc.top + mr7.height / 2) / 2;
+        // 6 -> 7 (Horizontal Right Row 4)
+        const midY67 = (mr6.top + mr7.top) / 2 - mc.top + (mr6.height + mr7.height) / 4;
         const p6To7 = `M ${mr6.right - mc.left},${midY67} L ${mr7.left - mc.left},${midY67}`;
 
-        // 7 -> 8 (Vertical drop down in Col 2)
-        const c2X_78 = mr7.left - mc.left + mr7.width / 2;
-        const p7To8 = `M ${c2X_78},${mr7.bottom - mc.top} L ${c2X_78},${mr8.top - mc.top}`;
+        // 7 -> 8 (Vertical drop down Col 2)
+        const midX78 = (mr7.left + mr8.left) / 2 - mc.left + (mr7.width + mr8.width) / 4;
+        const p7To8 = `M ${midX78},${mr7.bottom - mc.top} L ${midX78},${mr8.top - mc.top}`;
 
         setMobilePaths({ p1To2, p2To3, p3To4, p4To5, p5To6, p6To7, p7To8 });
       }
@@ -394,7 +394,7 @@ export default function TalentMatrix({ onSelectRole }) {
     );
   };
 
-  // Mobile Compact Card Renderer
+  // Mobile Card Renderer (Taller box, full readable text & buttons)
   const renderMobileCard = (role, cardRef) => {
     const Icon = role.icon;
     const isLightGold = role.theme === 'light-gold';
@@ -403,37 +403,37 @@ export default function TalentMatrix({ onSelectRole }) {
       <div
         ref={cardRef}
         key={role.id}
-        className={`w-full rounded-2xl p-2.5 sm:p-3 transition-all duration-300 flex flex-col justify-between border group relative z-10 shadow-md min-h-[175px] sm:min-h-[185px] ${
+        className={`w-full h-full rounded-2xl p-3.5 transition-all duration-300 flex flex-col justify-between border group relative z-10 shadow-md min-h-[225px] ${
           isLightGold
             ? 'bg-[#fef9eb] text-slate-900 border-[#e6d19a]'
             : 'bg-[#111722] text-slate-100 border-slate-800'
         }`}
       >
-        <div>
+        <div className="flex-1 flex flex-col">
           {/* Top row: Badge + Icon */}
-          <div className="flex items-center justify-between gap-1 mb-1.5">
-            <span className={`text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
+          <div className="flex items-center justify-between gap-1 mb-2.5">
+            <span className={`text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
               isLightGold ? 'bg-amber-200/90 text-amber-950' : 'bg-white/10 text-slate-400'
             }`}>
               {role.step}
             </span>
-            <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 ${
+            <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
               isLightGold ? 'bg-amber-950 text-amber-300' : 'bg-white/10 text-white'
             }`}>
-              <Icon className="w-3 h-3" style={{ color: role.accentColor }} />
+              <Icon className="w-3.5 h-3.5" style={{ color: role.accentColor }} />
             </div>
           </div>
 
           {/* Title */}
-          <h4 className={`text-[10px] sm:text-[11px] font-bold font-display tracking-tight leading-snug line-clamp-2 ${
+          <h4 className={`text-[11px] font-bold font-display tracking-tight leading-snug ${
             isLightGold ? 'text-slate-950' : 'text-white'
           }`}>
             {role.title}
           </h4>
 
           {/* Description */}
-          <p className={`mt-1 text-[8px] sm:text-[8.5px] leading-snug font-normal line-clamp-2 ${
-            isLightGold ? 'text-slate-700' : 'text-slate-400'
+          <p className={`mt-2 text-[9px] leading-relaxed font-normal flex-1 ${
+            isLightGold ? 'text-slate-700' : 'text-slate-300'
           }`}>
             {role.desc}
           </p>
@@ -442,14 +442,14 @@ export default function TalentMatrix({ onSelectRole }) {
         {/* Action button */}
         <button
           onClick={() => onSelectRole(role.title)}
-          className={`w-full py-1.5 px-2 mt-2 rounded-lg text-[8.5px] font-bold transition-all flex items-center justify-center gap-1 shrink-0 ${
+          className={`w-full py-2 px-2 mt-3 rounded-xl text-[9.5px] font-bold transition-all flex items-center justify-center gap-1.5 shrink-0 ${
             isLightGold
-              ? 'bg-slate-950 text-white'
-              : 'bg-[#f6ebd4] text-slate-950'
+              ? 'bg-slate-950 text-white hover:bg-slate-800'
+              : 'bg-[#f6ebd4] text-slate-950 hover:bg-white'
           }`}
         >
           <span>Request Talent</span>
-          <ArrowRight className="w-2.5 h-2.5" />
+          <ArrowRight className="w-3 h-3" />
         </button>
       </div>
     );
@@ -461,7 +461,7 @@ export default function TalentMatrix({ onSelectRole }) {
       {/* Background Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
 
         {/* ========================================================================= */}
         {/* DESKTOP VIEW (lg and up): 3 Columns per row, No Horizontal Scrollbar       */}
@@ -523,11 +523,6 @@ export default function TalentMatrix({ onSelectRole }) {
               </div>
 
               <div className="flex-1 max-w-[640px] pl-4">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-950 text-white text-xs font-bold uppercase tracking-wider mb-3">
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                  Specialized Disciplines
-                </div>
-
                 <h2 className="text-4xl xl:text-5xl font-bold font-display text-slate-950 tracking-tight leading-[1.08]">
                   Key Areas of <span className="text-gradient-green">Talent</span>
                 </h2>
@@ -618,7 +613,7 @@ export default function TalentMatrix({ onSelectRole }) {
 
         {/* ========================================================================= */}
         {/* MOBILE VIEW (< lg): 2-Column Snake / S-Curve Pipeline (NO HORIZONTAL SCROLL) */}
-        {/* Layout requested by user:                                                 */}
+        {/* Layout:                                                                   */}
         {/* 1 (Col 1)    | Heading & Sub-headings (Col 2)                             */}
         {/* 2 (Col 1)    | 3 (Col 2)                                                  */}
         {/* 5 (Col 1)    | 4 (Col 2)                                                  */}
@@ -627,140 +622,128 @@ export default function TalentMatrix({ onSelectRole }) {
         {/* Path: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8                                */}
         {/* ========================================================================= */}
         <div className="lg:hidden">
-          <div ref={mobileContainerRef} className="max-w-[340px] xs:max-w-[360px] sm:max-w-[380px] mx-auto relative py-3 px-1">
+          <div ref={mobileContainerRef} className="w-full max-w-lg mx-auto relative py-3 px-1 sm:px-2">
             
-            {/* SVG OVERLAY for Mobile Snake Pipeline (z-20 so lines and arrows are crisp and unobstructed) */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible z-20">
+            {/* SVG OVERLAY for Mobile Snake Pipeline */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible z-0">
               <defs>
                 <marker
                   id="talent-arrow-mobile"
                   viewBox="0 0 10 10"
-                  refX="8"
+                  refX="7"
                   refY="5"
-                  markerWidth="7"
-                  markerHeight="7"
+                  markerWidth="6.5"
+                  markerHeight="6.5"
                   orient="auto"
                 >
                   <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0f172a" />
                 </marker>
-                <marker
-                  id="talent-dot-mobile"
-                  viewBox="0 0 10 10"
-                  refX="5"
-                  refY="5"
-                  markerWidth="5"
-                  markerHeight="5"
-                >
-                  <circle cx="5" cy="5" r="3.5" fill="#10b981" />
-                </marker>
               </defs>
 
-              {/* 1 -> 2 (Down) */}
+              {/* 1 -> 2 (Down Col 1) */}
               {mobilePaths.p1To2 && (
                 <>
                   <path d={mobilePaths.p1To2} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p1To2} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p1To2} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
-              {/* 2 -> 3 (Right) */}
+              {/* 2 -> 3 (Right Row 2) */}
               {mobilePaths.p2To3 && (
                 <>
                   <path d={mobilePaths.p2To3} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p2To3} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p2To3} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
-              {/* 3 -> 4 (Down) */}
+              {/* 3 -> 4 (Down Col 2) */}
               {mobilePaths.p3To4 && (
                 <>
                   <path d={mobilePaths.p3To4} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p3To4} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p3To4} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
-              {/* 4 -> 5 (Left) */}
+              {/* 4 -> 5 (Left Row 3: Card 4 -> Card 5) */}
               {mobilePaths.p4To5 && (
                 <>
                   <path d={mobilePaths.p4To5} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p4To5} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p4To5} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
-              {/* 5 -> 6 (Down) */}
+              {/* 5 -> 6 (Down Col 1) */}
               {mobilePaths.p5To6 && (
                 <>
                   <path d={mobilePaths.p5To6} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p5To6} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p5To6} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
-              {/* 6 -> 7 (Right) */}
+              {/* 6 -> 7 (Right Row 4) */}
               {mobilePaths.p6To7 && (
                 <>
                   <path d={mobilePaths.p6To7} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p6To7} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p6To7} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
-              {/* 7 -> 8 (Down) */}
+              {/* 7 -> 8 (Down Col 2) */}
               {mobilePaths.p7To8 && (
                 <>
                   <path d={mobilePaths.p7To8} stroke="#10b981" strokeWidth="4" strokeDasharray="3 3" fill="none" className="opacity-40" />
-                  <path d={mobilePaths.p7To8} stroke="#0f172a" strokeWidth="2.5" fill="none" markerStart="url(#talent-dot-mobile)" markerEnd="url(#talent-arrow-mobile)" />
+                  <path d={mobilePaths.p7To8} stroke="#0f172a" strokeWidth="2.4" fill="none" markerEnd="url(#talent-arrow-mobile)" />
                 </>
               )}
             </svg>
 
-            {/* Mobile 2-Column Grid with generous horizontal gap (gap-x-8 = 32px) and bottom gap (gap-y-12 = 48px) */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-12 relative z-10">
+            {/* Mobile 2-Column Grid with increased vertical & horizontal gaps */}
+            <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-11 sm:gap-y-14 relative z-10">
               
               {/* ROW 1: Card 01 (Col 1) | Heading & Subheading (Col 2) */}
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[0], mCard1Ref)}
               </div>
-              <div className="p-1 sm:p-2 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-950 text-white text-[8px] font-bold uppercase tracking-wider mb-2 w-fit">
-                  <Sparkles className="w-2.5 h-2.5 text-emerald-400" />
-                  Key Talent
-                </div>
-                <h2 className="text-base sm:text-lg font-bold font-display text-slate-950 tracking-tight leading-tight">
+              <div className="p-1 sm:p-2 flex flex-col justify-center h-full">
+                <h2 className="text-lg sm:text-xl font-bold font-display text-slate-950 tracking-tight leading-tight">
                   Key Areas of <span className="text-emerald-700">Talent</span>
                 </h2>
-                <p className="mt-1 text-[8.5px] text-slate-600 leading-tight font-normal">
+                <p className="mt-1 text-[9px] text-slate-600 leading-tight font-normal">
                   Specialized engineering, operations, and technical talent across renewable infrastructure.
                 </p>
               </div>
 
               {/* ROW 2: Card 02 (Col 1) | Card 03 (Col 2) */}
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[1], mCard2Ref)}
               </div>
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[2], mCard3Ref)}
               </div>
 
               {/* ROW 3: Card 05 (Col 1) | Card 04 (Col 2) */}
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[4], mCard5Ref)}
               </div>
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[3], mCard4Ref)}
               </div>
 
               {/* ROW 4: Card 06 (Col 1) | Card 07 (Col 2) */}
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[5], mCard6Ref)}
               </div>
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[6], mCard7Ref)}
               </div>
 
               {/* ROW 5: "More to come" (Col 1) | Card 08 (Col 2) */}
-              <div className="w-full rounded-2xl border-2 border-dashed border-slate-300/90 bg-white/80 p-2.5 flex flex-col items-center justify-center text-center min-h-[175px] sm:min-h-[185px]">
-                <Sparkles className="w-4 h-4 text-emerald-600 mb-1.5 animate-pulse" />
+              <div className="w-full h-full rounded-2xl border-2 border-dashed border-slate-300 bg-white/80 p-3.5 flex flex-col items-center justify-center text-center min-h-[225px] shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mb-2">
+                  <Sparkles className="w-4 h-4 text-emerald-700 animate-pulse" />
+                </div>
                 <span className="text-[11px] font-bold text-slate-900 uppercase tracking-wider">
                   More to come
                 </span>
-                <p className="text-[8px] text-slate-500 mt-1 leading-snug">
+                <p className="text-[9px] text-slate-500 mt-1.5 leading-snug">
                   Expanding clean-tech disciplines &amp; custom roles
                 </p>
               </div>
-              <div>
+              <div className="h-full">
                 {renderMobileCard(disciplines[7], mCard8Ref)}
               </div>
 
