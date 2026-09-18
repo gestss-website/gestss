@@ -1,18 +1,16 @@
-import React from 'react';
-import { 
-  CheckCircle2, 
-  Search, 
-  UserCheck, 
-  Clock, 
-  ShieldAlert, 
-  ShieldCheck, 
-  FileCheck2, 
-  Award, 
-  Zap, 
-  Layers 
-} from 'lucide-react';
+import React, { useRef } from 'react';
+import { Zap } from 'lucide-react';
+import { AnimatedBeam } from '@/components/magicui/animated-beam';
 
 export default function ProcessApproach({ onRequestTalent }) {
+  const containerRef = useRef(null);
+  const headingRef = useRef(null);
+  const card1Ref = useRef(null);
+  const card2Ref = useRef(null);
+  const card3Ref = useRef(null);
+  const card4Ref = useRef(null);
+  const cardRefs = [card1Ref, card2Ref, card3Ref, card4Ref];
+
   const steps = [
     {
       num: '01',
@@ -48,27 +46,45 @@ export default function ProcessApproach({ onRequestTalent }) {
     <section id="approach" className="py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-3">
-            <Zap className="w-3.5 h-3.5" />
-            Our Structured Framework
+        {/* Animated Beam Container */}
+        <div ref={containerRef} className="relative">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-3">
+              <Zap className="w-3.5 h-3.5" />
+              Our Structured Framework
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-slate-900 tracking-tight">
+              Our Approach: <span className="text-gradient-green">Understanding Before Matching</span>
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              The objective is to provide organizations with candidates evaluated against the true technical requirements of the role rather than relying solely on conventional résumé matching.
+            </p>
+            
+            {/* Target Convergence Ref for Beams */}
+            <div ref={headingRef} className="w-3 h-3 mx-auto mt-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+            </div>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-slate-900 tracking-tight">
-            Our Approach: <span className="text-gradient-green">Understanding Before Matching</span>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            The objective is to provide organizations with candidates evaluated against the true technical requirements of the role rather than relying solely on conventional résumé matching.
-          </p>
-        </div>
 
-        {/* 4-Step Process Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, idx) => (
-            <div
-              key={step.num}
-              className="relative p-7 rounded-3xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-            >
+          {/* 4-Step Process Grid */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            {steps.map((step, idx) => (
+              <div
+                key={step.num}
+                className="relative p-7 rounded-3xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              >
+                {/* Top Center Connection Pin where beam originates */}
+                <div 
+                  ref={cardRefs[idx]} 
+                  className="hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 items-center justify-center z-20"
+                >
+                  <div className="w-5 h-5 rounded-full bg-white border-2 border-emerald-500 shadow-md shadow-emerald-500/30 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-emerald-600 group-hover:scale-125 transition-transform" />
+                  </div>
+                </div>
+
               {/* Number indicator */}
               <div>
                 <div className="flex items-center justify-between mb-6">
@@ -106,104 +122,55 @@ export default function ProcessApproach({ onRequestTalent }) {
           ))}
         </div>
 
-        {/* Quality, Safety & Compliance Deep Dive */}
-        <div className="mt-14 rounded-3xl bg-gradient-to-br from-gestss-green-950 via-slate-900 to-gestss-blue-950 text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-          
-          {/* Subtle glow background */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gestss-green-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gestss-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gestss-solar-500/20 text-gestss-solar-400 border border-gestss-solar-400/30 text-xs font-bold uppercase tracking-wider">
-                <ShieldCheck className="w-4 h-4" />
-                Zero-Compromise Standards
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white">
-                Quality, Safety &amp; Compliance Framework
-              </h3>
-
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Technical staffing for renewable-energy and EV-infrastructure projects requires strict attention to qualifications, workplace safety, and compliance.
-              </p>
-
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Our recruitment framework considers technical qualifications, relevant experience, certifications, licensing where applicable, safety requirements, background verification, and client-specific compliance standards.
-              </p>
-
-              <div className="pt-2 text-xs text-emerald-300 bg-emerald-950/60 p-4 rounded-xl border border-emerald-500/30">
-                <strong>Jurisdiction-Specific Verification:</strong> For positions involving high-voltage electrical infrastructure or specialized EVSE hardware, licensing and certifications are actively verified against local and national statutory regulations prior to site mobilization.
-              </div>
-            </div>
-
-            {/* Compliance Matrix Checklist */}
-            <div className="lg:col-span-5 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 space-y-3.5">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400 pb-2 border-b border-white/10 flex items-center gap-2">
-                <FileCheck2 className="w-4 h-4" />
-                Vetting Safeguards Included:
-              </h4>
-
-              <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-gestss-green-500/30 text-gestss-green-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                </div>
-                <span className="text-xs sm:text-sm text-slate-200">
-                  Technical competency evaluations &amp; practical trade testing
-                </span>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-gestss-green-500/30 text-gestss-green-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                </div>
-                <span className="text-xs sm:text-sm text-slate-200">
-                  Electrical licenses &amp; specialized EVSE certifications check
-                </span>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-gestss-green-500/30 text-gestss-green-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                </div>
-                <span className="text-xs sm:text-sm text-slate-200">
-                  OSHA, NFPA 70E, and high-voltage site safety standards
-                </span>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-gestss-green-500/30 text-gestss-green-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                </div>
-                <span className="text-xs sm:text-sm text-slate-200">
-                  Full background check, identity audit &amp; credential validation
-                </span>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-gestss-green-500/30 text-gestss-green-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                </div>
-                <span className="text-xs sm:text-sm text-slate-200">
-                  Client-specific standard operating procedure (SOP) onboarding
-                </span>
-              </div>
-
-              <div className="pt-3">
-                <button
-                  onClick={onRequestTalent}
-                  className="w-full py-2.5 text-center text-xs font-bold text-slate-900 bg-gestss-solar-400 hover:bg-gestss-solar-300 rounded-xl transition-all shadow-md"
-                >
-                  Request Pre-Vetted Candidates
-                </button>
-              </div>
-            </div>
-
-          </div>
-
+        {/* Dynamic Animated Beams from Magic UI connecting 4 cards to the heading node */}
+        <div className="hidden lg:block">
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card1Ref}
+            toRef={headingRef}
+            curvature={-50}
+            pathColor="#cbd5e1"
+            pathOpacity={0.4}
+            gradientStartColor="#34d399"
+            gradientStopColor="#059669"
+            duration={3}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card2Ref}
+            toRef={headingRef}
+            curvature={-20}
+            pathColor="#cbd5e1"
+            pathOpacity={0.4}
+            gradientStartColor="#34d399"
+            gradientStopColor="#059669"
+            duration={3}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card3Ref}
+            toRef={headingRef}
+            curvature={20}
+            pathColor="#cbd5e1"
+            pathOpacity={0.4}
+            gradientStartColor="#34d399"
+            gradientStopColor="#059669"
+            duration={3}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card4Ref}
+            toRef={headingRef}
+            curvature={50}
+            pathColor="#cbd5e1"
+            pathOpacity={0.4}
+            gradientStartColor="#34d399"
+            gradientStopColor="#059669"
+            duration={3}
+          />
         </div>
 
+        </div>
       </div>
     </section>
   );

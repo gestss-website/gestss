@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { 
   CheckCircle2, 
   Sparkles, 
@@ -9,10 +9,22 @@ import {
   GraduationCap, 
   HeartHandshake, 
   Shield, 
-  Layers 
+  Layers,
+  ArrowRight
 } from 'lucide-react';
+import { AnimatedBeam } from '@/components/magicui/animated-beam';
 
 export default function PillarsWhyUs() {
+  // References for Magic UI AnimatedBeam diagram
+  const containerRef = useRef(null);
+  const centerRef = useRef(null);
+  const card1Ref = useRef(null);
+  const card2Ref = useRef(null);
+  const card3Ref = useRef(null);
+  const card4Ref = useRef(null);
+  const card5Ref = useRef(null);
+  const card6Ref = useRef(null);
+
   const pillars = [
     {
       num: '01',
@@ -62,7 +74,7 @@ export default function PillarsWhyUs() {
     <section id="why-us" className="py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 text-gestss-green-700" />
@@ -72,12 +84,221 @@ export default function PillarsWhyUs() {
             Why Work <span className="text-gradient-green">With Us?</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Our value proposition rests on six foundational pillars designed to help organizations fulfill critical workforce requirements while helping professionals navigate new horizons.
+            Our value proposition connects specialized talent pools into a unified clean-energy delivery engine. Explore how our six foundational pillars converge around project success.
           </p>
         </div>
 
-        {/* 6 Pillars Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ========================================================================= */}
+        {/* MAGIC UI ANIMATED BEAM SHOWCASE (Connecting 6 Cards with Bended S-Curves)  */}
+        {/* ========================================================================= */}
+        <div 
+          ref={containerRef}
+          className="relative flex h-[540px] sm:h-[580px] w-full items-center justify-between p-4 sm:p-8 md:p-12 my-12 rounded-3xl bg-slate-50/70 border border-slate-200/80 shadow-[0_15px_35px_-5px_rgba(15,23,42,0.05)] overflow-hidden"
+        >
+          {/* Ambient Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Left Column: 3 Pillar Cards */}
+          <div className="flex flex-col justify-between h-full py-4 z-10">
+            {/* Card 1 */}
+            <div 
+              ref={card1Ref}
+              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Target className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-emerald-700 transition-colors">
+                  Industry Focus
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium block truncate">
+                  100% Dedicated to Clean-Energy
+                </span>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div 
+              ref={card2Ref}
+              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Users2 className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-blue-700 transition-colors">
+                  Specialized Networks
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium block truncate">
+                  Niche Engineering &amp; Trade Pools
+                </span>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div 
+              ref={card3Ref}
+              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Binary className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-amber-700 transition-colors">
+                  Technical Screening
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium block truncate">
+                  Trade-Specific License Vetting
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Center Hub: GESTSS Core Engine */}
+          <div className="flex flex-col items-center justify-center z-10 px-2 sm:px-4">
+            <div 
+              ref={centerRef}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white border-2 border-emerald-500 shadow-2xl shadow-emerald-500/30 flex items-center justify-center p-2.5 sm:p-3 hover:scale-105 transition-transform"
+            >
+              <img
+                src="/LOGO.webp"
+                alt="GESTSS"
+                className="w-full h-full object-contain rounded-full"
+              />
+            </div>
+            <span className="mt-3 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-100 text-emerald-900 border border-emerald-300/80 shadow-sm whitespace-nowrap">
+              GESTSS Engine
+            </span>
+          </div>
+
+          {/* Right Column: 3 Pillar Cards */}
+          <div className="flex flex-col justify-between h-full py-4 z-10">
+            {/* Card 4 */}
+            <div 
+              ref={card4Ref}
+              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Sliders className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-emerald-700 transition-colors">
+                  Flexible Staffing
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium block truncate">
+                  Direct-Hire, Project Crews &amp; SLA
+                </span>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div 
+              ref={card5Ref}
+              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-blue-700 transition-colors">
+                  Workforce Upskilling
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium block truncate">
+                  Certified Green Career Pathways
+                </span>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div 
+              ref={card6Ref}
+              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <HeartHandshake className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-amber-700 transition-colors">
+                  Inclusive Recruiting
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium block truncate">
+                  Equitable Energy Access &amp; Trades
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bended Animated Beams Connecting All 6 Cards into GESTSS Hub */}
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card1Ref}
+            toRef={centerRef}
+            endYOffset={-24}
+            curvature={30}
+            duration={4}
+            gradientStartColor="#10b981"
+            gradientStopColor="#047857"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card2Ref}
+            toRef={centerRef}
+            endYOffset={0}
+            curvature={0}
+            duration={4}
+            delay={0.3}
+            gradientStartColor="#10b981"
+            gradientStopColor="#047857"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={card3Ref}
+            toRef={centerRef}
+            endYOffset={24}
+            curvature={-30}
+            duration={4}
+            delay={0.6}
+            gradientStartColor="#10b981"
+            gradientStopColor="#047857"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={centerRef}
+            toRef={card4Ref}
+            startYOffset={-24}
+            curvature={30}
+            duration={4}
+            delay={0.15}
+            gradientStartColor="#34d399"
+            gradientStopColor="#0284c7"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={centerRef}
+            toRef={card5Ref}
+            startYOffset={0}
+            curvature={0}
+            duration={4}
+            delay={0.45}
+            gradientStartColor="#34d399"
+            gradientStopColor="#0284c7"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={centerRef}
+            toRef={card6Ref}
+            startYOffset={24}
+            curvature={-30}
+            duration={4}
+            delay={0.75}
+            gradientStartColor="#34d399"
+            gradientStopColor="#0284c7"
+          />
+        </div>
+
+        {/* 6 Pillars Detailed Breakdown Grid */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pillars.map((p) => {
             const Icon = p.icon;
             const isBlue = p.color === 'blue';
@@ -158,29 +379,11 @@ export default function PillarsWhyUs() {
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-gestss-green-600" />
-                  <span>Inclusive hiring guidelines for partner employers</span>
+                  <span>Mentorship pairing with certified master electricians</span>
                 </li>
               </ul>
             </div>
 
-          </div>
-        </div>
-
-        {/* Our Commitment Banner */}
-        <div className="mt-8 p-8 rounded-3xl bg-slate-900 text-white text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-gestss-solar-400">Our Core Commitment</span>
-            <h4 className="text-xl sm:text-2xl font-bold font-display text-white mt-1">
-              "Responsiveness, Professional Standards &amp; Long-Term Relationships."
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300 mt-2">
-              Our goal is not simply to fill open headcount, but to understand the technical challenge behind each requirement and develop a solution that supports both organizational objectives and human professional growth.
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <div className="px-5 py-3 rounded-2xl bg-white/10 border border-white/10 text-xs font-bold text-emerald-300 text-center">
-              100% Focused on Green Technology
-            </div>
           </div>
         </div>
 

@@ -6,7 +6,6 @@ import ServicesGrid from '../components/ServicesGrid';
 import ProcessApproach from '../components/ProcessApproach';
 import UpskillingSection from '../components/UpskillingSection';
 import TalentMatrix from '../components/TalentMatrix';
-import DualPortals from '../components/DualPortals';
 import PillarsWhyUs from '../components/PillarsWhyUs';
 
 export default function HomePage({ onRequestTalent, onJoinNetwork, onSelectRole }) {
@@ -37,12 +36,6 @@ export default function HomePage({ onRequestTalent, onJoinNetwork, onSelectRole 
       {/* Key Areas of Talent (Filterable Matrix) */}
       <TalentMatrix 
         onSelectRole={onSelectRole} 
-      />
-
-      {/* Portals: For Employers & For Professionals */}
-      <DualPortals 
-        onRequestTalent={onRequestTalent} 
-        onJoinNetwork={onJoinNetwork} 
       />
 
       {/* Why Work With Us: 6 Pillars & Diversity */}
