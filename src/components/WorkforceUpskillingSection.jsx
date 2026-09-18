@@ -1,146 +1,154 @@
 import React from 'react';
-import { 
-  GraduationCap, 
-  Cpu, 
-  BookOpen, 
-  Award, 
-  Compass, 
-  Briefcase, 
-  TrendingUp, 
-  CheckCircle2, 
-  Sparkles,
-  ArrowRight
-} from 'lucide-react';
 
-export default function WorkforceUpskillingSection({ onRequestTalent, onJoinNetwork }) {
+// Bold, crisp corner crosshairs / star markers
+const CornerCross = ({ position }) => {
+  const positionClasses = {
+    'tl': '-top-2 -left-2 sm:-top-2.5 sm:-left-2.5',
+    'tr': '-top-2 -right-2 sm:-top-2.5 sm:-right-2.5',
+    'bl': '-bottom-2 -left-2 sm:-bottom-2.5 sm:-left-2.5',
+    'br': '-bottom-2 -right-2 sm:-bottom-2.5 sm:-right-2.5',
+  };
+
+  return (
+    <svg 
+      viewBox="0 0 16 16" 
+      className={`absolute ${positionClasses[position]} w-4 h-4 sm:w-5 sm:h-5 text-slate-600 pointer-events-none select-none z-10`} 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2.2" 
+      strokeLinecap="round"
+    >
+      <line x1="8" y1="1" x2="8" y2="15" />
+      <line x1="1" y1="8" x2="15" y2="8" />
+    </svg>
+  );
+};
+
+function DashedCard({ title, description, className = '' }) {
+  return (
+    <div className={`relative bg-white border-2 border-dashed border-slate-300 p-3.5 sm:p-7 hover:border-slate-400 hover:bg-slate-50/40 transition-colors duration-200 flex flex-col justify-start ${className}`}>
+      {/* 4 Prominent Corner Crosshair Stars (+) */}
+      <CornerCross position="tl" />
+      <CornerCross position="tr" />
+      <CornerCross position="bl" />
+      <CornerCross position="br" />
+
+      {/* Card Content */}
+      <h3 className="text-xs sm:text-base lg:text-lg font-bold font-display text-slate-950 tracking-tight leading-tight sm:leading-snug">
+        {title}
+      </h3>
+      <p className="mt-1.5 sm:mt-2.5 text-[10px] sm:text-xs lg:text-sm text-slate-600 leading-relaxed font-normal">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+export default function WorkforceUpskillingSection() {
   const pathways = [
     {
       title: 'Technical Upskilling',
       desc: 'Building additional technical capabilities for emerging green-technology roles.',
-      icon: Cpu,
-      color: 'emerald'
     },
     {
       title: 'Industry-Oriented Training',
       desc: 'Supporting practical training aligned with the requirements of the green economy.',
-      icon: BookOpen,
-      color: 'blue'
     },
     {
       title: 'Certification Pathways',
       desc: 'Developing pathways for relevant industry knowledge, training, and certification.',
-      icon: Award,
-      color: 'amber'
     },
     {
       title: 'Career Transition Support',
       desc: 'Helping professionals connect their existing skills with emerging clean-energy opportunities.',
-      icon: Compass,
-      color: 'indigo'
     },
     {
       title: 'Employer-Aligned Skill Development',
       desc: 'Strengthening the connection between workforce skills and employer requirements.',
-      icon: Briefcase,
-      color: 'emerald'
     },
     {
       title: 'Continuing Professional Development',
       desc: 'Supporting ongoing development as clean-energy technologies and workforce requirements evolve.',
-      icon: TrendingUp,
-      color: 'blue'
     }
   ];
 
   return (
     <section id="upskilling" className="py-12 lg:py-16 bg-white relative overflow-hidden border-t border-slate-200/70">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100 text-gestss-green-900 text-xs font-bold uppercase tracking-wider mb-3">
-            <GraduationCap className="w-3.5 h-3.5 text-gestss-green-700" />
-            Workforce Transformation
-          </div>
+        <div className="max-w-3xl mb-10 sm:mb-14">
+          <div className="w-12 h-1.5 bg-emerald-500 rounded-full mb-4" />
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight leading-tight">
             Workforce Upskilling &amp; Career Transition
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal">
             Professionals with existing technical and electrical experience may require additional industry-specific knowledge, training, or certification pathways to move into emerging green-technology roles.
           </p>
         </div>
 
-        {/* 6 Precise Pathways Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pathways.map((item, idx) => {
-            const Icon = item.icon;
-            const isBlue = item.color === 'blue';
-            const isAmber = item.color === 'amber';
-            const isIndigo = item.color === 'indigo';
-
-            const iconBg = isBlue 
-              ? 'bg-blue-50 text-gestss-blue-700' 
-              : isAmber 
-              ? 'bg-amber-50 text-amber-700' 
-              : isIndigo 
-              ? 'bg-indigo-50 text-indigo-700' 
-              : 'bg-emerald-50 text-gestss-green-700';
-
-            return (
-              <div
-                key={idx}
-                className="p-7 rounded-3xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className={`w-12 h-12 rounded-2xl ${iconBg} flex items-center justify-center group-hover:scale-105 transition-transform`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-black text-slate-300 group-hover:text-emerald-600 transition-colors">
-                      0{idx + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold font-display text-slate-900 group-hover:text-gestss-green-900 transition-colors leading-snug">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-3.5 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-semibold text-gestss-green-800">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Practical Pathway</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Our Focus Banner */}
-        <div className="mt-12 p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
-          <div className="space-y-2 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-500/30">
-              Our Focus
-            </span>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed pt-1">
-              We aim to collaborate with technical institutions, universities, training organizations, and relevant certification bodies to develop practical pathways for workforce transition and upskilling.
-            </p>
+        {/* 2-Column Side-by-Side Layout on both Mobile & Desktop with Bold Dashes and Corner Crosshairs */}
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-6 items-stretch">
+          
+          {/* Row 1: Side by side on mobile & desktop */}
+          <div className="col-span-1 lg:col-span-6">
+            <DashedCard 
+              title={pathways[0].title} 
+              description={pathways[0].desc} 
+              className="h-full"
+            />
+          </div>
+          <div className="col-span-1 lg:col-span-6">
+            <DashedCard 
+              title={pathways[1].title} 
+              description={pathways[1].desc} 
+              className="h-full"
+            />
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              onClick={onJoinNetwork}
-              className="px-6 py-3 rounded-full text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md flex items-center gap-2"
-            >
-              <span>Explore Pathways</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+          {/* Row 2: Side by side on mobile & asymmetric on desktop */}
+          <div className="col-span-1 lg:col-span-7">
+            <DashedCard 
+              title={pathways[2].title} 
+              description={pathways[2].desc} 
+              className="h-full"
+            />
           </div>
+          <div className="col-span-1 lg:col-span-5">
+            <DashedCard 
+              title={pathways[3].title} 
+              description={pathways[3].desc} 
+              className="h-full"
+            />
+          </div>
+
+          {/* Row 3: Side by side on mobile & asymmetric on desktop */}
+          <div className="col-span-1 lg:col-span-5">
+            <DashedCard 
+              title={pathways[4].title} 
+              description={pathways[4].desc} 
+              className="h-full"
+            />
+          </div>
+          <div className="col-span-1 lg:col-span-7">
+            <DashedCard 
+              title={pathways[5].title} 
+              description={pathways[5].desc} 
+              className="h-full"
+            />
+          </div>
+
+          {/* Row 4: Our Focus - Full-width spanning both columns */}
+          <div className="col-span-2 lg:col-span-12">
+            <DashedCard 
+              title="Our Focus" 
+              description="We aim to collaborate with technical institutions, universities, training organizations, and relevant certification bodies to develop practical pathways for workforce transition and upskilling." 
+              className="h-full bg-slate-50/40"
+            />
+          </div>
+
         </div>
 
       </div>
