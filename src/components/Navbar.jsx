@@ -39,26 +39,33 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
       <nav
         className={`flex items-center justify-between transition-all duration-500 ease-out ${
           scrolled
-            ? 'w-full max-w-3xl bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-slate-200/80 rounded-full py-1.5 px-3 sm:px-5 gap-3'
+            ? 'w-full max-w-4xl bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-slate-200/80 rounded-full py-1.5 px-3 sm:px-5 gap-3'
             : isHomePage
             ? 'w-full max-w-7xl bg-transparent border border-transparent shadow-none rounded-2xl py-1.5 sm:py-2 px-3 sm:px-6'
             : 'w-full max-w-7xl bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-md rounded-2xl py-1.5 sm:py-2 px-3 sm:px-6'
         }`}
       >
-        {/* Brand: Logo emblem with circular boundary + Wordmark with boundary box */}
-        <Link to="/" className="flex items-center gap-1.5 flex-shrink-0 group">
-          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white shadow-sm p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform border border-slate-200/60 flex items-center justify-center">
+        {/* Brand: Logo emblem with circular boundary + Wordmark with boundary box + MSME Registration badge */}
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 group">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white shadow-sm p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform border border-slate-200/60 flex items-center justify-center">
             <img
               src="/LOGO.webp"
               alt="GESTSS Logo"
               className="w-full h-full object-contain rounded-full"
             />
           </div>
-          <div className="bg-white/95 rounded-lg px-2.5 py-1 shadow-sm border border-slate-200/50 flex-shrink-0">
+          <div className="bg-white/95 rounded-lg px-2 sm:px-2.5 py-1 shadow-sm border border-slate-200/50 flex-shrink-0">
             <img
               src="/LOGISIDE-NAME.webp"
               alt="GESTSS"
-              className="h-6 sm:h-7 object-contain"
+              className="h-5 sm:h-7 object-contain"
+            />
+          </div>
+          <div className="bg-white/95 rounded-lg px-1.5 sm:px-2 py-0.5 sm:py-1 shadow-sm border border-slate-200/50 flex-shrink-0 flex items-center" title="MSME Registered Enterprise">
+            <img
+              src="/MSME.jpg"
+              alt="MSME Registered"
+              className="h-5 sm:h-7 object-contain"
             />
           </div>
         </Link>
