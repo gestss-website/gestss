@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { EcoCleanTechEcosystemArt, WindTurbinesClusterArt } from './CleanEnergyVectorArt';
 
 export default function ProcessApproach() {
   const approachData = [
@@ -65,7 +65,11 @@ export default function ProcessApproach() {
 
   return (
     <section id="approach" className="py-12 lg:py-20 bg-white relative overflow-hidden border-t border-slate-200/70">
-      <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
+      {/* Domain-specific clean tech lifecycle & wind cluster vector backdrop */}
+      <EcoCleanTechEcosystemArt className="absolute top-4 right-1 sm:top-8 sm:right-10 w-38 h-24 sm:w-60 sm:h-36 opacity-40 sm:opacity-45" />
+      <WindTurbinesClusterArt className="absolute bottom-2 left-1 sm:bottom-4 sm:left-8 w-32 h-24 sm:w-56 sm:h-40 opacity-35 sm:opacity-40" />
+      
+      <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header (matching the top box in user's sketch) */}
         <div className="text-center max-w-3xl mx-auto relative z-10 mb-8 sm:mb-12 px-2 sm:px-0">

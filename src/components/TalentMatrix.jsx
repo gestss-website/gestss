@@ -11,6 +11,7 @@ import {
   ArrowRight, 
   Sparkles
 } from 'lucide-react';
+import { TransmissionGridPylonArt, ComplianceInspectionArt } from './CleanEnergyVectorArt';
 
 export default function TalentMatrix({ onSelectRole }) {
   // Desktop refs
@@ -431,6 +432,10 @@ export default function TalentMatrix({ onSelectRole }) {
       {/* Background Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
+      {/* Domain-specific electrical transmission grid & inspection vector backdrop */}
+      <TransmissionGridPylonArt className="absolute top-2 right-1 sm:top-6 sm:right-10 w-40 h-25 sm:w-64 sm:h-40 opacity-40 sm:opacity-45" />
+      <ComplianceInspectionArt className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-10 w-36 h-22 sm:w-60 sm:h-34 opacity-35 sm:opacity-40" />
+
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
 
         {/* ========================================================================= */}
@@ -548,30 +553,8 @@ export default function TalentMatrix({ onSelectRole }) {
             {/* Gap between Row 3 and Row 4 */}
             <div className="h-16 xl:h-20" />
 
-            {/* ROW 4: "More to come" (Cols 1 & 2) + Card 08 directly under Card 07 (Col 3) */}
-            <div className="flex items-center gap-10 xl:gap-14">
-              {/* Expansion Banner spanning Cols 1 & 2 */}
-              <div className="w-[600px] xl:w-[654px] shrink-0 rounded-[28px] border-2 border-dashed border-slate-300 bg-white/70 p-7 xl:p-8 flex items-center justify-between shadow-sm">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
-                    Continuous Expansion
-                  </div>
-                  <h4 className="text-xl font-bold font-display text-slate-900">
-                    More Disciplines To Come
-                  </h4>
-                  <p className="mt-1 text-xs text-slate-600 max-w-md">
-                    Expanding specialized talent pipelines as clean-energy technologies and infrastructure requirements evolve.
-                  </p>
-                </div>
-                <button
-                  onClick={() => onSelectRole('All Key Areas of Talent')}
-                  className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-slate-950 hover:bg-slate-800 transition-all shrink-0 ml-4"
-                >
-                  Request Custom Roles →
-                </button>
-              </div>
-
+            {/* ROW 4: Card 08 directly under Card 07 (Col 3) */}
+            <div className="flex items-center justify-end">
               {/* Card 08 in Col 3 (aligned directly underneath Card 07) */}
               <div className="w-[280px] xl:w-[300px] shrink-0">
                 {renderTallCard(disciplines[7], card8Ref)}
@@ -701,19 +684,8 @@ export default function TalentMatrix({ onSelectRole }) {
                 {renderMobileCard(disciplines[6], mCard7Ref)}
               </div>
 
-              {/* ROW 5: "More to come" (Col 1) | Card 08 (Col 2) */}
-              <div className="w-full h-full rounded-2xl border-2 border-dashed border-slate-300 bg-white/80 p-3.5 flex flex-col items-center justify-center text-center min-h-[170px] shadow-sm">
-                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mb-2">
-                  <Sparkles className="w-4 h-4 text-emerald-700 animate-pulse" />
-                </div>
-                <span className="text-sm font-bold text-slate-900 uppercase tracking-wider">
-                  More to come
-                </span>
-                <p className="text-sm text-slate-500 mt-1.5 leading-snug">
-                  Expanding clean-tech disciplines &amp; custom roles
-                </p>
-              </div>
-              <div className="h-full">
+              {/* ROW 5: Card 08 directly under Card 07 (Col 2) */}
+              <div className="col-start-2 h-full">
                 {renderMobileCard(disciplines[7], mCard8Ref)}
               </div>
 

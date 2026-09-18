@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zap, BatteryCharging, Sun, Layers, ArrowRight, Sparkles } from 'lucide-react';
+import { EVChargingStationArt, BatteryStorageBESSArt } from './CleanEnergyVectorArt';
 
 export default function ServicesGrid({ onRequestTalent }) {
 
@@ -88,6 +89,9 @@ export default function ServicesGrid({ onRequestTalent }) {
   return (
     <section id="services" className="py-12 lg:py-16 bg-slate-50 relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-60 pointer-events-none" />
+      {/* Domain-specific EV charging & battery storage vector backdrop */}
+      <EVChargingStationArt className="absolute top-2 right-1 sm:top-6 sm:right-12 w-40 h-24 sm:w-64 sm:h-38 opacity-40 sm:opacity-45" />
+      <BatteryStorageBESSArt className="absolute -bottom-2 -left-2 sm:bottom-3 sm:left-10 w-36 h-22 sm:w-60 sm:h-34 opacity-35 sm:opacity-40" />
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Mobile / Tablet Header (shown only below lg) */}

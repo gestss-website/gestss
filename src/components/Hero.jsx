@@ -5,7 +5,7 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
   return (
     <section className="relative isolate min-h-[80vh] lg:min-h-[90vh] flex flex-col justify-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 overflow-hidden">
       {/* Hero Background Image covering the entire area behind navbar and hero text */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src={heroBg}
           alt="Green Energy & Solar Tech Staffing Solution"
@@ -13,6 +13,39 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
         />
         {/* Very subtle overlay to ensure text contrast while keeping image bright and visible */}
         <div className="absolute inset-0 bg-white/30 backdrop-blur-[1px] pointer-events-none" />
+
+        {/* Animated Flying Birds Soaring Across Sky (Left to Right) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-10">
+          
+          {/* Bird 1: Lead Bird */}
+          <div className="absolute top-[14%] sm:top-[16%] left-0 w-8 sm:w-10 h-5 sm:h-6 bird-flock-1">
+            <svg viewBox="0 0 40 22" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-75">
+              <path d="M 20 11 C 14 5 8 2 0 3 C 6 7 12 10 20 11 Z" fill="#1e293b" className="bird-wing-left" />
+              <path d="M 20 11 C 26 5 32 2 40 3 C 34 7 28 10 20 11 Z" fill="#1e293b" className="bird-wing-right" />
+              <path d="M 18 11 C 19 9 21 9 22 11 C 21 14 21 18 20 21 C 19 18 19 14 18 11 Z" fill="#0f172a" />
+            </svg>
+          </div>
+
+          {/* Bird 2: Wingman Bird (trailing slightly lower) */}
+          <div className="absolute top-[20%] sm:top-[22%] left-0 w-7 sm:w-8 h-4 sm:h-5 bird-flock-2">
+            <svg viewBox="0 0 40 22" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-65">
+              <path d="M 20 11 C 14 5 8 2 0 3 C 6 7 12 10 20 11 Z" fill="#1e293b" className="bird-wing-left-fast" />
+              <path d="M 20 11 C 26 5 32 2 40 3 C 34 7 28 10 20 11 Z" fill="#1e293b" className="bird-wing-right-fast" />
+              <path d="M 18 11 C 19 9 21 9 22 11 C 21 14 21 18 20 21 C 19 18 19 14 18 11 Z" fill="#0f172a" />
+            </svg>
+          </div>
+
+          {/* Bird 3: Distant Bird (higher in the sky) */}
+          <div className="absolute top-[10%] sm:top-[12%] left-0 w-5 sm:w-6 h-3 sm:h-4 bird-flock-3">
+            <svg viewBox="0 0 40 22" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-55">
+              <path d="M 20 11 C 14 5 8 2 0 3 C 6 7 12 10 20 11 Z" fill="#1e293b" className="bird-wing-left-slow" />
+              <path d="M 20 11 C 26 5 32 2 40 3 C 34 7 28 10 20 11 Z" fill="#1e293b" className="bird-wing-right-slow" />
+              <path d="M 18 11 C 19 9 21 9 22 11 C 21 14 21 18 20 21 C 19 18 19 14 18 11 Z" fill="#0f172a" />
+            </svg>
+          </div>
+
+        </div>
+
         {/* Soft bottom transition into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-36 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none" />
       </div>
@@ -49,26 +82,7 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
           <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold tracking-tight font-display text-slate-900 leading-[1.18]">
             Powering the Clean-Energy{' '}
             <br className="hidden sm:block" />
-            Transition with the Right{' '}
-            <span className="relative inline-block text-gestss-green-800 font-bold">
-              Talent
-              <svg
-                className="absolute -bottom-1 left-0 w-full"
-                viewBox="0 0 200 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M2 8C30 3 70 2 100 5C130 8 170 4 198 7"
-                  stroke="#f59e0b"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeOpacity="0.6"
-                />
-              </svg>
-            </span>{' '}
-            with{' '}
+            Transition with{' '}
             <span className="text-emerald-700 font-bold">
               Green Energy and Solar Tech Staffing Solution
             </span>

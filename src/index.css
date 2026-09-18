@@ -89,3 +89,124 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #005a36;
 }
+
+/* ========================================================================= */
+/* Hero Flying Birds Left-to-Right Soaring Animations                        */
+/* ========================================================================= */
+@keyframes birdFlight1 {
+  0% {
+    transform: translate3d(-8vw, 0, 0);
+  }
+  25% {
+    transform: translate3d(24vw, -16px, 0);
+  }
+  50% {
+    transform: translate3d(52vw, 12px, 0);
+  }
+  75% {
+    transform: translate3d(80vw, -10px, 0);
+  }
+  100% {
+    transform: translate3d(112vw, 6px, 0);
+  }
+}
+
+@keyframes birdFlight2 {
+  0% {
+    transform: translate3d(-10vw, 0, 0);
+  }
+  25% {
+    transform: translate3d(22vw, 10px, 0);
+  }
+  50% {
+    transform: translate3d(54vw, -14px, 0);
+  }
+  75% {
+    transform: translate3d(82vw, 8px, 0);
+  }
+  100% {
+    transform: translate3d(115vw, -6px, 0);
+  }
+}
+
+@keyframes birdFlight3 {
+  0% {
+    transform: translate3d(-12vw, 0, 0);
+  }
+  30% {
+    transform: translate3d(28vw, -14px, 0);
+  }
+  65% {
+    transform: translate3d(66vw, 12px, 0);
+  }
+  100% {
+    transform: translate3d(116vw, -4px, 0);
+  }
+}
+
+@keyframes birdWingFlapLeft {
+  0%, 100% {
+    transform: rotate(-26deg);
+  }
+  50% {
+    transform: rotate(22deg);
+  }
+}
+
+@keyframes birdWingFlapRight {
+  0%, 100% {
+    transform: rotate(26deg);
+  }
+  50% {
+    transform: rotate(-22deg);
+  }
+}
+
+.bird-flock-1 {
+  animation: birdFlight1 20s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation-delay: 0.2s;
+  will-change: transform;
+}
+
+.bird-flock-2 {
+  animation: birdFlight2 22s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation-delay: 1.8s;
+  will-change: transform;
+}
+
+.bird-flock-3 {
+  animation: birdFlight3 25s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation-delay: 3.6s;
+  will-change: transform;
+}
+
+.bird-wing-left {
+  transform-origin: 20px 11px;
+  animation: birdWingFlapLeft 0.52s ease-in-out infinite;
+}
+
+.bird-wing-right {
+  transform-origin: 20px 11px;
+  animation: birdWingFlapRight 0.52s ease-in-out infinite;
+}
+
+.bird-wing-left-fast {
+  transform-origin: 20px 11px;
+  animation: birdWingFlapLeft 0.46s ease-in-out infinite;
+}
+
+.bird-wing-right-fast {
+  transform-origin: 20px 11px;
+  animation: birdWingFlapRight 0.46s ease-in-out infinite;
+}
+
+.bird-wing-left-slow {
+  transform-origin: 20px 11px;
+  animation: birdWingFlapLeft 0.58s ease-in-out infinite;
+}
+
+.bird-wing-right-slow {
+  transform-origin: 20px 11px;
+  animation: birdWingFlapRight 0.58s ease-in-out infinite;
+}
+

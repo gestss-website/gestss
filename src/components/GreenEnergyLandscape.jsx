@@ -6,6 +6,7 @@ import {
   Sun, 
   Wind 
 } from 'lucide-react';
+import { WindAndSolarArt, SolarArrayArt } from './CleanEnergyVectorArt';
 
 export default function GreenEnergyLandscape() {
   // EV Bar data
@@ -18,18 +19,6 @@ export default function GreenEnergyLandscape() {
     { year: 'FY 2024–25', value: 19.68, heightPct: 100 },
   ];
 
-  // Solar Capacity Growth Timeline points
-  const solarGrowthPoints = [
-    { cx: 15, cy: 135, val: '32.0', yr: '2019', shortYr: "'19" },
-    { cx: 75, cy: 130, val: '38.3', yr: '2020', shortYr: "'20" },
-    { cx: 135, cy: 124, val: '46.5', yr: '2021', shortYr: "'21" },
-    { cx: 195, cy: 110, val: '62.4', yr: '2022', shortYr: "'22" },
-    { cx: 255, cy: 98, val: '72.7', yr: '2023', shortYr: "'23" },
-    { cx: 315, cy: 75, val: '100+', yr: '2024', shortYr: "'24" },
-    { cx: 375, cy: 52, val: '130+', yr: '2025', shortYr: "'25" },
-    { cx: 435, cy: 20, val: '168.0', yr: '2026', shortYr: "'26" },
-  ];
-
   return (
     <section id="landscape" className="py-12 lg:py-16 bg-[#f5fbf8] relative overflow-hidden border-b border-emerald-100/70">
       
@@ -37,27 +26,9 @@ export default function GreenEnergyLandscape() {
       <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-emerald-200/25 via-emerald-100/10 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-gradient-to-tr from-cyan-100/30 via-emerald-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      {/* Subtle background Windmill & Solar silhouette watermark in the corner matching user image */}
-      <div className="absolute top-8 right-6 lg:right-16 opacity-20 pointer-events-none hidden md:block">
-        <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Wind turbine 1 */}
-          <line x1="80" y1="30" x2="80" y2="135" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" />
-          <circle cx="80" cy="30" r="4" fill="#059669" />
-          <line x1="80" y1="30" x2="65" y2="5" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
-          <line x1="80" y1="30" x2="98" y2="20" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
-          <line x1="80" y1="30" x2="72" y2="52" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
-          {/* Wind turbine 2 */}
-          <line x1="140" y1="45" x2="140" y2="135" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="140" cy="45" r="3.5" fill="#059669" />
-          <line x1="140" y1="45" x2="128" y2="25" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="140" y1="45" x2="155" y2="38" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="140" y1="45" x2="135" y2="62" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Solar ground panel */}
-          <polygon points="165,115 225,100 235,130 175,135" fill="#10b981" fillOpacity="0.4" stroke="#059669" strokeWidth="1.5" />
-          <line x1="195" y1="108" x2="205" y2="133" stroke="#059669" strokeWidth="1" />
-          <line x1="170" y1="125" x2="230" y2="115" stroke="#059669" strokeWidth="1" />
-        </svg>
-      </div>
+      {/* Clean energy vector backdrop (visible on mobile & desktop with enhanced visibility) */}
+      <WindAndSolarArt className="absolute top-2 right-1 sm:top-6 sm:right-10 w-36 h-22 sm:w-60 sm:h-36 opacity-40 sm:opacity-45" />
+      <SolarArrayArt className="absolute -bottom-2 -left-2 sm:bottom-2 sm:left-6 w-32 h-18 sm:w-52 sm:h-28 opacity-30 sm:opacity-35" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -354,29 +325,39 @@ export default function GreenEnergyLandscape() {
           </div>
 
           {/* Card 4: Solar Capacity Growth (India) (GW) with Line/Area Chart */}
-          <div className="col-span-1 lg:col-span-12 bg-white rounded-2xl sm:rounded-[28px] p-3.5 sm:p-8 border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div className="col-span-2 lg:col-span-12 bg-white rounded-2xl sm:rounded-[28px] p-4 sm:p-7 lg:p-8 border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div>
-              {/* Card Title */}
-              <div className="flex items-start gap-2 sm:gap-3 mb-3 sm:mb-6">
-                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-200/60 text-amber-600 flex items-center justify-center flex-shrink-0">
-                  <Sun className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+              {/* Card Title & Milestone Badge */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 sm:mb-6">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-200/60 text-amber-600 flex items-center justify-center flex-shrink-0">
+                    <Sun className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base lg:text-lg font-bold font-display text-slate-900 leading-snug">
+                      Solar Capacity Growth in India
+                    </h3>
+                    <span className="text-[10px] sm:text-xs text-slate-500 font-medium">
+                      Cumulative Installed Capacity (Gigawatts - GW)
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xs sm:text-base lg:text-lg font-bold font-display text-slate-900 leading-snug">
-                    Solar Capacity Growth (India)
-                  </h3>
-                  <span className="text-[9px] sm:text-xs text-slate-500 font-medium">
-                    (GW)
+
+                {/* Growth Metric Badge */}
+                <div className="flex items-center gap-2 self-start sm:self-auto bg-emerald-50 border border-emerald-200/70 px-3 py-1.5 rounded-full">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[11px] sm:text-xs font-bold text-emerald-800">
+                    5.2x Growth (2019 → 2026)
                   </span>
                 </div>
               </div>
 
-              {/* Growth Curve Chart using SVG */}
-              <div className="mt-2 sm:mt-4">
-                <div className="flex items-end gap-1 sm:gap-2 h-36 sm:h-52">
+              {/* Natural Proportion Graph (Never Stretched) */}
+              <div className="w-full mt-2 sm:mt-4">
+                <div className="flex items-stretch gap-2 sm:gap-3">
                   
                   {/* Y-Axis scale */}
-                  <div className="flex flex-col justify-between h-full text-[8px] sm:text-[10px] font-semibold text-slate-400 pr-0.5 sm:pr-1 text-right">
+                  <div className="flex flex-col justify-between text-[9px] sm:text-[11px] font-semibold text-slate-400 pr-1 text-right select-none pb-5 pt-1">
                     <span>200</span>
                     <span>150</span>
                     <span>100</span>
@@ -384,71 +365,144 @@ export default function GreenEnergyLandscape() {
                     <span>0</span>
                   </div>
 
-                  {/* SVG Plot Canvas - Bottom border is the axis line */}
-                  <div className="flex-1 h-full relative border-b border-l border-slate-200">
-                    <svg className="w-full h-full overflow-visible" viewBox="0 0 450 160" preserveAspectRatio="none">
-                      {/* Grid Lines */}
-                      <line x1="0" y1="0" x2="450" y2="0" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="40" x2="450" y2="40" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="80" x2="450" y2="80" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="120" x2="450" y2="120" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-
-                      {/* Shaded Area Under Curve */}
+                  {/* SVG Plot Canvas - Proportional 880x200 */}
+                  <div className="flex-1 relative">
+                    <svg 
+                      className="w-full h-auto overflow-visible" 
+                      viewBox="0 0 880 200" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <defs>
-                        <linearGradient id="solarGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#10b981" stopOpacity="0.25" />
+                        {/* Smooth Green Gradient Fill */}
+                        <linearGradient id="solarGreenGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#059669" stopOpacity="0.32" />
+                          <stop offset="50%" stopColor="#10b981" stopOpacity="0.12" />
                           <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
                         </linearGradient>
+
+                        {/* Drop shadow for line curve */}
+                        <filter id="solarLineGlow" x="-5%" y="-10%" width="110%" height="130%">
+                          <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#059669" floodOpacity="0.25" />
+                        </filter>
                       </defs>
 
+                      {/* Horizontal Grid Lines */}
+                      <line x1="20" y1="15" x2="860" y2="15" stroke="#f1f5f9" strokeWidth="1.2" strokeDasharray="4 4" />
+                      <line x1="20" y1="55" x2="860" y2="55" stroke="#f1f5f9" strokeWidth="1.2" strokeDasharray="4 4" />
+                      <line x1="20" y1="95" x2="860" y2="95" stroke="#f1f5f9" strokeWidth="1.2" strokeDasharray="4 4" />
+                      <line x1="20" y1="135" x2="860" y2="135" stroke="#f1f5f9" strokeWidth="1.2" strokeDasharray="4 4" />
+                      
+                      {/* Baseline Axis */}
+                      <line x1="20" y1="175" x2="860" y2="175" stroke="#e2e8f0" strokeWidth="1.5" />
+
+                      {/* Shaded Area Under Curve */}
                       <path
-                        d="M 15,135 Q 75,130 135,124 T 195,110 T 255,98 T 315,75 T 375,52 T 435,20 L 435,160 L 15,160 Z"
-                        fill="url(#solarGradient)"
+                        d="M 40,150 C 90,147 115,145 154,144 C 200,142 225,140 268,138 C 315,134 345,129 382,125 C 430,121 455,118 496,117 C 545,110 575,100 610,95 C 655,83 685,73 724,71 C 770,55 800,45 838,41 L 838,175 L 40,175 Z"
+                        fill="url(#solarGreenGradient)"
                       />
 
-                      {/* Growth Line */}
+                      {/* Main Smooth Growth Curve */}
                       <path
-                        d="M 15,135 Q 75,130 135,124 T 195,110 T 255,98 T 315,75 T 375,52 T 435,20"
+                        d="M 40,150 C 90,147 115,145 154,144 C 200,142 225,140 268,138 C 315,134 345,129 382,125 C 430,121 455,118 496,117 C 545,110 575,100 610,95 C 655,83 685,73 724,71 C 770,55 800,45 838,41"
                         stroke="#059669"
-                        strokeWidth="3"
+                        strokeWidth="3.5"
                         fill="none"
                         strokeLinecap="round"
+                        filter="url(#solarLineGlow)"
                       />
 
-                      {/* Data Point Dots & Value Labels */}
-                      {solarGrowthPoints.map((pt, i) => (
-                        <g key={i} className="cursor-pointer group/dot">
-                          <circle cx={pt.cx} cy={pt.cy} r="3.5" fill="#047857" className="transition-transform group-hover/dot:scale-125" />
-                          <circle cx={pt.cx} cy={pt.cy} r="1.5" fill="#ffffff" />
-                          
-                          {/* Top Value */}
+                      {/* Data Points and Value Callouts */}
+                      {[
+                        { cx: 40, cy: 150, val: '32.0', yr: '2019', isPeak: false },
+                        { cx: 154, cy: 144, val: '38.3', yr: '2020', isPeak: false },
+                        { cx: 268, cy: 138, val: '46.5', yr: '2021', isPeak: false },
+                        { cx: 382, cy: 125, val: '62.4', yr: '2022', isPeak: false },
+                        { cx: 496, cy: 117, val: '72.7', yr: '2023', isPeak: false },
+                        { cx: 610, cy: 95, val: '100+', yr: '2024', isPeak: false },
+                        { cx: 724, cy: 71, val: '130+', yr: '2025', isPeak: false },
+                        { cx: 838, cy: 41, val: '168.0 GW', yr: '2026', isPeak: true },
+                      ].map((pt, i) => (
+                        <g key={i} className="cursor-pointer">
+                          {/* Vertical guide line down to axis */}
+                          <line 
+                            x1={pt.cx} 
+                            y1={pt.cy} 
+                            x2={pt.cx} 
+                            y2={175} 
+                            stroke="#10b981" 
+                            strokeWidth="1" 
+                            strokeDasharray="2 2" 
+                            opacity="0.35" 
+                          />
+
+                          {/* Outer Dot Ring */}
+                          <circle 
+                            cx={pt.cx} 
+                            cy={pt.cy} 
+                            r={pt.isPeak ? "6.5" : "4.5"} 
+                            fill={pt.isPeak ? "#047857" : "#059669"} 
+                          />
+                          {/* Inner Dot Center */}
+                          <circle 
+                            cx={pt.cx} 
+                            cy={pt.cy} 
+                            r={pt.isPeak ? "2.5" : "2"} 
+                            fill="#ffffff" 
+                          />
+
+                          {/* Value Pill on Top of Peak (2026) */}
+                          {pt.isPeak ? (
+                            <g>
+                              <rect 
+                                x={pt.cx - 36} 
+                                y={pt.cy - 28} 
+                                width="72" 
+                                height="20" 
+                                rx="10" 
+                                fill="#047857" 
+                                className="shadow-md"
+                              />
+                              <text
+                                x={pt.cx}
+                                y={pt.cy - 14}
+                                textAnchor="middle"
+                                fill="#ffffff"
+                                fontSize="11"
+                                fontWeight="bold"
+                                className="font-sans select-none"
+                              >
+                                {pt.val}
+                              </text>
+                            </g>
+                          ) : (
+                            <text
+                              x={pt.cx}
+                              y={pt.cy - 8}
+                              textAnchor="middle"
+                              fill="#1e293b"
+                              fontSize="11"
+                              fontWeight="700"
+                              className="font-sans select-none"
+                            >
+                              {pt.val}
+                            </text>
+                          )}
+
+                          {/* Year label below baseline inside SVG */}
                           <text
                             x={pt.cx}
-                            y={pt.cy - 6}
+                            y={193}
                             textAnchor="middle"
-                            fill="#0f172a"
-                            fontSize="9"
-                            fontWeight="bold"
-                            className="font-sans"
+                            fill={pt.isPeak ? "#047857" : "#64748b"}
+                            fontSize="11"
+                            fontWeight={pt.isPeak ? "800" : "600"}
+                            className="font-sans select-none"
                           >
-                            {pt.val}
+                            {pt.yr}
                           </text>
                         </g>
                       ))}
                     </svg>
-                  </div>
-                </div>
-
-                {/* Years Row - Strictly BELOW the bottom line! */}
-                <div className="flex items-center gap-1 sm:gap-2 pt-1.5 sm:pt-2">
-                  <div className="w-3.5 sm:w-5 flex-shrink-0" />
-                  <div className="flex-1 flex justify-between items-center text-[7px] sm:text-[10px] text-slate-500 font-medium px-0.5 sm:px-2">
-                    {solarGrowthPoints.map((pt, i) => (
-                      <span key={i} className="text-center">
-                        <span className="sm:hidden">{pt.shortYr}</span>
-                        <span className="hidden sm:inline">{pt.yr}</span>
-                      </span>
-                    ))}
                   </div>
                 </div>
               </div>

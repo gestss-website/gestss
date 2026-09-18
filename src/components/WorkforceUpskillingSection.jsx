@@ -1,4 +1,5 @@
 import React from 'react';
+import { BatteryStorageBESSArt, WindTurbinesClusterArt } from './CleanEnergyVectorArt';
 
 // Bold, crisp corner crosshairs / star markers
 const CornerCross = ({ position }) => {
@@ -74,6 +75,10 @@ export default function WorkforceUpskillingSection() {
 
   return (
     <section id="upskilling" className="py-12 lg:py-16 bg-white relative overflow-hidden border-t border-slate-200/70">
+      {/* Domain-specific battery storage (BESS) & wind cluster vector backdrop */}
+      <BatteryStorageBESSArt className="absolute top-2 right-1 sm:top-6 sm:right-10 w-38 h-24 sm:w-60 sm:h-36 opacity-40 sm:opacity-45" />
+      <WindTurbinesClusterArt className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-10 w-32 h-24 sm:w-52 sm:h-38 opacity-35 sm:opacity-40" />
+
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

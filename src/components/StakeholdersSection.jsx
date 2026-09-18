@@ -1,9 +1,14 @@
 import React from 'react';
 import { Building2, UserCheck, ArrowRight, Clock, Users, Sparkles } from 'lucide-react';
+import { EVChargingStationArt, SolarArrayArt } from './CleanEnergyVectorArt';
 
 export default function StakeholdersSection({ onRequestTalent, onJoinNetwork }) {
   return (
     <section id="stakeholders" className="py-12 lg:py-16 bg-white relative overflow-hidden border-t border-slate-200/70">
+      {/* Domain-specific EV charging & solar array vector backdrop */}
+      <EVChargingStationArt className="absolute top-2 right-1 sm:top-5 sm:right-8 w-40 h-24 sm:w-64 sm:h-38 opacity-40 sm:opacity-45" />
+      <SolarArrayArt className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-8 w-32 h-20 sm:w-52 sm:h-30 opacity-30 sm:opacity-35" />
+
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
