@@ -5,8 +5,8 @@ import { ComplianceInspectionArt } from './CleanEnergyVectorArt';
 export default function ComplianceSection({ onRequestTalent }) {
   return (
     <section id="compliance" className="py-12 lg:py-16 bg-slate-50 relative overflow-hidden border-t border-slate-200/70">
-      {/* Domain-specific compliance, quality & drone inspection vector backdrop */}
-      <ComplianceInspectionArt className="absolute top-2 right-1 sm:top-5 sm:right-8 w-40 h-24 sm:w-64 sm:h-38 opacity-40 sm:opacity-45" />
+      {/* Domain-specific compliance, quality & drone inspection vector backdrop (visible on desktop) */}
+      <ComplianceInspectionArt className="hidden sm:block absolute sm:top-5 sm:right-8 sm:w-64 sm:h-38 opacity-40 sm:opacity-45" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

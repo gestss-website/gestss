@@ -65,9 +65,9 @@ export default function ProcessApproach() {
 
   return (
     <section id="approach" className="py-12 lg:py-20 bg-white relative overflow-hidden border-t border-slate-200/70">
-      {/* Domain-specific clean tech lifecycle & wind cluster vector backdrop */}
-      <EcoCleanTechEcosystemArt className="absolute top-4 right-1 sm:top-8 sm:right-10 w-38 h-24 sm:w-60 sm:h-36 opacity-40 sm:opacity-45" />
-      <WindTurbinesClusterArt className="absolute bottom-2 left-1 sm:bottom-4 sm:left-8 w-32 h-24 sm:w-56 sm:h-40 opacity-35 sm:opacity-40" />
+      {/* Domain-specific clean tech lifecycle & wind cluster vector backdrop (visible on desktop) */}
+      <EcoCleanTechEcosystemArt className="hidden sm:block absolute sm:top-8 sm:right-10 sm:w-60 sm:h-36 opacity-40 sm:opacity-45" />
+      <WindTurbinesClusterArt className="hidden sm:block absolute sm:bottom-4 sm:left-8 sm:w-56 sm:h-40 opacity-35 sm:opacity-40" />
       
       <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8 relative z-10">
         

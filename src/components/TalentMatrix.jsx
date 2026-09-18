@@ -432,9 +432,9 @@ export default function TalentMatrix({ onSelectRole }) {
       {/* Background Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
-      {/* Domain-specific electrical transmission grid & inspection vector backdrop */}
-      <TransmissionGridPylonArt className="absolute top-2 right-1 sm:top-6 sm:right-10 w-40 h-25 sm:w-64 sm:h-40 opacity-40 sm:opacity-45" />
-      <ComplianceInspectionArt className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-10 w-36 h-22 sm:w-60 sm:h-34 opacity-35 sm:opacity-40" />
+      {/* Domain-specific electrical transmission grid & inspection vector backdrop (visible on desktop) */}
+      <TransmissionGridPylonArt className="hidden sm:block absolute sm:top-6 sm:right-10 sm:w-64 sm:h-40 opacity-40 sm:opacity-45" />
+      <ComplianceInspectionArt className="hidden sm:block absolute sm:bottom-4 sm:left-10 sm:w-60 sm:h-34 opacity-35 sm:opacity-40" />
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
 

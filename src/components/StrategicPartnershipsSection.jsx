@@ -57,9 +57,9 @@ export default function StrategicPartnershipsSection({ onRequestTalent }) {
 
   return (
     <section id="partnerships" className="py-10 sm:py-14 lg:py-16 bg-slate-50 relative overflow-hidden border-t border-slate-200/70">
-      {/* Domain-specific smart grid ecosystem vector backdrop */}
-      <SmartGridEcosystemArt className="absolute top-2 right-1 sm:top-5 sm:right-8 w-40 h-24 sm:w-64 sm:h-38 opacity-40 sm:opacity-45" />
-      <EcoCleanTechEcosystemArt className="absolute -bottom-2 -left-2 sm:bottom-3 sm:left-8 w-36 h-22 sm:w-56 sm:h-34 opacity-35 sm:opacity-40" />
+      {/* Domain-specific smart grid ecosystem vector backdrop (visible on desktop) */}
+      <SmartGridEcosystemArt className="hidden sm:block absolute sm:top-5 sm:right-8 sm:w-64 sm:h-38 opacity-40 sm:opacity-45" />
+      <EcoCleanTechEcosystemArt className="hidden sm:block absolute sm:bottom-3 sm:left-8 sm:w-56 sm:h-34 opacity-35 sm:opacity-40" />
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
         

@@ -26,9 +26,9 @@ export default function GreenEnergyLandscape() {
       <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-emerald-200/25 via-emerald-100/10 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-gradient-to-tr from-cyan-100/30 via-emerald-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      {/* Clean energy vector backdrop (visible on mobile & desktop with enhanced visibility) */}
-      <WindAndSolarArt className="absolute top-2 right-1 sm:top-6 sm:right-10 w-36 h-22 sm:w-60 sm:h-36 opacity-40 sm:opacity-45" />
-      <SolarArrayArt className="absolute -bottom-2 -left-2 sm:bottom-2 sm:left-6 w-32 h-18 sm:w-52 sm:h-28 opacity-30 sm:opacity-35" />
+      {/* Clean energy vector backdrop: adjusted for mobile to prevent clipping and content overlap */}
+      <WindAndSolarArt className="absolute top-2 right-2 sm:top-6 sm:right-10 w-24 h-16 sm:w-60 sm:h-36 opacity-35 sm:opacity-45" />
+      <SolarArrayArt className="hidden sm:block absolute sm:bottom-2 sm:left-6 w-52 h-28 opacity-30 sm:opacity-35" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 

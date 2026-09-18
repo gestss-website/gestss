@@ -9,9 +9,9 @@ export default function FutureCollaborationSection({ onRequestTalent, onJoinNetw
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Domain-specific futuristic clean-energy city skyline vector backdrop */}
-      <CleanEnergyCityHorizonArt isDark={true} className="absolute top-2 right-1 sm:top-6 sm:right-10 w-44 h-24 sm:w-72 sm:h-40 opacity-35 sm:opacity-45" />
-      <SmartGridEcosystemArt isDark={true} className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-10 w-36 h-22 sm:w-60 sm:h-34 opacity-30 sm:opacity-35" />
+      {/* Domain-specific futuristic clean-energy city skyline vector backdrop (visible on desktop) */}
+      <CleanEnergyCityHorizonArt isDark={true} className="hidden sm:block absolute sm:top-6 sm:right-10 sm:w-72 sm:h-40 opacity-35 sm:opacity-45" />
+      <SmartGridEcosystemArt isDark={true} className="hidden sm:block absolute sm:bottom-4 sm:left-10 sm:w-60 sm:h-34 opacity-30 sm:opacity-35" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
