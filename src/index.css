@@ -6,10 +6,16 @@
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: "Object Sans", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   }
   
   body {
     @apply bg-[#f8fafc] text-slate-800 antialiased overflow-x-hidden;
+    font-family: "Object Sans", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  *, ::before, ::after {
+    font-family: inherit;
   }
 }
 

@@ -1,19 +1,19 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Building2, UserCheck } from 'lucide-react';
 import heroBg from '../../HERO-IMAGE.webp';
 
 export default function Hero({ onRequestTalent, onJoinNetwork }) {
   return (
-    <section className="relative isolate min-h-[85vh] lg:min-h-screen flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-24 overflow-hidden">
+    <section className="relative isolate min-h-[80vh] lg:min-h-[90vh] flex flex-col justify-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 overflow-hidden">
       {/* Hero Background Image covering the entire area behind navbar and hero text */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={heroBg}
-          alt="Clean Energy Horizon — Solar PV, Wind Turbines, EV Charging, and Modern Transit"
+          alt="Green Energy & Solar Tech Staffing Solution"
           className="w-full h-full object-cover object-center"
         />
         {/* Very subtle overlay to ensure text contrast while keeping image bright and visible */}
-        <div className="absolute inset-0 bg-white/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-white/30 backdrop-blur-[1px] pointer-events-none" />
         {/* Soft bottom transition into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-36 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none" />
       </div>
@@ -21,14 +21,40 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
         {/* Centered Text Block */}
-        <div className="text-center max-w-3xl mx-auto space-y-6">
+        <div className="text-center max-w-4xl mx-auto space-y-6">
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-black tracking-tight font-display text-slate-900 leading-[1.08] drop-shadow-sm">
+          {/* Hiring Announcement Badge (Ready for Google Form) */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#apply"
+              onClick={(e) => {
+                // Placeholder: Replace with your actual Google Form link whenever ready
+                // window.open('https://forms.google.com/...', '_blank');
+              }}
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 hover:bg-emerald-500/25 hover:border-emerald-500/50 text-emerald-900 text-xs sm:text-sm font-bold tracking-wide backdrop-blur-md shadow-sm transition-all duration-300 group cursor-pointer"
+            >
+              {/* Pulsing indicator dot */}
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600" />
+              </span>
+              
+              <span className="font-extrabold text-emerald-950">We're Hiring:</span>
+              <span className="text-slate-700 font-medium">Interns, Researchers &amp; Fellows</span>
+              
+              <span className="ml-1 inline-flex items-center text-xs text-emerald-800 group-hover:translate-x-0.5 transition-transform font-bold">
+                Apply Now →
+              </span>
+            </a>
+          </div>
+
+          {/* Main H1 Heading */}
+          <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold tracking-tight font-display text-slate-900 leading-[1.18]">
             Powering the Clean-Energy{' '}
             <br className="hidden sm:block" />
             Transition with the Right{' '}
-            <span className="relative inline-block italic text-gestss-green-800">
-              Talent.
+            <span className="relative inline-block text-gestss-green-800 font-bold">
+              Talent
               <svg
                 className="absolute -bottom-1 left-0 w-full"
                 viewBox="0 0 200 12"
@@ -39,87 +65,69 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
                 <path
                   d="M2 8C30 3 70 2 100 5C130 8 170 4 198 7"
                   stroke="#f59e0b"
-                  strokeWidth="3"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
-                  strokeOpacity="0.5"
+                  strokeOpacity="0.6"
                 />
               </svg>
+            </span>{' '}
+            with{' '}
+            <span className="text-emerald-700 font-bold">
+              Green Energy and Solar Tech Staffing Solution
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
-            A specialized workforce solutions firm connecting clean-energy enterprises
-            with compliance-ready professionals across Solar PV, EV Infrastructure,
-            Renewable Engineering, and Grid Systems.
+          {/* Exact Sub-content */}
+          <p className="text-base sm:text-xl text-slate-800 max-w-3xl mx-auto leading-relaxed font-medium">
+            Specialized workforce solutions for renewable energy, solar technology, electric mobility, and EV infrastructure.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
+          {/* Dual Action Cards for Employers & Professionals */}
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+            
+            {/* For Employers — Request Talent */}
             <button
               onClick={onRequestTalent}
-              className="px-7 py-3.5 rounded-full font-bold text-sm text-white bg-slate-900 hover:bg-slate-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-sm text-white bg-slate-950 hover:bg-slate-800 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-3 group border border-slate-800"
             >
-              <span>Get started</span>
-              <ArrowRight className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                <Building2 className="w-4 h-4" />
+              </div>
+              <div className="text-left">
+                <span className="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold leading-none mb-1">
+                  For Employers
+                </span>
+                <span className="text-sm font-extrabold text-white flex items-center gap-1.5 leading-none">
+                  Request Talent
+                  <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+                </span>
+              </div>
             </button>
 
+            {/* For Professionals — Join Our Talent Network */}
             <button
               onClick={onJoinNetwork}
-              className="px-7 py-3.5 rounded-full font-bold text-sm text-slate-800 bg-white/90 hover:bg-white border border-slate-200/80 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 backdrop-blur-sm transition-all duration-300"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-sm text-slate-900 bg-white/95 hover:bg-white border border-slate-200/90 shadow-md hover:shadow-xl transform hover:-translate-y-0.5 backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3 group"
             >
-              Learn more
+              <div className="w-8 h-8 rounded-xl bg-gestss-green-100 flex items-center justify-center text-gestss-green-800 group-hover:scale-105 transition-transform">
+                <UserCheck className="w-4 h-4" />
+              </div>
+              <div className="text-left">
+                <span className="block text-[11px] uppercase tracking-wider text-slate-500 font-semibold leading-none mb-1">
+                  For Professionals
+                </span>
+                <span className="text-sm font-extrabold text-slate-900 flex items-center gap-1.5 leading-none">
+                  Join Our Talent Network
+                  <ArrowRight className="w-3.5 h-3.5 text-gestss-green-700 group-hover:translate-x-0.5 transition-transform" />
+                </span>
+              </div>
             </button>
+
           </div>
 
         </div>
 
       </div>
-
-      {/* Trusted-by / Metrics strip at the bottom of the hero */}
-      {/* <div className="relative z-20 -mt-10 sm:-mt-16 pb-8">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5">
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Trusted by innovators in clean energy
-            </span>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-
-            <div className="flex flex-col items-center gap-1.5 px-4 py-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-sm hover:shadow-md hover:border-emerald-300/60 transition-all duration-300 group">
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-gestss-green-600 group-hover:text-gestss-green-700" />
-                <span className="text-2xl sm:text-3xl font-black font-display text-gestss-green-900">4 Days</span>
-              </div>
-              <span className="text-xs font-semibold text-slate-600">Candidate Shortlist SLA</span>
-            </div>
-
-            <div className="flex flex-col items-center gap-1.5 px-4 py-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-sm hover:shadow-md hover:border-blue-300/60 transition-all duration-300 group">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-gestss-blue-600 group-hover:text-gestss-blue-700" />
-                <span className="text-2xl sm:text-3xl font-black font-display text-gestss-blue-900">100%</span>
-              </div>
-              <span className="text-xs font-semibold text-slate-600">Vetted &amp; Compliant</span>
-            </div>
-
-            <div className="flex flex-col items-center gap-1.5 px-4 py-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-sm hover:shadow-md hover:border-amber-300/60 transition-all duration-300 group">
-              <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-gestss-solar-600 group-hover:text-gestss-solar-700" />
-                <span className="text-2xl sm:text-3xl font-black font-display text-gestss-solar-600">8+</span>
-              </div>
-              <span className="text-xs font-semibold text-slate-600">Specialized Disciplines</span>
-            </div>
-
-            <div className="flex flex-col items-center gap-1.5 px-4 py-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-sm hover:shadow-md hover:border-emerald-300/60 transition-all duration-300 group">
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-gestss-green-700 group-hover:text-gestss-green-800" />
-                <span className="text-xl sm:text-2xl font-black font-display text-gestss-green-800">Flexible</span>
-              </div>
-              <span className="text-xs font-semibold text-slate-600">Staffing Architecture</span>
-            </div>
-
-          </div>
-        </div>
-      </div> */}
 
     </section>
   );

@@ -29,49 +29,49 @@ export default function PillarsWhyUs() {
     {
       num: '01',
       title: 'Industry Focus',
-      desc: '100% dedicated to renewable energy, solar technology, electric mobility, and EV infrastructure. No dilution with unrelated generalist roles.',
+      desc: 'Focused exclusively on workforce requirements across renewable energy, solar technology, electric mobility, and EV infrastructure.',
       icon: Target,
       color: 'emerald'
     },
     {
       num: '02',
       title: 'Specialized Talent Networks',
-      desc: 'Proprietary talent pools built around technical clean-energy disciplines, specialized apprenticeships, and engineering societies.',
+      desc: 'Building specialized talent networks around the specific workforce needs of the clean-energy industry.',
       icon: Users2,
       color: 'blue'
     },
     {
       num: '03',
       title: 'Technically Informed Screening',
-      desc: 'Technical evaluations conducted with trade-specific criteria, electrical license verifications, and OSHA/safety standards.',
+      desc: 'Assessing candidates against technical competencies, qualifications, experience, and role-specific requirements.',
       icon: Binary,
       color: 'solar'
     },
     {
       num: '04',
       title: 'Flexible Staffing Models',
-      desc: 'Tailored workforce contracts comprising permanent direct-hire, turnkey project crews, and temp-to-perm evaluations.',
+      desc: 'Providing flexible staffing models to respond to project-based, seasonal, and long-term workforce requirements.',
       icon: Sliders,
       color: 'emerald'
     },
     {
       num: '05',
       title: 'Workforce Development',
-      desc: 'Active collaboration with training institutes and certification bodies to foster career transitions and upskilling.',
+      desc: 'Supporting technical upskilling, career transitions, certification pathways, and employer-aligned skill development.',
       icon: GraduationCap,
       color: 'blue'
     },
     {
       num: '06',
       title: 'Inclusive Recruitment',
-      desc: 'Proactive initiatives to broaden representation, empowering women and underrepresented tradespeople in the green economy.',
+      desc: 'Expanding access to clean-energy opportunities through inclusive recruitment practices and broader workforce participation.',
       icon: HeartHandshake,
       color: 'solar'
     }
   ];
 
   return (
-    <section id="why-us" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section id="why-us" className="py-12 lg:py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -80,11 +80,11 @@ export default function PillarsWhyUs() {
             <Sparkles className="w-3.5 h-3.5 text-gestss-green-700" />
             The GESTSS Advantage
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight">
             Why Work <span className="text-gradient-green">With Us?</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Our value proposition connects specialized talent pools into a unified clean-energy delivery engine. Explore how our six foundational pillars converge around project success.
+            Our value proposition connects specialized talent pools into a unified clean-energy delivery engine.
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function PillarsWhyUs() {
           <div className="min-w-[780px] lg:min-w-full">
             <div 
               ref={containerRef}
-              className="relative flex h-[540px] sm:h-[580px] w-full items-center justify-between p-6 sm:p-8 md:p-12 rounded-3xl bg-slate-50/70 border border-slate-200/80 shadow-[0_15px_35px_-5px_rgba(15,23,42,0.05)] overflow-hidden"
+              className="relative flex h-[580px] sm:h-[620px] w-full items-center justify-between p-2 sm:p-4 md:p-6 overflow-visible"
             >
               {/* Ambient Glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
@@ -110,54 +110,54 @@ export default function PillarsWhyUs() {
             {/* Card 1 */}
             <div 
               ref={card1Ref}
-              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
                 <Target className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-emerald-700 transition-colors">
-                  Industry Focus
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-emerald-700 transition-colors">
+                  {pillars[0].title}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium block truncate">
-                  100% Dedicated to Clean-Energy
-                </span>
+                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
+                  {pillars[0].desc}
+                </p>
               </div>
             </div>
 
             {/* Card 2 */}
             <div 
               ref={card2Ref}
-              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
                 <Users2 className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-blue-700 transition-colors">
-                  Specialized Networks
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
+                  {pillars[1].title}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium block truncate">
-                  Niche Engineering &amp; Trade Pools
-                </span>
+                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
+                  {pillars[1].desc}
+                </p>
               </div>
             </div>
 
             {/* Card 3 */}
             <div 
               ref={card3Ref}
-              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
                 <Binary className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-amber-700 transition-colors">
-                  Technical Screening
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-amber-700 transition-colors">
+                  {pillars[2].title}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium block truncate">
-                  Trade-Specific License Vetting
-                </span>
+                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
+                  {pillars[2].desc}
+                </p>
               </div>
             </div>
           </div>
@@ -184,54 +184,54 @@ export default function PillarsWhyUs() {
             {/* Card 4 */}
             <div 
               ref={card4Ref}
-              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
                 <Sliders className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-emerald-700 transition-colors">
-                  Flexible Staffing
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-emerald-700 transition-colors">
+                  {pillars[3].title}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium block truncate">
-                  Direct-Hire, Project Crews &amp; SLA
-                </span>
+                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
+                  {pillars[3].desc}
+                </p>
               </div>
             </div>
 
             {/* Card 5 */}
             <div 
               ref={card5Ref}
-              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
                 <GraduationCap className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-blue-700 transition-colors">
-                  Workforce Upskilling
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
+                  {pillars[4].title}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium block truncate">
-                  Certified Green Career Pathways
-                </span>
+                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
+                  {pillars[4].desc}
+                </p>
               </div>
             </div>
 
             {/* Card 6 */}
             <div 
               ref={card6Ref}
-              className="w-52 sm:w-64 md:w-72 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              className="w-64 sm:w-72 md:w-80 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex items-start gap-3.5 group cursor-pointer"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/60 text-amber-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
                 <HeartHandshake className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-bold text-slate-900 block truncate group-hover:text-amber-700 transition-colors">
-                  Inclusive Recruiting
+                <span className="text-xs sm:text-sm font-bold text-slate-900 block group-hover:text-amber-700 transition-colors">
+                  {pillars[5].title}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium block truncate">
-                  Equitable Energy Access &amp; Trades
-                </span>
+                <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-1">
+                  {pillars[5].desc}
+                </p>
               </div>
             </div>
           </div>
@@ -306,93 +306,26 @@ export default function PillarsWhyUs() {
       </div>
     </div>
 
-        {/* 6 Pillars Detailed Breakdown Grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pillars.map((p) => {
-            const Icon = p.icon;
-            const isBlue = p.color === 'blue';
-            const isSolar = p.color === 'solar';
-
-            const bgIcon = isBlue ? 'bg-blue-50 text-gestss-blue-700' : isSolar ? 'bg-amber-50 text-gestss-solar-600' : 'bg-emerald-50 text-gestss-green-700';
-
-            return (
-              <div
-                key={p.num}
-                className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className={`w-12 h-12 rounded-2xl ${bgIcon} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-gestss-green-600">
-                      Pillar {p.num}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold font-display text-slate-900 group-hover:text-gestss-green-900 transition-colors">
-                    {p.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                    {p.desc}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-200/50 flex items-center gap-1.5 text-xs font-semibold text-gestss-green-800">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Institutional Standard</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Diversity & Inclusion Spotlight */}
-        <div className="mt-14 p-8 sm:p-12 rounded-3xl bg-emerald-50/60 border border-emerald-100/90 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-200/70 text-gestss-green-900 text-xs font-bold uppercase tracking-wider">
-                <HeartHandshake className="w-3.5 h-3.5 text-gestss-green-800" />
-                Diversity &amp; Inclusion
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
-                A Broad, Inclusive Workforce for an Equitable Energy Future
-              </h3>
-
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                A sustainable energy transition must be an inclusive one. We actively implement recruitment practices that expand access to high-paying clean-energy careers for women, underrepresented demographic groups, emerging technical talent, and tradespeople transitioning out of sunsetting industries.
-              </p>
-
-              <p className="text-slate-600 text-xs sm:text-sm">
-                Our objective is to foster an industry environment where varied perspectives and lived experiences can actively shape the global expansion of clean-energy infrastructure.
-              </p>
+        {/* Diversity & Inclusion Section with exact content */}
+        <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-emerald-50/60 border border-emerald-100/90 relative overflow-hidden">
+          <div className="max-w-4xl mx-auto text-center space-y-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-200/70 text-gestss-green-900 text-xs font-bold uppercase tracking-wider">
+              <HeartHandshake className="w-3.5 h-3.5 text-gestss-green-800" />
+              Workforce Equity
             </div>
 
-            <div className="lg:col-span-4 bg-white p-6 rounded-2xl border border-emerald-200 shadow-sm space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-gestss-green-900">Our Pillars of Equity:</h4>
-              <ul className="space-y-2 text-xs text-slate-700">
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gestss-green-600" />
-                  <span>Expanding women in clean-tech trade careers</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gestss-green-600" />
-                  <span>Subsidized trade &amp; safety certification access</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gestss-green-600" />
-                  <span>Fair-chance transitioning for legacy energy workers</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gestss-green-600" />
-                  <span>Mentorship pairing with certified master electricians</span>
-                </li>
-              </ul>
-            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-slate-900 tracking-tight">
+              Diversity &amp; Inclusion
+            </h2>
 
+            <div className="space-y-4 pt-2 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              <p>
+                We seek to implement inclusive recruitment practices that expand access to opportunities for women, underrepresented groups, emerging technical professionals, and individuals transitioning into clean-energy careers.
+              </p>
+              <p className="text-slate-600">
+                Our objective is to support a workforce environment where different experiences, skills, and perspectives can participate in the growth of the green economy.
+              </p>
+            </div>
           </div>
         </div>
 

@@ -47,8 +47,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Object Sans"', '"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Object Sans"', '"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
       },
       boxShadow: {
         'glow-green': '0 0 35px -5px rgba(0, 90, 54, 0.3)',
