@@ -22,14 +22,12 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
         {/* Centered Text Block */}
         <div className="text-center max-w-4xl mx-auto space-y-6">
 
-          {/* Hiring Announcement Badge (Ready for Google Form) */}
+          {/* Hiring Announcement Badge (Google Form Application) */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
-              href="#apply"
-              onClick={(e) => {
-                // Placeholder: Replace with your actual Google Form link whenever ready
-                // window.open('https://forms.google.com/...', '_blank');
-              }}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdzJDptlgx40QVm878sZTiaWcze_ygvXuW-W2qVn2eVbD_0UA/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 hover:bg-emerald-500/25 hover:border-emerald-500/50 text-emerald-900 text-xs sm:text-sm font-bold tracking-wide backdrop-blur-md shadow-sm transition-all duration-300 group cursor-pointer"
             >
               {/* Pulsing indicator dot */}

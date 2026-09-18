@@ -360,41 +360,24 @@ export default function TalentMatrix({ onSelectRole }) {
         )}
 
         {/* Tall Card Body */}
-        <div className="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h4 className={`text-base font-bold font-display tracking-tight leading-snug ${
-              isLightGold ? 'text-slate-950' : 'text-white'
-            }`}>
-              {role.title}
-            </h4>
+        <div className="p-5 flex-1 flex flex-col">
+          <h4 className={`text-base font-bold font-display tracking-tight leading-snug ${
+            isLightGold ? 'text-slate-950' : 'text-white'
+          }`}>
+            {role.title}
+          </h4>
 
-            <p className={`mt-3.5 text-xs sm:text-sm leading-relaxed font-normal ${
-              isLightGold ? 'text-slate-700' : 'text-slate-300'
-            }`}>
-              {role.desc}
-            </p>
-          </div>
-
-          {/* Action Button */}
-          <div className="mt-5 pt-3.5 border-t border-slate-800/60">
-            <button
-              onClick={() => onSelectRole(role.title)}
-              className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 ${
-                isLightGold
-                  ? 'bg-slate-950 text-white hover:bg-slate-800 shadow-md'
-                  : 'bg-[#f6ebd4] text-slate-950 hover:bg-white shadow-lg'
-              }`}
-            >
-              <span>Request Talent</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+          <p className={`mt-3.5 text-xs sm:text-sm leading-relaxed font-normal ${
+            isLightGold ? 'text-slate-700' : 'text-slate-300'
+          }`}>
+            {role.desc}
+          </p>
         </div>
       </div>
     );
   };
 
-  // Mobile Card Renderer (Taller box, full readable text & buttons)
+  // Mobile Card Renderer (Taller box, full readable text)
   const renderMobileCard = (role, cardRef) => {
     const Icon = role.icon;
     const isLightGold = role.theme === 'light-gold';
@@ -403,7 +386,7 @@ export default function TalentMatrix({ onSelectRole }) {
       <div
         ref={cardRef}
         key={role.id}
-        className={`w-full h-full rounded-2xl p-3.5 transition-all duration-300 flex flex-col justify-between border group relative z-10 shadow-md min-h-[225px] ${
+        className={`w-full h-full rounded-2xl p-3.5 transition-all duration-300 flex flex-col justify-between border group relative z-10 shadow-md min-h-[170px] ${
           isLightGold
             ? 'bg-[#fef9eb] text-slate-900 border-[#e6d19a]'
             : 'bg-[#111722] text-slate-100 border-slate-800'
@@ -438,19 +421,6 @@ export default function TalentMatrix({ onSelectRole }) {
             {role.desc}
           </p>
         </div>
-
-        {/* Action button */}
-        <button
-          onClick={() => onSelectRole(role.title)}
-          className={`w-full py-2.5 px-2 mt-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-1.5 shrink-0 ${
-            isLightGold
-              ? 'bg-slate-950 text-white hover:bg-slate-800'
-              : 'bg-[#f6ebd4] text-slate-950 hover:bg-white'
-          }`}
-        >
-          <span>Request Talent</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </button>
       </div>
     );
   };
@@ -732,7 +702,7 @@ export default function TalentMatrix({ onSelectRole }) {
               </div>
 
               {/* ROW 5: "More to come" (Col 1) | Card 08 (Col 2) */}
-              <div className="w-full h-full rounded-2xl border-2 border-dashed border-slate-300 bg-white/80 p-3.5 flex flex-col items-center justify-center text-center min-h-[225px] shadow-sm">
+              <div className="w-full h-full rounded-2xl border-2 border-dashed border-slate-300 bg-white/80 p-3.5 flex flex-col items-center justify-center text-center min-h-[170px] shadow-sm">
                 <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mb-2">
                   <Sparkles className="w-4 h-4 text-emerald-700 animate-pulse" />
                 </div>

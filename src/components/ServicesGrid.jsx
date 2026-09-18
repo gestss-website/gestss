@@ -47,7 +47,6 @@ export default function ServicesGrid({ onRequestTalent }) {
   ];
 
   const renderCard = (service) => {
-    const Icon = service.icon;
     const isBlue = service.accentColor === 'blue';
     const isSolar = service.accentColor === 'solar';
 
@@ -61,7 +60,7 @@ export default function ServicesGrid({ onRequestTalent }) {
               alt={service.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
 
             {/* Category Badge */}
             <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[8px] sm:text-[11px] font-bold uppercase tracking-wider backdrop-blur-md shadow-sm ${
@@ -73,17 +72,6 @@ export default function ServicesGrid({ onRequestTalent }) {
             }`}>
               {service.badge}
             </span>
-
-            {/* Floating Icon */}
-            <div className={`absolute bottom-2 left-2 sm:bottom-3 sm:left-3 w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl backdrop-blur-md border shadow-md flex items-center justify-center ${
-              isBlue 
-                ? 'bg-blue-600/90 text-white border-white/30' 
-                : isSolar 
-                ? 'bg-amber-500/90 text-slate-950 border-white/30' 
-                : 'bg-emerald-600/90 text-white border-white/30'
-            }`}>
-              <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-            </div>
           </div>
 
           <h3 className="text-sm sm:text-lg lg:text-xl font-bold font-display text-slate-900 group-hover:text-gestss-green-900 transition-colors leading-tight sm:leading-snug">
@@ -92,16 +80,6 @@ export default function ServicesGrid({ onRequestTalent }) {
           <p className="mt-1.5 sm:mt-2.5 text-sm lg:text-sm text-slate-600 leading-relaxed font-normal">
             {service.description}
           </p>
-        </div>
-
-        <div className="mt-3 sm:mt-5 pt-2 sm:pt-3.5 border-t border-slate-200/60">
-          <button 
-            onClick={onRequestTalent} 
-            className="text-sm sm:text-xs font-bold text-gestss-green-900 flex items-center gap-1 sm:gap-1.5 hover:gap-2 transition-all"
-          >
-            <span>Request Personnel</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
         </div>
       </div>
     );
