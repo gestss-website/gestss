@@ -32,8 +32,8 @@ export default function ProcessApproach() {
         className={`relative rounded-full aspect-square flex flex-col items-center justify-center text-center bg-white border-2 sm:border-[2.5px] border-slate-900 shadow-xl hover:shadow-2xl transition-all duration-300 group z-10 ${
           isMobile
             ? isCenter
-              ? 'w-[176px] h-[176px] xs:w-[184px] xs:h-[184px] p-3 border-emerald-700 shadow-emerald-900/15'
-              : 'w-[166px] h-[166px] xs:w-[172px] xs:h-[172px] p-2.5 shadow-slate-900/10'
+              ? 'w-[164px] h-[164px] p-3 border-emerald-700 shadow-emerald-900/15'
+              : 'w-[152px] h-[152px] p-2.5 shadow-slate-900/10'
             : isCenter
               ? 'w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] p-6 lg:p-8 border-emerald-600 shadow-emerald-900/15'
               : 'w-[250px] h-[250px] lg:w-[310px] lg:h-[310px] p-5 lg:p-7 shadow-slate-900/10'
@@ -54,7 +54,7 @@ export default function ProcessApproach() {
         {/* Title */}
         <h3 className={`relative z-10 font-bold font-display text-slate-950 tracking-tight leading-tight ${
           isMobile
-            ? 'text-[10px] xs:text-[11px] max-w-[85%]'
+            ? 'text-[10px] max-w-[86%]'
             : 'text-base lg:text-lg max-w-[85%] sm:leading-snug'
         }`}>
           {item.title}
@@ -63,7 +63,7 @@ export default function ProcessApproach() {
         {/* Description (concise on mobile so it stays 100% inside circle without any ellipsis) */}
         <p className={`relative z-10 text-slate-600 font-normal leading-tight sm:leading-relaxed ${
           isMobile
-            ? 'mt-1 text-[8.5px] xs:text-[9px] max-w-[88%] leading-[1.3]'
+            ? 'mt-0.5 text-[8.5px] max-w-[90%] leading-[1.25]'
             : 'mt-2 sm:mt-2.5 text-xs lg:text-[13px] max-w-[88%]'
         }`}>
           {isMobile ? item.mobileDesc : item.desc}
@@ -166,31 +166,31 @@ export default function ProcessApproach() {
           </div>
 
           {/* ========================================================================= */}
-          {/* MOBILE VIEW (< md): Compact, lifted center circle, full width utilized     */}
+          {/* MOBILE VIEW (< md): Clean visible connecting lines with 35px diagonal gap  */}
           {/* ========================================================================= */}
-          <div className="md:hidden relative w-full max-w-[390px] mx-auto h-[310px] z-10">
+          <div className="md:hidden relative w-full max-w-[360px] mx-auto h-[350px] z-10">
             
-            {/* Mobile SVG Connecting Curved Arc (short, natural, not overstretched) */}
+            {/* Mobile SVG Connecting Curved Arc (clearly visible across the 35px gap) */}
             <svg 
               className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" 
-              viewBox="0 0 360 310" 
+              viewBox="0 0 360 350" 
               preserveAspectRatio="none"
             >
-              {/* Emerald dashed underglow */}
+              {/* Emerald dashed glow line */}
               <path
-                d="M 115,120 Q 145,175 180,180 Q 215,175 245,120"
+                d="M 95,110 Q 130,225 180,240 Q 230,225 265,110"
                 stroke="#10b981"
-                strokeWidth="3.5"
-                strokeDasharray="5 3"
+                strokeWidth="4"
+                strokeDasharray="6 4"
                 fill="none"
                 strokeLinecap="round"
-                className="opacity-70"
+                className="opacity-75"
               />
-              {/* Solid dark curve */}
+              {/* Solid dark prominent connecting line */}
               <path
-                d="M 115,120 Q 145,175 180,180 Q 215,175 245,120"
+                d="M 95,110 Q 130,225 180,240 Q 230,225 265,110"
                 stroke="#0f172a"
-                strokeWidth="2.2"
+                strokeWidth="2.8"
                 fill="none"
                 strokeLinecap="round"
               />
@@ -206,8 +206,8 @@ export default function ProcessApproach() {
               {renderCircle(approachData[2], false, true)}
             </div>
 
-            {/* Circle 2: Center Bottom (Lifted UP closer to Circle 1 & 3) */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-[118px]">
+            {/* Circle 2: Center Bottom (Positioned at top-[170px] leaving visible 35px gap for connecting lines) */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-[170px]">
               {renderCircle(approachData[1], true, true)}
             </div>
 
