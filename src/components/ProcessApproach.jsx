@@ -32,8 +32,8 @@ export default function ProcessApproach() {
         className={`relative rounded-full aspect-square flex flex-col items-center justify-center text-center bg-white border-2 sm:border-[2.5px] border-slate-900 shadow-xl hover:shadow-2xl transition-all duration-300 group z-10 ${
           isMobile
             ? isCenter
-              ? 'w-[164px] h-[164px] p-3 border-emerald-700 shadow-emerald-900/15'
-              : 'w-[152px] h-[152px] p-2.5 shadow-slate-900/10'
+              ? 'w-[185px] h-[185px] xs:w-[200px] xs:h-[200px] p-4 border-emerald-700 shadow-emerald-900/15'
+              : 'w-[172px] h-[172px] xs:w-[188px] xs:h-[188px] p-4 shadow-slate-900/10'
             : isCenter
               ? 'w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] p-6 lg:p-8 border-emerald-600 shadow-emerald-900/15'
               : 'w-[250px] h-[250px] lg:w-[310px] lg:h-[310px] p-5 lg:p-7 shadow-slate-900/10'
@@ -43,49 +43,29 @@ export default function ProcessApproach() {
         <div className="absolute inset-1.5 sm:inset-3 rounded-full border border-dashed border-slate-200 pointer-events-none group-hover:border-emerald-300 transition-colors" />
 
         {/* Step Number Badge */}
-        <div className={`relative z-10 inline-flex items-center justify-center rounded-full font-mono font-bold shadow-sm transition-colors ${
+        <div className={`relative z-10 inline-flex items-center justify-center rounded-full font-mono font-bold shadow-sm transition-transform group-hover:scale-110 ${
           isMobile
-            ? 'w-5 h-5 text-[9px] mb-1 ' + (isCenter ? 'bg-emerald-600 text-white' : 'bg-slate-950 text-white')
-            : 'w-8 h-8 sm:w-9 sm:h-9 text-xs mb-2 sm:mb-3 ' + (isCenter ? 'bg-emerald-600 text-white' : 'bg-slate-950 text-white')
+            ? 'w-6 h-6 xs:w-7 xs:h-7 text-xs mb-1.5 xs:mb-2 ' + (isCenter ? 'bg-emerald-600 text-white shadow-emerald-600/20' : 'bg-slate-900 text-white shadow-slate-900/20')
+            : 'w-8 h-8 lg:w-10 lg:h-10 text-xs sm:text-sm mb-2.5 lg:mb-3.5 ' + (isCenter ? 'bg-emerald-600 text-white shadow-emerald-600/20' : 'bg-slate-900 text-white shadow-slate-900/20')
         }`}>
           {item.step}
         </div>
 
-        {/* Title */}
-        <h3 className={`relative z-10 font-bold font-display text-slate-950 tracking-tight leading-tight ${
+        {/* Heading */}
+        <h3 className={`relative z-10 font-bold font-display text-slate-950 tracking-tight leading-snug ${
           isMobile
-            ? 'text-[10px] max-w-[86%]'
-            : 'text-base lg:text-lg max-w-[85%] sm:leading-snug'
+            ? 'text-sm xs:text-base max-w-[86%]'
+            : 'text-lg lg:text-xl xl:text-2xl max-w-[82%]'
         }`}>
           {item.title}
         </h3>
-
-        {/* Description (concise on mobile so it stays 100% inside circle without any ellipsis) */}
-        <p className={`relative z-10 text-slate-600 font-normal leading-tight sm:leading-relaxed ${
-          isMobile
-            ? 'mt-0.5 text-[8.5px] max-w-[90%] leading-[1.25]'
-            : 'mt-2 sm:mt-2.5 text-xs lg:text-[13px] max-w-[88%]'
-        }`}>
-          {isMobile ? item.mobileDesc : item.desc}
-        </p>
-
-        {/* Tags (visible on desktop) */}
-        {!isMobile && (
-          <div className="relative z-10 hidden sm:flex flex-wrap justify-center gap-1 sm:gap-1.5 mt-3 lg:mt-4 max-w-[85%]">
-            {item.tags.map((tag, i) => (
-              <span key={i} className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold bg-slate-100 text-slate-700 border border-slate-200">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
     );
   };
 
   return (
     <section id="approach" className="py-12 lg:py-20 bg-white relative overflow-hidden border-t border-slate-200/70">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
         
         {/* Section Header (matching the top box in user's sketch) */}
         <div className="text-center max-w-3xl mx-auto relative z-10 mb-8 sm:mb-12 px-2 sm:px-0">
@@ -93,7 +73,7 @@ export default function ProcessApproach() {
             Our Approach
           </h2>
           
-          <p className="mt-3 sm:mt-4 text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal">
             Our staffing process is designed around understanding before matching. We identify the role requirements, project environment, technical expectations, location, timeline, and workforce objectives before sourcing suitable candidates.
           </p>
         </div>
@@ -161,31 +141,31 @@ export default function ProcessApproach() {
           </div>
 
           {/* ========================================================================= */}
-          {/* MOBILE VIEW (< md): Clean visible connecting lines with 35px diagonal gap  */}
+          {/* MOBILE VIEW (< md): Responsive wide container utilizing available space     */}
           {/* ========================================================================= */}
-          <div className="md:hidden relative w-full max-w-[360px] mx-auto h-[350px] z-10">
+          <div className="md:hidden relative w-full max-w-[440px] mx-auto h-[400px] xs:h-[430px] z-10">
             
-            {/* Mobile SVG Connecting Curved Arc (clearly visible across the 35px gap) */}
+            {/* Mobile SVG Connecting Curved Arc */}
             <svg 
               className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" 
-              viewBox="0 0 360 350" 
+              viewBox="0 0 100 100" 
               preserveAspectRatio="none"
             >
               {/* Emerald dashed glow line */}
               <path
-                d="M 95,110 Q 130,225 180,240 Q 230,225 265,110"
+                d="M 23,24 Q 36,75 50,77 Q 64,75 77,24"
                 stroke="#10b981"
-                strokeWidth="4"
-                strokeDasharray="6 4"
+                strokeWidth="2.5"
+                strokeDasharray="3 2"
                 fill="none"
                 strokeLinecap="round"
                 className="opacity-75"
               />
               {/* Solid dark prominent connecting line */}
               <path
-                d="M 95,110 Q 130,225 180,240 Q 230,225 265,110"
+                d="M 23,24 Q 36,75 50,77 Q 64,75 77,24"
                 stroke="#0f172a"
-                strokeWidth="2.8"
+                strokeWidth="1.8"
                 fill="none"
                 strokeLinecap="round"
               />
@@ -201,8 +181,8 @@ export default function ProcessApproach() {
               {renderCircle(approachData[2], false, true)}
             </div>
 
-            {/* Circle 2: Center Bottom (Positioned at top-[170px] leaving visible 35px gap for connecting lines) */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-[170px]">
+            {/* Circle 2: Center Bottom */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-[195px] xs:top-[210px]">
               {renderCircle(approachData[1], true, true)}
             </div>
 
