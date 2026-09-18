@@ -82,24 +82,24 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
             Specialized workforce solutions for renewable energy, solar technology, electric mobility, and EV infrastructure.
           </p>
 
-          {/* Dual Action Cards for Employers & Professionals */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+          {/* Dual Action Cards for Employers & Professionals (Side by side on mobile & desktop) */}
+          <div className="pt-4 flex flex-row items-stretch justify-center gap-2 sm:gap-4 max-w-2xl mx-auto w-full">
             
             {/* For Employers — Request Talent */}
             <button
               onClick={onRequestTalent}
-              className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-sm text-white bg-slate-950 hover:bg-slate-800 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-3 group border border-slate-800"
+              className="flex-1 sm:flex-initial px-2.5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm text-white bg-slate-950 hover:bg-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 group border border-slate-800"
             >
-              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-                <Building2 className="w-4 h-4" />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shrink-0">
+                <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
               <div className="text-left">
-                <span className="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold leading-none mb-1">
+                <span className="block text-[8.5px] sm:text-[11px] uppercase tracking-wider text-slate-400 font-semibold leading-tight sm:leading-none mb-0.5 sm:mb-1">
                   For Employers
                 </span>
-                <span className="text-sm font-extrabold text-white flex items-center gap-1.5 leading-none">
+                <span className="text-[11px] sm:text-sm font-extrabold text-white flex items-center gap-1 sm:gap-1.5 leading-tight sm:leading-none whitespace-nowrap">
                   Request Talent
-                  <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
                 </span>
               </div>
             </button>
@@ -107,18 +107,18 @@ export default function Hero({ onRequestTalent, onJoinNetwork }) {
             {/* For Professionals — Join Our Talent Network */}
             <button
               onClick={onJoinNetwork}
-              className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-sm text-slate-900 bg-white/95 hover:bg-white border border-slate-200/90 shadow-md hover:shadow-xl transform hover:-translate-y-0.5 backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3 group"
+              className="flex-1 sm:flex-initial px-2.5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm text-slate-900 bg-white/95 hover:bg-white border border-slate-200/90 shadow-md hover:shadow-xl backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 group"
             >
-              <div className="w-8 h-8 rounded-xl bg-gestss-green-100 flex items-center justify-center text-gestss-green-800 group-hover:scale-105 transition-transform">
-                <UserCheck className="w-4 h-4" />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-gestss-green-100 flex items-center justify-center text-gestss-green-800 group-hover:scale-105 transition-transform shrink-0">
+                <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
               <div className="text-left">
-                <span className="block text-[11px] uppercase tracking-wider text-slate-500 font-semibold leading-none mb-1">
+                <span className="block text-[8.5px] sm:text-[11px] uppercase tracking-wider text-slate-500 font-semibold leading-tight sm:leading-none mb-0.5 sm:mb-1">
                   For Professionals
                 </span>
-                <span className="text-sm font-extrabold text-slate-900 flex items-center gap-1.5 leading-none">
-                  Join Our Talent Network
-                  <ArrowRight className="w-3.5 h-3.5 text-gestss-green-700 group-hover:translate-x-0.5 transition-transform" />
+                <span className="text-[11px] sm:text-sm font-extrabold text-slate-900 flex items-center gap-1 sm:gap-1.5 leading-tight sm:leading-none whitespace-nowrap">
+                  Join Talent Network
+                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gestss-green-700 group-hover:translate-x-0.5 transition-transform shrink-0" />
                 </span>
               </div>
             </button>
