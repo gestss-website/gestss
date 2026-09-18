@@ -108,12 +108,12 @@ export default function StrategicPartnershipsSection({ onRequestTalent }) {
                     {partner.title}
                   </h3>
 
-                  <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
                     {partner.desc}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400 group-hover:text-gestss-green-800 transition-colors">
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-sm font-semibold text-slate-400 group-hover:text-gestss-green-800 transition-colors">
                   <span>Collaborate</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>

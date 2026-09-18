@@ -23,19 +23,19 @@ export default function ComplianceSection({ onRequestTalent }) {
                 <FileCheck className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
               
-              <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-gestss-green-800 bg-emerald-50 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md mb-2 sm:mb-3 inline-block">
+              <span className="text-xs font-bold uppercase tracking-wider text-gestss-green-800 bg-emerald-50 px-2.5 py-1 rounded-md mb-2 sm:mb-3 inline-block">
                 Recruitment Framework
               </span>
 
-              <p className="text-[10.5px] sm:text-base lg:text-lg text-slate-700 leading-relaxed font-normal mt-1 sm:mt-2">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed font-normal mt-2">
                 Our recruitment framework considers the requirements of each role and project, including technical qualifications, relevant experience, certifications, licensing where applicable, safety requirements, background verification, and client-specific compliance standards.
               </p>
             </div>
 
-            <div className="mt-4 sm:mt-8 pt-2.5 sm:pt-4 border-t border-slate-100 flex flex-wrap gap-1 sm:gap-2 text-[8.5px] sm:text-xs text-slate-600">
-              <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Technical Qualifications</span>
-              <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Background Verification</span>
-              <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Safety Standards</span>
+            <div className="mt-4 sm:mt-8 pt-2.5 sm:pt-4 border-t border-slate-100 flex flex-wrap gap-1.5 sm:gap-2 text-xs text-slate-600">
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Technical Qualifications</span>
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Background Verification</span>
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Safety Standards</span>
             </div>
           </div>
 
@@ -46,19 +46,19 @@ export default function ComplianceSection({ onRequestTalent }) {
                 <Zap className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
 
-              <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-gestss-blue-800 bg-blue-50 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md mb-2 sm:mb-3 inline-block">
+              <span className="text-xs font-bold uppercase tracking-wider text-gestss-blue-800 bg-blue-50 px-2.5 py-1 rounded-md mb-2 sm:mb-3 inline-block">
                 Electrical &amp; EV Technologies
               </span>
 
-              <p className="text-[10.5px] sm:text-base lg:text-lg text-slate-700 leading-relaxed font-normal mt-1 sm:mt-2">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed font-normal mt-2">
                 For electrical infrastructure and specialized EV technologies, certification and licensing requirements are verified against the applicable role and local regulatory framework before deployment.
               </p>
             </div>
 
-            <div className="mt-4 sm:mt-8 pt-2.5 sm:pt-4 border-t border-slate-100 flex flex-wrap gap-1 sm:gap-2 text-[8.5px] sm:text-xs text-slate-600">
-              <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Local Regulatory Framework</span>
-              <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Verified Pre-Deployment</span>
-              <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Licensing Compliance</span>
+            <div className="mt-4 sm:mt-8 pt-2.5 sm:pt-4 border-t border-slate-100 flex flex-wrap gap-1.5 sm:gap-2 text-xs text-slate-600">
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Local Regulatory Framework</span>
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Verified Pre-Deployment</span>
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-50 border border-slate-200 font-medium">Licensing Compliance</span>
             </div>
           </div>
 

@@ -34,10 +34,10 @@ function DashedCard({ title, description, className = '' }) {
       <CornerCross position="br" />
 
       {/* Card Content */}
-      <h3 className="text-xs sm:text-base lg:text-lg font-bold font-display text-slate-950 tracking-tight leading-tight sm:leading-snug">
+      <h3 className="text-sm sm:text-base lg:text-lg font-bold font-display text-slate-950 tracking-tight leading-tight sm:leading-snug">
         {title}
       </h3>
-      <p className="mt-1.5 sm:mt-2.5 text-[10px] sm:text-xs lg:text-sm text-slate-600 leading-relaxed font-normal">
+      <p className="mt-1.5 sm:mt-2.5 text-sm sm:text-xs lg:text-sm text-slate-600 leading-relaxed font-normal">
         {description}
       </p>
     </div>
@@ -80,11 +80,11 @@ export default function WorkforceUpskillingSection() {
         <div className="max-w-3xl mb-10 sm:mb-14">
           <div className="w-12 h-1.5 bg-emerald-500 rounded-full mb-4" />
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 tracking-tight leading-tight">
             Workforce Upskilling &amp; Career Transition
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal">
             Professionals with existing technical and electrical experience may require additional industry-specific knowledge, training, or certification pathways to move into emerging green-technology roles.
           </p>
         </div>

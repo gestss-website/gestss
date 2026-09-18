@@ -95,7 +95,7 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
             
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-lg space-y-6">
               <div>
-                <h2 className="text-2xl font-bold font-display text-slate-900">
+                <h2 className="text-3xl font-bold font-display text-slate-900">
                   Green Energy &amp; Solar Tech Staffing Solution
                 </h2>
                 <p className="text-xs text-gestss-green-700 font-semibold mt-1">
@@ -189,7 +189,7 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
 
           {/* Right Column: Direct Fast Message Dispatch Form */}
           <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/90 shadow-lg">
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900">
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-slate-900">
               Send an Instant Inquiry
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1 mb-8">

@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Leaf, 
   Car, 
   Users, 
   Sun, 
-  Wind, 
-  BarChart3, 
-  Globe2, 
-  Zap,
-  TrendingUp,
-  Sparkles
+  Wind 
 } from 'lucide-react';
 
 export default function GreenEnergyLandscape() {
-  const [activeTab, setActiveTab] = useState('renewable');
-
-  // EV Bar data exactly from image
+  // EV Bar data
   const evBarData = [
     { year: 'FY 2019–20', value: 1.74, heightPct: 9 },
     { year: 'FY 2020–21', value: 1.43, heightPct: 7 },
@@ -25,33 +18,17 @@ export default function GreenEnergyLandscape() {
     { year: 'FY 2024–25', value: 19.68, heightPct: 100 },
   ];
 
-  // Tabbed Highlight data
-  const highlightTabs = {
-    renewable: [
-      { label: 'Total Non-Fossil Capacity (India)', value: '304 GW', period: '(Aug 2026)', icon: Leaf, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: 'Solar Capacity (India)', value: '168 GW', period: '(Aug 2026)', icon: Sun, color: 'text-amber-500', bg: 'bg-amber-50' },
-      { label: 'Wind Capacity (India)', value: '58 GW', period: '(Aug 2026)', icon: Wind, color: 'text-cyan-600', bg: 'bg-cyan-50' },
-      { label: 'EV Registrations (India)', value: '19.68 Lakh', period: '(FY 2024–25)', icon: Car, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: 'Renewable Energy Jobs (India)', value: '1.28 Million', period: '(2024)', icon: Users, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: 'Renewable Energy Jobs (Global)', value: '16.6 Million', period: '(2024)', icon: Globe2, color: 'text-teal-600', bg: 'bg-teal-50' },
-    ],
-    solar: [
-      { label: 'Current Solar Grid Capacity', value: '168 GW', period: '(Aug 2026)', icon: Sun, color: 'text-amber-500', bg: 'bg-amber-50' },
-      { label: 'Historical Baseline (2019)', value: '32.0 GW', period: '(2019)', icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: '5-Year Capacity Addition', value: '+136 GW', period: '(2019-2026)', icon: Zap, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: 'Solar Workforce Share (Global)', value: '43% (7.2M)', period: '(2024)', icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
-    ],
-    ev: [
-      { label: 'Annual EV Sales Volume', value: '19.68 Lakh', period: '(FY 2024–25)', icon: Car, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: 'Growth over FY 2019-20', value: '11.3x Growth', period: '(5 Years)', icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: 'Fast Charging Deployment Pace', value: 'Surging', period: '(National Highways)', icon: Zap, color: 'text-amber-500', bg: 'bg-amber-50' },
-    ],
-    jobs: [
-      { label: 'Global Clean-Tech Workforce', value: '16.6 Million', period: '(2024 IRENA)', icon: Globe2, color: 'text-teal-600', bg: 'bg-teal-50' },
-      { label: 'Solar PV Specialized Jobs', value: '7.2 Million', period: '(43% Global Share)', icon: Sun, color: 'text-amber-500', bg: 'bg-amber-50' },
-      { label: 'Indian Green Energy Workforce', value: '1.28 Million', period: '(Rapid Expansion)', icon: Users, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-    ],
-  };
+  // Solar Capacity Growth Timeline points
+  const solarGrowthPoints = [
+    { cx: 15, cy: 135, val: '32.0', yr: '2019', shortYr: "'19" },
+    { cx: 75, cy: 130, val: '38.3', yr: '2020', shortYr: "'20" },
+    { cx: 135, cy: 124, val: '46.5', yr: '2021', shortYr: "'21" },
+    { cx: 195, cy: 110, val: '62.4', yr: '2022', shortYr: "'22" },
+    { cx: 255, cy: 98, val: '72.7', yr: '2023', shortYr: "'23" },
+    { cx: 315, cy: 75, val: '100+', yr: '2024', shortYr: "'24" },
+    { cx: 375, cy: 52, val: '130+', yr: '2025', shortYr: "'25" },
+    { cx: 435, cy: 20, val: '168.0', yr: '2026', shortYr: "'26" },
+  ];
 
   return (
     <section id="landscape" className="py-12 lg:py-16 bg-[#f5fbf8] relative overflow-hidden border-b border-emerald-100/70">
@@ -239,42 +216,49 @@ export default function GreenEnergyLandscape() {
               </div>
 
               {/* Bar Chart Canvas with Y-Axis */}
-              <div className="mt-2 sm:mt-4 flex items-end gap-1 sm:gap-2 h-44 sm:h-52 pt-3 sm:pt-6">
-                
-                {/* Y-Axis Labels */}
-                <div className="flex flex-col justify-between h-full text-[8px] sm:text-[10px] font-semibold text-slate-400 pr-0.5 sm:pr-1 pb-4 sm:pb-6 text-right">
-                  <span>25</span>
-                  <span>20</span>
-                  <span>15</span>
-                  <span>10</span>
-                  <span>5</span>
-                  <span>0</span>
+              <div className="mt-2 sm:mt-4">
+                <div className="flex items-end gap-1 sm:gap-2 h-36 sm:h-48">
+                  {/* Y-Axis Labels */}
+                  <div className="flex flex-col justify-between h-full text-[8px] sm:text-[10px] font-semibold text-slate-400 pr-0.5 sm:pr-1 text-right">
+                    <span>25</span>
+                    <span>20</span>
+                    <span>15</span>
+                    <span>10</span>
+                    <span>5</span>
+                    <span>0</span>
+                  </div>
+
+                  {/* Bars Container - bottom border is the axis line on which bars sit */}
+                  <div className="flex-1 grid grid-cols-6 gap-1 sm:gap-3 items-end h-full border-b border-l border-slate-200 pl-1 sm:pl-2">
+                    {evBarData.map((bar, i) => (
+                      <div key={i} className="flex flex-col items-center justify-end h-full group/bar">
+                        {/* Value label on top of bar */}
+                        <span className="text-[7.5px] sm:text-[10px] font-bold text-slate-700 mb-0.5 sm:mb-1 opacity-90">
+                          {bar.value}
+                        </span>
+
+                        {/* Bar Pillar */}
+                        <div
+                          className="w-full max-w-[12px] sm:max-w-[34px] rounded-t sm:rounded-t-lg bg-gradient-to-t from-emerald-600 via-teal-500 to-emerald-400 group-hover/bar:brightness-110 transition-all duration-300 shadow-sm"
+                          style={{ height: `${bar.heightPct * 0.85}%` }}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Bars Container */}
-                <div className="flex-1 grid grid-cols-6 gap-1 sm:gap-3 items-end h-full border-b border-l border-slate-200 pl-1 sm:pl-2 pb-1">
-                  {evBarData.map((bar, i) => (
-                    <div key={i} className="flex flex-col items-center justify-end h-full group/bar">
-                      
-                      {/* Value label on top of bar */}
-                      <span className="text-[7.5px] sm:text-[10px] font-bold text-slate-700 mb-0.5 sm:mb-1 opacity-90">
-                        {bar.value}
-                      </span>
-
-                      {/* Bar Pillar */}
-                      <div className="w-full max-w-[12px] sm:max-w-[34px] rounded-t sm:rounded-t-lg bg-gradient-to-t from-emerald-600 via-teal-500 to-emerald-400 group-hover/bar:brightness-110 transition-all duration-300 shadow-sm"
-                        style={{ height: `${bar.heightPct * 0.78}%` }}
-                      />
-
-                      {/* X-Axis Year label */}
-                      <span className="text-[7px] sm:text-[9.5px] text-slate-500 font-medium mt-1 sm:mt-2 text-center truncate block w-full">
-                        <span className="sm:hidden">'{bar.year.slice(-2)}</span>
+                {/* Years Row - strictly BELOW the bottom line! */}
+                <div className="flex items-center gap-1 sm:gap-2 pt-1.5 sm:pt-2">
+                  <div className="w-3.5 sm:w-5 flex-shrink-0" />
+                  <div className="flex-1 grid grid-cols-6 gap-1 sm:gap-3 pl-1 sm:pl-2">
+                    {evBarData.map((bar, i) => (
+                      <span key={i} className="text-[7.5px] sm:text-[10px] text-slate-500 font-medium text-center truncate block w-full">
+                        <span className="sm:hidden">{bar.year.slice(-2)}</span>
                         <span className="hidden sm:inline">{bar.year}</span>
                       </span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -301,53 +285,66 @@ export default function GreenEnergyLandscape() {
               <div className="flex flex-col items-center justify-center my-2 sm:my-4">
                 
                 {/* 2-Color Pie Chart SVG */}
-                <div className="relative w-28 h-28 sm:w-44 sm:h-44 flex items-center justify-center">
-                  <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                <div className="relative w-32 h-32 sm:w-44 sm:h-44 flex items-center justify-center">
+                  <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100">
                     {/* Full Green Circle (Other 57%) */}
-                    <circle cx="50" cy="50" r="45" fill="#22c55e" />
+                    <circle cx="50" cy="50" r="46" fill="#16a34a" />
                     
                     {/* Blue Wedge (Solar PV 43%) */}
                     <circle
                       cx="50"
                       cy="50"
-                      r="22.5"
-                      fill="transparent"
+                      r="23"
+                      fill="none"
                       stroke="#2563eb"
-                      strokeWidth="45"
-                      strokeDasharray="60.7 141.3"
-                      strokeDashoffset="0"
+                      strokeWidth="46"
+                      strokeDasharray="62.14 144.51"
+                      transform="rotate(-90 50 50)"
                     />
+
+                    {/* Solar PV slice labels inside SVG so they never cut off */}
+                    <g className="select-none pointer-events-none">
+                      <text x="71" y="42" textAnchor="middle" fill="#ffffff" fontSize="6.5" fontWeight="bold" className="font-sans">
+                        Solar PV
+                      </text>
+                      <text x="71" y="50" textAnchor="middle" fill="#ffffff" fontSize="8" fontWeight="900" className="font-sans">
+                        7.2M
+                      </text>
+                      <text x="71" y="57" textAnchor="middle" fill="#ffffff" fontSize="5.5" opacity="0.95" className="font-sans">
+                        (43%)
+                      </text>
+                    </g>
+
+                    {/* Other RE slice labels inside SVG */}
+                    <g className="select-none pointer-events-none">
+                      <text x="29" y="46" textAnchor="middle" fill="#ffffff" fontSize="6.5" fontWeight="bold" className="font-sans">
+                        Other RE
+                      </text>
+                      <text x="29" y="54" textAnchor="middle" fill="#ffffff" fontSize="8" fontWeight="900" className="font-sans">
+                        9.4M
+                      </text>
+                      <text x="29" y="61" textAnchor="middle" fill="#ffffff" fontSize="5.5" opacity="0.95" className="font-sans">
+                        (57%)
+                      </text>
+                    </g>
                   </svg>
-
-                  {/* Overlay labels inside the pie slices */}
-                  <div className="absolute top-4 sm:top-8 right-3 sm:right-6 text-white text-center pointer-events-none">
-                    <span className="block text-[8px] sm:text-[11px] font-bold leading-tight">Solar PV</span>
-                    <span className="block text-[9px] sm:text-xs font-black">7.2M</span>
-                    <span className="block text-[7px] sm:text-[9px] opacity-90">(43%)</span>
-                  </div>
-
-                  <div className="absolute bottom-5 sm:bottom-10 left-4 sm:left-8 text-white text-center pointer-events-none">
-                    <span className="block text-[8px] sm:text-[11px] font-bold leading-tight">Other</span>
-                    <span className="block text-[9px] sm:text-xs font-black">9.4M</span>
-                    <span className="block text-[7px] sm:text-[9px] opacity-90">(57%)</span>
-                  </div>
                 </div>
 
-                {/* Bottom Stats Footer */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-10 mt-3 sm:mt-6 pt-2 sm:pt-3 border-t border-slate-100 w-full">
+                {/* Bottom Stats Footer - Solar PV & Other RE side by side on mobile & desktop */}
+                <div className="flex flex-row items-center justify-center gap-3 sm:gap-8 mt-3 sm:mt-5 pt-2 sm:pt-3 border-t border-slate-100 w-full">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-blue-600 flex-shrink-0" />
                     <div>
-                      <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium block">Solar PV</span>
-                      <span className="text-xs sm:text-base font-black text-slate-900">7.2M</span>
+                      <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium block leading-tight">Solar PV</span>
+                      <span className="text-xs sm:text-base font-black text-slate-900 leading-tight">7.2M</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500 flex-shrink-0" />
+                    <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-600 flex-shrink-0" />
                     <div>
-                      <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium block">Other RE</span>
-                      <span className="text-xs sm:text-base font-black text-slate-900">9.4M</span>
+                      <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium block leading-tight">Other RE</span>
+                      <span className="text-xs sm:text-base font-black text-slate-900 leading-tight">9.4M</span>
                     </div>
                   </div>
                 </div>
@@ -357,7 +354,7 @@ export default function GreenEnergyLandscape() {
           </div>
 
           {/* Card 4: Solar Capacity Growth (India) (GW) with Line/Area Chart */}
-          <div className="col-span-1 lg:col-span-6 bg-white rounded-2xl sm:rounded-[28px] p-3.5 sm:p-8 border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div className="col-span-1 lg:col-span-12 bg-white rounded-2xl sm:rounded-[28px] p-3.5 sm:p-8 border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div>
               {/* Card Title */}
               <div className="flex items-start gap-2 sm:gap-3 mb-3 sm:mb-6">
@@ -375,11 +372,11 @@ export default function GreenEnergyLandscape() {
               </div>
 
               {/* Growth Curve Chart using SVG */}
-              <div className="relative mt-2 sm:mt-4 pt-1 sm:pt-2">
-                <div className="flex items-end gap-1 sm:gap-2 h-44 sm:h-56">
+              <div className="mt-2 sm:mt-4">
+                <div className="flex items-end gap-1 sm:gap-2 h-36 sm:h-52">
                   
                   {/* Y-Axis scale */}
-                  <div className="flex flex-col justify-between h-full text-[8px] sm:text-[10px] font-semibold text-slate-400 pr-0.5 sm:pr-1 pb-4 sm:pb-6 text-right">
+                  <div className="flex flex-col justify-between h-full text-[8px] sm:text-[10px] font-semibold text-slate-400 pr-0.5 sm:pr-1 text-right">
                     <span>200</span>
                     <span>150</span>
                     <span>100</span>
@@ -387,15 +384,14 @@ export default function GreenEnergyLandscape() {
                     <span>0</span>
                   </div>
 
-                  {/* SVG Line & Dots Canvas */}
-                  <div className="flex-1 h-full relative border-b border-l border-slate-200 pb-4 sm:pb-6">
-                    
-                    <svg className="w-full h-full overflow-visible" viewBox="0 0 450 180" preserveAspectRatio="none">
+                  {/* SVG Plot Canvas - Bottom border is the axis line */}
+                  <div className="flex-1 h-full relative border-b border-l border-slate-200">
+                    <svg className="w-full h-full overflow-visible" viewBox="0 0 450 160" preserveAspectRatio="none">
                       {/* Grid Lines */}
                       <line x1="0" y1="0" x2="450" y2="0" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="45" x2="450" y2="45" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="90" x2="450" y2="90" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="135" x2="450" y2="135" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
+                      <line x1="0" y1="40" x2="450" y2="40" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
+                      <line x1="0" y1="80" x2="450" y2="80" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
+                      <line x1="0" y1="120" x2="450" y2="120" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3" />
 
                       {/* Shaded Area Under Curve */}
                       <defs>
@@ -406,140 +402,55 @@ export default function GreenEnergyLandscape() {
                       </defs>
 
                       <path
-                        d="M 15,150 Q 75,145 135,138 T 195,123 T 255,110 T 315,85 T 375,60 T 435,25 L 435,180 L 15,180 Z"
+                        d="M 15,135 Q 75,130 135,124 T 195,110 T 255,98 T 315,75 T 375,52 T 435,20 L 435,160 L 15,160 Z"
                         fill="url(#solarGradient)"
                       />
 
                       {/* Growth Line */}
                       <path
-                        d="M 15,150 Q 75,145 135,138 T 195,123 T 255,110 T 315,85 T 375,60 T 435,25"
+                        d="M 15,135 Q 75,130 135,124 T 195,110 T 255,98 T 315,75 T 375,52 T 435,20"
                         stroke="#059669"
-                        strokeWidth="3.5"
+                        strokeWidth="3"
                         fill="none"
                         strokeLinecap="round"
                       />
 
-                      {/* Data Point Dots & Labels */}
-                      {[
-                        { cx: 15, cy: 150, val: '32.0', yr: '2019' },
-                        { cx: 75, cy: 145, val: '38.3', yr: '2020' },
-                        { cx: 135, cy: 138, val: '46.5', yr: '2021' },
-                        { cx: 195, cy: 123, val: '62.4', yr: '2022' },
-                        { cx: 255, cy: 110, val: '72.7', yr: '2023' },
-                        { cx: 315, cy: 85, val: '100+', yr: '2024' },
-                        { cx: 375, cy: 60, val: '130+', yr: '2025' },
-                        { cx: 435, cy: 25, val: '168.0', yr: '2026' },
-                      ].map((pt, i) => (
+                      {/* Data Point Dots & Value Labels */}
+                      {solarGrowthPoints.map((pt, i) => (
                         <g key={i} className="cursor-pointer group/dot">
-                          <circle cx={pt.cx} cy={pt.cy} r="4" fill="#047857" className="transition-transform group-hover/dot:scale-125" />
+                          <circle cx={pt.cx} cy={pt.cy} r="3.5" fill="#047857" className="transition-transform group-hover/dot:scale-125" />
                           <circle cx={pt.cx} cy={pt.cy} r="1.5" fill="#ffffff" />
                           
                           {/* Top Value */}
                           <text
                             x={pt.cx}
-                            y={pt.cy - 7}
+                            y={pt.cy - 6}
                             textAnchor="middle"
                             fill="#0f172a"
-                            fontSize="10"
+                            fontSize="9"
                             fontWeight="bold"
                             className="font-sans"
                           >
                             {pt.val}
                           </text>
-
-                          {/* Year on X-axis */}
-                          <text
-                            x={pt.cx}
-                            y="196"
-                            textAnchor="middle"
-                            fill="#64748b"
-                            fontSize="9"
-                            fontWeight="500"
-                            className="font-sans"
-                          >
-                            {pt.yr}
-                          </text>
                         </g>
                       ))}
                     </svg>
-
                   </div>
-
                 </div>
-              </div>
 
-            </div>
-          </div>
-
-          {/* Card 5: Key Highlights Table with interactive Filter Tabs */}
-          <div className="col-span-2 lg:col-span-6 bg-white rounded-2xl sm:rounded-[28px] p-4 sm:p-8 border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-            <div>
-              
-              {/* Header with Title & Tab Buttons */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 flex items-center justify-center flex-shrink-0">
-                    <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
+                {/* Years Row - Strictly BELOW the bottom line! */}
+                <div className="flex items-center gap-1 sm:gap-2 pt-1.5 sm:pt-2">
+                  <div className="w-3.5 sm:w-5 flex-shrink-0" />
+                  <div className="flex-1 flex justify-between items-center text-[7px] sm:text-[10px] text-slate-500 font-medium px-0.5 sm:px-2">
+                    {solarGrowthPoints.map((pt, i) => (
+                      <span key={i} className="text-center">
+                        <span className="sm:hidden">{pt.shortYr}</span>
+                        <span className="hidden sm:inline">{pt.yr}</span>
+                      </span>
+                    ))}
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold font-display text-slate-900 leading-snug">
-                    Key Highlights
-                  </h3>
                 </div>
-
-                {/* Filter Tabs */}
-                <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80 self-start sm:self-auto overflow-x-auto max-w-full">
-                  {[
-                    { id: 'renewable', label: 'Renewable Energy' },
-                    { id: 'solar', label: 'Solar' },
-                    { id: 'ev', label: 'EV Infrastructure' },
-                    { id: 'jobs', label: 'Jobs' },
-                  ].map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
-                        activeTab === tab.id
-                          ? 'bg-emerald-600 text-white shadow-sm'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Data Rows */}
-              <div className="divide-y divide-slate-100">
-                {highlightTabs[activeTab].map((row, idx) => {
-                  const RowIcon = row.icon;
-                  return (
-                    <div 
-                      key={idx} 
-                      className="py-3 sm:py-3.5 flex items-center justify-between gap-3 hover:bg-slate-50/70 px-2 rounded-xl transition-colors"
-                    >
-                      {/* Left: Icon + Label */}
-                      <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                        <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${row.bg} ${row.color} flex items-center justify-center flex-shrink-0`}>
-                          <RowIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                        </div>
-                        <span className="text-xs sm:text-sm font-medium text-slate-800 truncate">
-                          {row.label}
-                        </span>
-                      </div>
-
-                      {/* Right: Metric Value + Period Badge */}
-                      <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 text-right">
-                        <span className="text-xs sm:text-base font-black font-display text-slate-900">
-                          {row.value}
-                        </span>
-                        <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium hidden sm:inline-block w-20 text-right">
-                          {row.period}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
 
             </div>

@@ -86,10 +86,10 @@ export default function ServicesGrid({ onRequestTalent }) {
             </div>
           </div>
 
-          <h3 className="text-xs sm:text-lg lg:text-xl font-bold font-display text-slate-900 group-hover:text-gestss-green-900 transition-colors leading-tight sm:leading-snug">
+          <h3 className="text-sm sm:text-lg lg:text-xl font-bold font-display text-slate-900 group-hover:text-gestss-green-900 transition-colors leading-tight sm:leading-snug">
             {service.title}
           </h3>
-          <p className="mt-1.5 sm:mt-2.5 text-[10px] sm:text-xs lg:text-sm text-slate-600 leading-relaxed font-normal">
+          <p className="mt-1.5 sm:mt-2.5 text-sm lg:text-sm text-slate-600 leading-relaxed font-normal">
             {service.description}
           </p>
         </div>
@@ -97,10 +97,10 @@ export default function ServicesGrid({ onRequestTalent }) {
         <div className="mt-3 sm:mt-5 pt-2 sm:pt-3.5 border-t border-slate-200/60">
           <button 
             onClick={onRequestTalent} 
-            className="text-[9.5px] sm:text-xs font-bold text-gestss-green-900 flex items-center gap-1 sm:gap-1.5 hover:gap-2 transition-all"
+            className="text-sm sm:text-xs font-bold text-gestss-green-900 flex items-center gap-1 sm:gap-1.5 hover:gap-2 transition-all"
           >
             <span>Request Personnel</span>
-            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function ServicesGrid({ onRequestTalent }) {
         
         {/* Mobile / Tablet Header (shown only below lg) */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 lg:hidden">
-          <h2 className="text-2xl sm:text-4xl font-bold font-display text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-slate-900 tracking-tight">
             What We Do
           </h2>
         </div>

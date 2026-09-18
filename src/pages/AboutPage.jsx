@@ -99,7 +99,7 @@ export default function AboutPage({ onRequestTalent, onJoinNetwork }) {
               <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                 <Compass className="w-6 h-6" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black font-display text-slate-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl font-black font-display text-slate-900 mb-4">
                 Our Vision
               </h2>
               <p className="text-base text-slate-800 font-semibold leading-relaxed mb-4">
@@ -117,7 +117,7 @@ export default function AboutPage({ onRequestTalent, onJoinNetwork }) {
               <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                 <Target className="w-6 h-6" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black font-display text-slate-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl font-black font-display text-slate-900 mb-4">
                 Our Mission
               </h2>
               <p className="text-base text-slate-800 font-semibold leading-relaxed mb-4">

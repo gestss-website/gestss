@@ -412,7 +412,7 @@ export default function TalentMatrix({ onSelectRole }) {
         <div className="flex-1 flex flex-col">
           {/* Top row: Badge + Icon */}
           <div className="flex items-center justify-between gap-1 mb-2.5">
-            <span className={`text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
+            <span className={`text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
               isLightGold ? 'bg-amber-200/90 text-amber-950' : 'bg-white/10 text-slate-400'
             }`}>
               {role.step}
@@ -425,14 +425,14 @@ export default function TalentMatrix({ onSelectRole }) {
           </div>
 
           {/* Title */}
-          <h4 className={`text-[11px] font-bold font-display tracking-tight leading-snug ${
+          <h4 className={`text-sm font-bold font-display tracking-tight leading-snug ${
             isLightGold ? 'text-slate-950' : 'text-white'
           }`}>
             {role.title}
           </h4>
 
           {/* Description */}
-          <p className={`mt-2 text-[9px] leading-relaxed font-normal flex-1 ${
+          <p className={`mt-2 text-sm leading-relaxed font-normal flex-1 ${
             isLightGold ? 'text-slate-700' : 'text-slate-300'
           }`}>
             {role.desc}
@@ -442,14 +442,14 @@ export default function TalentMatrix({ onSelectRole }) {
         {/* Action button */}
         <button
           onClick={() => onSelectRole(role.title)}
-          className={`w-full py-2 px-2 mt-3 rounded-xl text-[9.5px] font-bold transition-all flex items-center justify-center gap-1.5 shrink-0 ${
+          className={`w-full py-2.5 px-2 mt-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-1.5 shrink-0 ${
             isLightGold
               ? 'bg-slate-950 text-white hover:bg-slate-800'
               : 'bg-[#f6ebd4] text-slate-950 hover:bg-white'
           }`}
         >
           <span>Request Talent</span>
-          <ArrowRight className="w-3 h-3" />
+          <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
     );
@@ -699,10 +699,10 @@ export default function TalentMatrix({ onSelectRole }) {
                 {renderMobileCard(disciplines[0], mCard1Ref)}
               </div>
               <div className="p-1 sm:p-2 flex flex-col justify-center h-full">
-                <h2 className="text-lg sm:text-xl font-bold font-display text-slate-950 tracking-tight leading-tight">
+                <h2 className="text-2xl min-[360px]:text-3xl sm:text-4xl font-bold font-display text-slate-950 tracking-tight leading-tight">
                   Key Areas of <span className="text-emerald-700">Talent</span>
                 </h2>
-                <p className="mt-1 text-[9px] text-slate-600 leading-tight font-normal">
+                <p className="mt-2 text-sm text-slate-600 leading-snug font-normal">
                   Specialized engineering, operations, and technical talent across renewable infrastructure.
                 </p>
               </div>
@@ -736,10 +736,10 @@ export default function TalentMatrix({ onSelectRole }) {
                 <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mb-2">
                   <Sparkles className="w-4 h-4 text-emerald-700 animate-pulse" />
                 </div>
-                <span className="text-[11px] font-bold text-slate-900 uppercase tracking-wider">
+                <span className="text-sm font-bold text-slate-900 uppercase tracking-wider">
                   More to come
                 </span>
-                <p className="text-[9px] text-slate-500 mt-1.5 leading-snug">
+                <p className="text-sm text-slate-500 mt-1.5 leading-snug">
                   Expanding clean-tech disciplines &amp; custom roles
                 </p>
               </div>
