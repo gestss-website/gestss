@@ -152,8 +152,8 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
                       Direct Email Inquiries
                     </span>
-                    <a href="mailto:contact@gestss.com" className="text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors block mt-0.5">
-                      contact@gestss.com
+                    <a href="mailto:contact.gestss@gmail.com" className="text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors block mt-0.5">
+                      contact.gestss@gmail.com
                     </a>
                     <span className="block text-xs text-slate-500 mt-0.5">Dedicated staffing &amp; recruiter response desk</span>
                   </div>

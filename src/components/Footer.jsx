@@ -94,6 +94,16 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
                 4-Day Shortlist SLA
               </span>
             </div>
+
+            <div className="pt-2 text-xs text-slate-300 flex flex-wrap items-center gap-2">
+              <span className="text-slate-400 font-medium">Official Inquiries:</span>
+              <a 
+                href="mailto:contact.gestss@gmail.com" 
+                className="text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
+              >
+                contact.gestss@gmail.com
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-7 flex flex-col sm:flex-row justify-between gap-6 p-6 rounded-3xl bg-slate-900 border border-slate-800">
