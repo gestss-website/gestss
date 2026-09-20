@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Send, Building2, Zap, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle2, Send, Building2, Zap, ShieldCheck, Loader2 } from 'lucide-react';
+import { submitTalentRequest } from '@/lib/firebase';
 
 export default function TalentRequestModal({ isOpen, onClose, initialRole = '' }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -18,13 +21,24 @@ export default function TalentRequestModal({ isOpen, onClose, initialRole = '' }
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError('');
+    try {
+      await submitTalentRequest(formData);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting talent request:', err);
+      setError('Submission failed. Please try again or check connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setError('');
     onClose();
   };
 
@@ -226,13 +240,29 @@ export default function TalentRequestModal({ isOpen, onClose, initialRole = '' }
                 ></textarea>
               </div>
 
+              {error && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium">
+                  {error}
+                </div>
+              )}
+
               <div className="pt-3">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-gestss-green-900 to-gestss-green-700 hover:from-gestss-green-800 hover:to-gestss-green-950 shadow-lg flex items-center justify-center gap-2 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-gestss-green-900 to-gestss-green-700 hover:from-gestss-green-800 hover:to-gestss-green-950 shadow-lg flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Request (Activate 4-Day SLA)</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Submitting Request...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Submit Request (Activate 4-Day SLA)</span>
+                    </>
+                  )}
                 </button>
               </div>
             </form>

@@ -12,11 +12,15 @@ import {
   Award, 
   MessageSquare,
   Clock,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
+import { submitInquiry } from '@/lib/firebase';
 
 export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
   const [formSent, setFormSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [openFaq, setOpenFaq] = useState(null);
   const [contactData, setContactData] = useState({
     name: '',
@@ -49,9 +53,19 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
     }
   ];
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
-    setFormSent(true);
+    setIsSubmitting(true);
+    setError('');
+    try {
+      await submitInquiry(contactData);
+      setFormSent(true);
+    } catch (err) {
+      console.error('Error submitting inquiry:', err);
+      setError('Failed to dispatch inquiry. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -301,13 +315,29 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
                   ></textarea>
                 </div>
 
+                {error && (
+                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium">
+                    {error}
+                  </div>
+                )}
+
                 <div>
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl font-bold text-sm text-white bg-slate-900 hover:bg-slate-800 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5"
+                    disabled={isSubmitting}
+                    className="w-full py-4 rounded-xl font-bold text-sm text-white bg-slate-900 hover:bg-slate-800 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message to GESTSS Team</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Dispatching Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message to GESTSS Team</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

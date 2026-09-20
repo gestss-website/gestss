@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Send, Briefcase, Award, FileText } from 'lucide-react';
+import { X, CheckCircle2, Send, Briefcase, Award, FileText, Loader2 } from 'lucide-react';
+import { submitTalentApplication } from '@/lib/firebase';
 
 export default function CareerApplyModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -17,13 +20,24 @@ export default function CareerApplyModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError('');
+    try {
+      await submitTalentApplication(formData);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting application:', err);
+      setError('Submission failed. Please try again or check connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setError('');
     onClose();
   };
 
@@ -206,13 +220,29 @@ export default function CareerApplyModal({ isOpen, onClose }) {
                 ></textarea>
               </div>
 
+              {error && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium">
+                  {error}
+                </div>
+              )}
+
               <div className="pt-3">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-gestss-blue-900 to-gestss-blue-700 hover:from-gestss-blue-800 hover:to-gestss-blue-950 shadow-lg flex items-center justify-center gap-2 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-gestss-blue-900 to-gestss-blue-700 hover:from-gestss-blue-800 hover:to-gestss-blue-950 shadow-lg flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Profile to Talent Network</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Submitting Profile...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Submit Profile to Talent Network</span>
+                    </>
+                  )}
                 </button>
               </div>
             </form>
