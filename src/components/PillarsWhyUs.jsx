@@ -234,7 +234,10 @@ export default function PillarsWhyUs() {
             toRef={centerRef}
             endYOffset={-24}
             curvature={30}
-            duration={4}
+            duration={2}
+            pathWidth={3}
+            pathColor="#cbd5e1"
+            pathOpacity={0.85}
             gradientStartColor="#10b981"
             gradientStopColor="#047857"
           />
@@ -244,8 +247,11 @@ export default function PillarsWhyUs() {
             toRef={centerRef}
             endYOffset={0}
             curvature={0}
-            duration={4}
-            delay={0.3}
+            duration={2}
+            delay={0.2}
+            pathWidth={3}
+            pathColor="#cbd5e1"
+            pathOpacity={0.85}
             gradientStartColor="#10b981"
             gradientStopColor="#047857"
           />
@@ -255,8 +261,11 @@ export default function PillarsWhyUs() {
             toRef={centerRef}
             endYOffset={24}
             curvature={-30}
-            duration={4}
-            delay={0.6}
+            duration={2}
+            delay={0.4}
+            pathWidth={3}
+            pathColor="#cbd5e1"
+            pathOpacity={0.85}
             gradientStartColor="#10b981"
             gradientStopColor="#047857"
           />
@@ -266,8 +275,11 @@ export default function PillarsWhyUs() {
             toRef={card4Ref}
             startYOffset={-24}
             curvature={30}
-            duration={4}
-            delay={0.15}
+            duration={2}
+            delay={0.1}
+            pathWidth={3}
+            pathColor="#cbd5e1"
+            pathOpacity={0.85}
             gradientStartColor="#34d399"
             gradientStopColor="#0284c7"
           />
@@ -277,8 +289,11 @@ export default function PillarsWhyUs() {
             toRef={card5Ref}
             startYOffset={0}
             curvature={0}
-            duration={4}
-            delay={0.45}
+            duration={2}
+            delay={0.3}
+            pathWidth={3}
+            pathColor="#cbd5e1"
+            pathOpacity={0.85}
             gradientStartColor="#34d399"
             gradientStopColor="#0284c7"
           />
@@ -288,8 +303,11 @@ export default function PillarsWhyUs() {
             toRef={card6Ref}
             startYOffset={24}
             curvature={-30}
-            duration={4}
-            delay={0.75}
+            duration={2}
+            delay={0.5}
+            pathWidth={3}
+            pathColor="#cbd5e1"
+            pathOpacity={0.85}
             gradientStartColor="#34d399"
             gradientStopColor="#0284c7"
           />

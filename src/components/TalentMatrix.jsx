@@ -210,8 +210,10 @@ export default function TalentMatrix({ onSelectRole }) {
         // 7 -> 8 (Direct Vertical drop from Card 7 to Card 8 directly below it!)
         const c7CenterX = r7.left - cRect.left + r7.width / 2;
         const c7BottomY = r7.bottom - cRect.top;
+        const c8CenterX = r8.left - cRect.left + r8.width / 2;
         const c8TopY = r8.top - cRect.top;
-        const card7To8 = `M ${c7CenterX},${c7BottomY} L ${c7CenterX},${c8TopY}`;
+        const dropX = (c7CenterX + c8CenterX) / 2;
+        const card7To8 = `M ${dropX},${c7BottomY} L ${dropX},${c8TopY}`;
 
         setDesktopPaths({
           card1To2,
@@ -554,8 +556,10 @@ export default function TalentMatrix({ onSelectRole }) {
             <div className="h-16 xl:h-20" />
 
             {/* ROW 4: Card 08 directly under Card 07 (Col 3) */}
-            <div className="flex items-center justify-end">
-              {/* Card 08 in Col 3 (aligned directly underneath Card 07) */}
+            <div className="flex items-center gap-10 xl:gap-14">
+              {/* Invisible spacers to align Card 08 perfectly in Column 3 beneath Card 07 */}
+              <div className="w-[280px] xl:w-[300px] shrink-0 invisible pointer-events-none" aria-hidden="true" />
+              <div className="w-[280px] xl:w-[300px] shrink-0 invisible pointer-events-none" aria-hidden="true" />
               <div className="w-[280px] xl:w-[300px] shrink-0">
                 {renderTallCard(disciplines[7], card8Ref)}
               </div>

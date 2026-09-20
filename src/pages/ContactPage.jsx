@@ -55,31 +55,40 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
   };
 
   return (
-    <div className="pt-24 lg:pt-28 pb-20 bg-slate-50 min-h-screen">
+    <div className="pb-20 bg-slate-50 min-h-screen">
       
-      {/* Page Header / Hero Banner */}
-      <section className="relative py-16 sm:py-24 bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900 to-gestss-green-950/70 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Page Header / Hero Banner with contactus-bg */}
+      <section className="relative isolate min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden">
+        {/* Background Image covering the entire area behind navbar and hero text */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="/services/contactus-bg.png"
+            alt="Contact GESTSS"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Subtle overlay to ensure text contrast while keeping image bright and visible */}
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[0.5px] pointer-events-none" />
+          {/* Soft bottom transition into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-36 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-6">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700 mb-6">
+            <Link to="/" className="hover:text-emerald-800 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-emerald-400">Contact Us</span>
+            <span className="text-emerald-800">Contact Us</span>
           </div>
 
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-bold uppercase tracking-wider">
-              <MessageSquare className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-600/30 text-emerald-950 text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-800" />
               Contact Hub &amp; MSME Desk
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white leading-tight">
-              Let's Build the Clean Future <span className="text-emerald-400">Together</span>.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-slate-900 leading-tight">
+              Let's Build the Clean Future <span className="text-gradient-green">Together</span>.
             </h1>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
               Whether you are mobilizing specialized project crews, seeking technical green-energy talent, or exploring career pathways, our team is ready to assist you.
             </p>
           </div>

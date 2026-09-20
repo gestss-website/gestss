@@ -6,7 +6,6 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,9 +39,7 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
         className={`flex items-center justify-between transition-all duration-500 ease-out ${
           scrolled
             ? 'w-full max-w-4xl bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-slate-200/80 rounded-full py-1.5 px-3 sm:px-5 gap-3'
-            : isHomePage
-            ? 'w-full max-w-7xl bg-transparent border border-transparent shadow-none rounded-2xl py-1.5 sm:py-2 px-3 sm:px-6'
-            : 'w-full max-w-7xl bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-md rounded-2xl py-1.5 sm:py-2 px-3 sm:px-6'
+            : 'w-full max-w-7xl bg-transparent border border-transparent shadow-none rounded-2xl py-1.5 sm:py-2 px-3 sm:px-6'
         }`}
       >
         {/* Brand: Logo emblem with circular boundary + Wordmark with boundary box + MSME Registration badge */}
@@ -83,13 +80,9 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
                     ? isActive
                       ? 'text-emerald-700 bg-emerald-50 text-[13px]'
                       : 'text-slate-700 hover:text-slate-950 hover:bg-slate-100/80 text-[13px]'
-                    : isHomePage
-                    ? isActive
-                      ? 'text-emerald-800 bg-white/60'
-                      : 'text-slate-800 hover:text-gestss-green-800 hover:bg-white/40'
                     : isActive
-                    ? 'text-emerald-300 bg-white/15'
-                    : 'text-slate-200 hover:text-white hover:bg-white/10'
+                    ? 'text-emerald-800 bg-white/60 font-bold'
+                    : 'text-slate-800 hover:text-gestss-green-800 hover:bg-white/40'
                 }`}
               >
                 {link.label}
@@ -105,9 +98,7 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
             className={`hidden sm:flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap flex-shrink-0 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
               scrolled
                 ? 'bg-slate-950 text-white hover:bg-slate-800'
-                : isHomePage
-                ? 'bg-slate-900 text-white hover:bg-slate-800'
-                : 'bg-emerald-400 text-slate-950 hover:bg-emerald-300'
+                : 'bg-slate-900 text-white hover:bg-slate-800'
             }`}
           >
             <span>Get Started</span>
@@ -120,9 +111,7 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
             className={`lg:hidden p-2 rounded-full transition-colors ${
               scrolled
                 ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-100'
-                : isHomePage
-                ? 'text-slate-900 hover:bg-white/40'
-                : 'text-white hover:bg-white/10'
+                : 'text-slate-900 hover:bg-white/40'
             }`}
             aria-label="Toggle Navigation"
           >

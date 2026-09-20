@@ -13,33 +13,42 @@ import {
 
 export default function AboutPage({ onRequestTalent, onJoinNetwork }) {
   return (
-    <div className="pt-24 lg:pt-28 pb-20 bg-slate-50 min-h-screen text-slate-800">
+    <div className="pb-20 bg-slate-50 min-h-screen text-slate-800">
       
-      {/* 1. Header / Hero Section with exact About Us text */}
-      <section className="relative py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
-        {/* Ambient glow */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* 1. Header / Hero Section with aboutus-bg */}
+      <section className="relative isolate min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden">
+        {/* Hero Background Image covering the entire area behind navbar and hero text */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="/services/aboutus-bg.png"
+            alt="About GESTSS"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Subtle overlay to ensure text contrast while keeping image bright and visible */}
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[0.5px] pointer-events-none" />
+          {/* Soft bottom transition into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-36 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none" />
+        </div>
         
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-6">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700 mb-6">
+            <Link to="/" className="hover:text-emerald-800 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-emerald-400">About Us</span>
+            <span className="text-emerald-800">About Us</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-600/30 text-emerald-950 text-xs font-bold uppercase tracking-wider mb-5 backdrop-blur-md shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-800" />
             Specialized Workforce Solutions
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white leading-tight">
-            About Us
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-slate-900 leading-tight">
+            About <span className="text-gradient-green">Us</span>
           </h1>
 
-          <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-100 font-medium leading-relaxed">
+          <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-white/85 border border-white/90 backdrop-blur-md shadow-xl shadow-slate-900/5">
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-900 font-medium leading-relaxed">
               Green Energy &amp; Solar Tech Staffing Solution is built around a simple proposition: the clean-energy transition requires people with the right skills, at the right place, and at the right time.
             </p>
           </div>
