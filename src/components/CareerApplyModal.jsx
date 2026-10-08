@@ -118,7 +118,7 @@ export default function CareerApplyModal({ isOpen, onClose }) {
                   <input
                     type="email"
                     required
-                    placeholder="alex.rivera@gmail.com"
+                    placeholder="candidate@email.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gestss-blue-600 focus:border-transparent"

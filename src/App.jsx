@@ -7,6 +7,8 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import HiringPage from './pages/HiringPage';
+import RecruitmentContactsPage from './pages/RecruitmentContactsPage';
 import AdminLoginPage from './pages/admin/AdminLoginPage';
 import AdminDashboardPage from './pages/admin/AdminDashboardPage';
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute';
@@ -72,6 +74,20 @@ function MainLayout() {
               />
             } 
           />
+          <Route 
+            path="/hiring" 
+            element={
+              <HiringPage 
+                onRequestTalent={() => handleOpenTalentModal()} 
+                onJoinNetwork={handleOpenNetworkModal} 
+              />
+            } 
+          />
+          <Route path="/careers" element={<Navigate to="/hiring" replace />} />
+          <Route path="/recruitment" element={<Navigate to="/recruitment-contacts" replace />} />
+          <Route path="/recruitment-contacts" element={<RecruitmentContactsPage />} />
+          <Route path="/key-contacts" element={<Navigate to="/recruitment-contacts" replace />} />
+          <Route path="/candidate-delivery" element={<Navigate to="/recruitment-contacts" replace />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />

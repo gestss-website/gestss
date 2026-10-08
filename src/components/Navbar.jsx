@@ -23,7 +23,9 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
+    { label: 'Hiring', href: '/hiring', hasPulse: true },
     { label: 'Contact', href: '/contact' },
+    { label: 'Brochure', href: '/Brochure_GESTSS.pdf', isExternal: true, isPdf: true },
   ];
 
   return (
@@ -38,7 +40,7 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
       <nav
         className={`flex items-center justify-between transition-all duration-500 ease-out ${
           scrolled
-            ? 'w-full max-w-4xl bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-slate-200/80 rounded-full py-1.5 px-3 sm:px-5 gap-3'
+            ? 'w-full max-w-5xl bg-white/92 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-slate-200/80 rounded-full py-1.5 px-3 sm:px-5 gap-3'
             : 'w-full max-w-7xl bg-transparent border border-transparent shadow-none rounded-2xl py-1.5 sm:py-2 px-3 sm:px-6'
         }`}
       >
@@ -71,11 +73,34 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
         <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 flex-shrink-0">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.href;
+
+            if (link.isExternal) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-3 py-1.5 text-sm font-semibold rounded-full whitespace-nowrap flex-shrink-0 transition-all duration-300 inline-flex items-center gap-1.5 ${
+                    scrolled
+                      ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-100/80 text-[13px]'
+                      : 'text-slate-800 hover:text-gestss-green-800 hover:bg-white/50'
+                  }`}
+                  title="Open GESTSS Brochure (PDF)"
+                >
+                  <span>{link.label}</span>
+                  <span className="text-[10px] font-extrabold px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 border border-emerald-300/80">
+                    PDF
+                  </span>
+                </a>
+              );
+            }
+
             return (
               <Link
                 key={link.label}
                 to={link.href}
-                className={`px-3 py-1.5 text-sm font-semibold rounded-full whitespace-nowrap flex-shrink-0 transition-all duration-300 ${
+                className={`px-3 py-1.5 text-sm font-semibold rounded-full whitespace-nowrap flex-shrink-0 transition-all duration-300 inline-flex items-center gap-1.5 ${
                   scrolled
                     ? isActive
                       ? 'text-emerald-700 bg-emerald-50 text-[13px]'
@@ -85,7 +110,13 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
                     : 'text-slate-800 hover:text-gestss-green-800 hover:bg-white/40'
                 }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.hasPulse && (
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -123,17 +154,47 @@ export default function Navbar({ onRequestTalent, onJoinNetwork }) {
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="fixed inset-x-0 top-[76px] z-40 mx-4 rounded-2xl bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl p-5 space-y-2 lg:hidden">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
-            >
-              <span>{link.label}</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if (link.isExternal) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>{link.label}</span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                      PDF
+                    </span>
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400" />
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <span>{link.label}</span>
+                  {link.hasPulse && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                      We're Hiring
+                    </span>
+                  )}
+                </span>
+                <ChevronRight className="w-4 h-4 text-slate-500" />
+              </Link>
+            );
+          })}
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
             <button
               onClick={() => { setIsOpen(false); onRequestTalent(); }}

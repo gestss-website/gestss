@@ -13,7 +13,13 @@ import {
   MessageSquare,
   Clock,
   ArrowRight,
-  Loader2
+  Loader2,
+  Copy,
+  Check,
+  Users,
+  Building2,
+  MessageCircle,
+  FileText
 } from 'lucide-react';
 import { submitInquiry } from '@/lib/firebase';
 
@@ -22,6 +28,61 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [openFaq, setOpenFaq] = useState(null);
+  const [copiedId, setCopiedId] = useState(null);
+
+  const handleCopy = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const recruitmentTeam = [
+    {
+      id: 'contact-rec-ops',
+      name: 'Recruitment Operations & Candidate Delivery',
+      role: 'Operations & Candidate Delivery Desk',
+      contact: '+91 7745828168',
+      type: 'phone',
+      tel: '+917745828168',
+      wa: '917745828168'
+    },
+    {
+      id: 'contact-chaman',
+      name: 'Mr. S. Chaman',
+      role: 'Technical Officer, GESTSS',
+      contact: '+91 96952 70061',
+      type: 'phone',
+      tel: '+919695270061',
+      wa: '919695270061'
+    },
+    {
+      id: 'contact-abhinav',
+      name: 'Mr. Abhinav K',
+      role: 'Sr. Technical Advisor – Research, GESTSS',
+      contact: '+91 7500024959',
+      type: 'phone',
+      tel: '+917500024959',
+      wa: '917500024959'
+    },
+    {
+      id: 'contact-anvesha',
+      name: 'Ms. Anvesha',
+      role: 'Sr. Technical Advisor – Project, GESTSS',
+      contact: '+91 98682 86035',
+      type: 'phone',
+      tel: '+919868286035',
+      wa: '919868286035'
+    },
+    {
+      id: 'contact-ho',
+      name: 'Corporate Head Office, Staffing GESTSS',
+      role: 'Staffing Secretariat & Official Desk',
+      contact: 'contact@gestss.com',
+      type: 'email',
+      mail: 'contact@gestss.com'
+    }
+  ];
+
   const [contactData, setContactData] = useState({
     name: '',
     email: '',
@@ -152,8 +213,8 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
                       Direct Email Inquiries
                     </span>
-                    <a href="mailto:contact.gestss@gmail.com" className="text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors block mt-0.5">
-                      contact.gestss@gmail.com
+                    <a href="mailto:contact@gestss.com" className="text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors block mt-0.5">
+                      contact@gestss.com
                     </a>
                     <span className="block text-xs text-slate-500 mt-0.5">Dedicated staffing &amp; recruiter response desk</span>
                   </div>
@@ -165,12 +226,12 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      Staffing Hotline
+                      Recruitment Operations &amp; Candidate Delivery
                     </span>
-                    <span className="text-sm font-bold text-slate-900 block mt-0.5">
-                      +91 (Staffing Desk - Direct)
-                    </span>
-                    <span className="block text-xs text-slate-500 mt-0.5">Monday – Saturday: 9:00 AM – 7:00 PM IST</span>
+                    <a href="tel:+917745828168" className="text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors block mt-0.5">
+                      +91 7745828168
+                    </a>
+                    <span className="block text-xs text-slate-500 mt-0.5">Direct candidate delivery desk • Mon–Sat 9AM–7PM IST</span>
                   </div>
                 </div>
 
@@ -345,6 +406,107 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
 
           </div>
 
+        </div>
+
+        {/* Recruitment Operations & Candidate Delivery Directory */}
+        <div className="mt-20">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200 text-xs font-bold uppercase tracking-wider mb-2">
+              <Users className="w-3.5 h-3.5 text-blue-700" />
+              <span>Direct Team Access</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
+              Recruitment Operations &amp; Candidate Delivery
+            </h2>
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-600">
+              Reach out directly to our Technical Officers, Research Advisors, and Staffing Leadership.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {recruitmentTeam.map((member) => (
+              <div 
+                key={member.id}
+                className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                      Official GESTSS
+                    </span>
+                    <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                      Active
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900">{member.name}</h3>
+                  <p className="text-xs font-semibold text-emerald-700 mt-0.5">{member.role}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">GESTSS (https://gestss.com/)</p>
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-slate-100 space-y-2.5">
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                    <div className="flex items-center gap-2 truncate">
+                      {member.type === 'phone' ? (
+                        <Phone className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                      ) : (
+                        <Mail className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+                      )}
+                      <span className="text-xs font-bold text-slate-900 truncate">{member.contact}</span>
+                    </div>
+
+                    <button
+                      onClick={() => handleCopy(member.contact, member.id)}
+                      className="p-1 rounded hover:bg-white text-slate-500 hover:text-slate-900 text-[11px] font-semibold flex items-center gap-1 cursor-pointer transition-all"
+                      title="Copy to clipboard"
+                    >
+                      {copiedId === member.id ? (
+                        <>
+                          <Check className="w-3 h-3 text-emerald-600" />
+                          <span className="text-emerald-600">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3 h-3" />
+                          <span>Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    {member.type === 'phone' ? (
+                      <>
+                        <a
+                          href={`tel:${member.tel}`}
+                          className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                        >
+                          <Phone className="w-3 h-3 text-emerald-400" />
+                          <span>Call</span>
+                        </a>
+                        <a
+                          href={`https://wa.me/${member.wa}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                        >
+                          <MessageCircle className="w-3 h-3" />
+                          <span>WhatsApp</span>
+                        </a>
+                      </>
+                    ) : (
+                      <a
+                        href={`mailto:${member.mail}`}
+                        className="col-span-2 py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                      >
+                        <Mail className="w-3 h-3 text-blue-400" />
+                        <span>Send Email</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Interactive FAQ Accordion */}

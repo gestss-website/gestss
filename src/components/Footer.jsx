@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp } from 'lucide-react';
 
 export default function Footer({ onRequestTalent, onJoinNetwork }) {
@@ -98,10 +99,10 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
             <div className="pt-2 text-xs text-slate-300 flex flex-wrap items-center gap-2">
               <span className="text-slate-400 font-medium">Official Inquiries:</span>
               <a 
-                href="mailto:contact.gestss@gmail.com" 
+                href="mailto:contact@gestss.com" 
                 className="text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
               >
-                contact.gestss@gmail.com
+                contact@gestss.com
               </a>
             </div>
           </div>
@@ -151,6 +152,29 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
                 {String(visitorCount).padStart(5, '0')}
               </span>
             </div>
+
+            <span className="text-slate-700 hidden sm:inline">•</span>
+
+            <Link to="/hiring" className="text-slate-400 hover:text-emerald-400 transition-colors">
+              Hiring
+            </Link>
+
+            <span className="text-slate-700 hidden sm:inline">•</span>
+
+            <Link to="/recruitment-contacts" className="text-slate-400 hover:text-emerald-400 transition-colors">
+              Recruitment Desk
+            </Link>
+
+            <span className="text-slate-700 hidden sm:inline">•</span>
+
+            <a 
+              href="/Brochure_GESTSS.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-emerald-400 transition-colors"
+            >
+              Brochure (PDF)
+            </a>
 
             <span className="text-slate-700 hidden sm:inline">•</span>
 

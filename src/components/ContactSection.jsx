@@ -107,8 +107,8 @@ export default function ContactSection({ onRequestTalent, onJoinNetwork }) {
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
                       Direct Inquiries
                     </span>
-                    <a href="mailto:contact.gestss@gmail.com" className="text-sm font-semibold text-slate-800 hover:text-gestss-green-800 transition-colors">
-                      contact.gestss@gmail.com
+                    <a href="mailto:contact@gestss.com" className="text-sm font-semibold text-slate-800 hover:text-gestss-green-800 transition-colors">
+                      contact@gestss.com
                     </a>
                     <span className="block text-xs text-slate-500">Dedicated recruitment response desk</span>
                   </div>
@@ -120,12 +120,12 @@ export default function ContactSection({ onRequestTalent, onJoinNetwork }) {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      Staffing Hotline
+                      Recruitment &amp; Staffing Hotline
                     </span>
-                    <span className="text-sm font-semibold text-slate-800">
-                      +91 (Staffing Desk - Direct)
-                    </span>
-                    <span className="block text-xs text-slate-500">Monday – Saturday: 9:00 AM – 7:00 PM</span>
+                    <a href="tel:+917745828168" className="text-sm font-semibold text-slate-800 hover:text-gestss-green-800 transition-colors block">
+                      +91 7745828168
+                    </a>
+                    <span className="block text-xs text-slate-500">Candidate Delivery Desk • Mon–Sat 9AM–7PM</span>
                   </div>
                 </div>
 
