@@ -194,14 +194,19 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      Enterprise Credential
+                      Enterprise Credentials
                     </span>
                     <span className="text-sm font-bold text-slate-900 block mt-0.5">
-                      MSME Registered Enterprise
+                      MSME Registered &amp; ISO 9001:2015 Certified
                     </span>
-                    <span className="inline-block mt-1 px-2.5 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">
-                      Govt. of India Recognized
-                    </span>
+                    <div className="flex flex-wrap gap-1.5 mt-1">
+                      <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">
+                        Govt. of India Recognized
+                      </span>
+                      <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">
+                        ISO 9001:2015 Quality Standards
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -241,10 +246,10 @@ export default function ContactPage({ onRequestTalent, onJoinNetwork }) {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      National Operations &amp; Regional Hubs
+                      Registered Office &amp; Operations
                     </span>
                     <span className="text-sm font-bold text-slate-900 block mt-0.5">
-                      National Workforce Coordination Center
+                      H. No. 301, Barwa Nasirpur Vijaygaon, Akbarpur, Dist: Ambedkar Nagar-224122 (Uttar Pradesh)
                     </span>
                     <span className="block text-xs text-slate-500 mt-0.5">Serving Solar PV, EV Charging, &amp; Grid Sites Nationwide</span>
                   </div>

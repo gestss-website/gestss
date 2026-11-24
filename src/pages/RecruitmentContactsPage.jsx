@@ -87,7 +87,7 @@ export default function RecruitmentContactsPage() {
       contact: 'contact@gestss.com',
       mailValue: 'contact@gestss.com',
       badge: 'Corporate Secretariat',
-      description: 'Official corporate correspondence, enterprise staffing inquiries, contracts, and institutional communication.'
+      description: 'Official corporate correspondence, enterprise staffing inquiries, contracts, and institutional communication. Registered Office: H. No. 301, Barwa Nasirpur Vijaygaon, Akbarpur, Dist: Ambedkar Nagar-224122 (Uttar Pradesh).'
     }
   ];
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, MapPin } from 'lucide-react';
 
 export default function Footer({ onRequestTalent, onJoinNetwork }) {
   const [visitorCount, setVisitorCount] = useState(() => {
@@ -46,9 +46,9 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Section with Brand & Direct Newsletter / CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-slate-800 items-start">
           
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full p-0.5 bg-white shadow-md flex-shrink-0">
                 <img 
@@ -66,20 +66,41 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
               </div>
             </div>
 
-            <p className="text-sm text-slate-300 max-w-md leading-relaxed">
+            <p className="text-sm text-slate-300 max-w-xl leading-relaxed">
               Powering the clean-energy transition with evaluated, safety-certified, and project-aligned workforce solutions across Solar PV, EV Infrastructure, Renewable Engineering, and Grid Systems.
             </p>
 
-            {/* MSME Registered Enterprise Official Credential */}
-            <div className="pt-1">
-              <div className="inline-flex flex-col items-start p-3 sm:p-3.5 bg-white rounded-2xl border border-slate-200/90 shadow-md">
+            {/* Enterprise Credentials: MSME & ISO Certified (Same size side by side) */}
+            <div className="pt-1 flex flex-wrap sm:flex-nowrap items-center gap-3.5">
+              <div className="w-full sm:w-[240px] h-[98px] p-3.5 bg-white rounded-2xl border border-slate-200/90 shadow-md flex flex-col justify-between flex-shrink-0">
                 <img 
                   src="/MSME.jpg" 
                   alt="Ministry of Micro, Small & Medium Enterprises, Government of India" 
-                  className="h-11 sm:h-14 w-auto object-contain" 
+                  className="h-10 w-auto object-contain object-left" 
                 />
-                <span className="mt-2 text-sm font-bold text-slate-900 tracking-tight">
+                <span className="text-[12px] font-bold text-slate-900 tracking-tight leading-tight">
                   MSME Reg. No. Udyam-UP-04-0055135
+                </span>
+              </div>
+
+              <div className="w-full sm:w-[240px] h-[98px] p-3.5 bg-white rounded-2xl border border-slate-200/90 shadow-md flex flex-col justify-between flex-shrink-0">
+                <div className="flex items-center gap-3">
+                  <img 
+                    src="/iso-certified.png" 
+                    alt="ISO 9001:2015 Certified Company" 
+                    className="h-10 w-10 object-contain flex-shrink-0" 
+                  />
+                  <div className="leading-tight">
+                    <span className="text-xs font-bold text-slate-900 block tracking-tight">
+                      ISO 9001:2015
+                    </span>
+                    <span className="text-[11px] font-semibold text-emerald-700 block">
+                      Certified Company
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[12px] font-bold text-slate-900 tracking-tight leading-tight">
+                  Quality Management System
                 </span>
               </div>
             </div>
@@ -88,41 +109,57 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
               <span className="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800/60 font-semibold">
                 MSME Registered
               </span>
+              <span className="px-2.5 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-800/60 font-semibold">
+                ISO 9001:2015 Certified
+              </span>
               <span className="px-2.5 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800/60 font-semibold">
                 Technical Screening Standards
               </span>
-              <span className="px-2.5 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-800/60 font-semibold">
+              <span className="px-2.5 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-800/60 font-semibold">
                 4-Day Shortlist SLA
               </span>
             </div>
 
-            <div className="pt-2 text-xs text-slate-300 flex flex-wrap items-center gap-2">
-              <span className="text-slate-400 font-medium">Official Inquiries:</span>
-              <a 
-                href="mailto:contact@gestss.com" 
-                className="text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
-              >
-                contact@gestss.com
-              </a>
+            {/* Registered Address & Inquiries */}
+            <div className="pt-2 space-y-2 text-xs text-slate-300">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-slate-400 font-semibold block">Registered Office:</span>
+                  <p className="text-slate-200 font-medium leading-relaxed max-w-xl">
+                    H. No. 301, Barwa Nasirpur Vijaygaon, Akbarpur, Dist: Ambedkar Nagar-224122 (Uttar Pradesh)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-slate-400 font-medium">Official Inquiries:</span>
+                <a 
+                  href="mailto:contact@gestss.com" 
+                  className="text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
+                >
+                  contact@gestss.com
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col sm:flex-row justify-between gap-6 p-6 rounded-3xl bg-slate-900 border border-slate-800">
-            <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-gestss-solar-400">Ready to Mobilize?</span>
-              <h4 className="text-lg font-bold text-white">Accelerate Your Project Timelines</h4>
-              <p className="text-xs text-slate-400">Request specialized crews or submit your candidate credentials today.</p>
+          <div className="lg:col-span-4 p-5 sm:p-6 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between gap-5 self-start">
+            <div className="space-y-1.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-gestss-solar-400">Ready to Mobilize?</span>
+              <h4 className="text-base sm:text-lg font-bold text-white leading-snug">Accelerate Your Project Timelines</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">Request specialized crews or submit your candidate credentials today.</p>
             </div>
-            <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
               <button
                 onClick={onRequestTalent}
-                className="px-5 py-2.5 rounded-full text-xs font-bold text-slate-950 bg-gestss-solar-400 hover:bg-gestss-solar-300 transition-all shadow-md"
+                className="px-4 py-2 rounded-full text-xs font-bold text-slate-950 bg-gestss-solar-400 hover:bg-gestss-solar-300 transition-all shadow-md"
               >
                 Request Talent
               </button>
               <button
                 onClick={onJoinNetwork}
-                className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-all"
+                className="px-4 py-2 rounded-full text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-all"
               >
                 Join Network
               </button>
@@ -179,6 +216,10 @@ export default function Footer({ onRequestTalent, onJoinNetwork }) {
             <span className="text-slate-700 hidden sm:inline">•</span>
 
             <span className="text-slate-400">MSME Reg. No. Udyam-UP-04-0055135</span>
+
+            <span className="text-slate-700 hidden sm:inline">•</span>
+
+            <span className="text-slate-400">ISO 9001:2015 Certified</span>
 
             <span className="text-slate-700 hidden sm:inline">•</span>
 

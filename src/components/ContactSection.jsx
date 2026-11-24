@@ -88,14 +88,19 @@ export default function ContactSection({ onRequestTalent, onJoinNetwork }) {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      Enterprise Credential
+                      Enterprise Credentials
                     </span>
                     <span className="text-sm font-semibold text-slate-800">
-                      MSME Registration (Govt. of India Recognized)
+                      MSME Registered &amp; ISO 9001:2015 Certified
                     </span>
-                    <span className="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-bold bg-gestss-solar-100 text-gestss-solar-800">
-                      Active Enterprise Portal
-                    </span>
+                    <div className="flex flex-wrap gap-1.5 mt-1">
+                      <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-gestss-solar-100 text-gestss-solar-800">
+                        Active Enterprise Portal
+                      </span>
+                      <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                        ISO 9001:2015
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -135,12 +140,12 @@ export default function ContactSection({ onRequestTalent, onJoinNetwork }) {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      Corporate Headquarters
+                      Registered Office &amp; Operations
                     </span>
-                    <span className="text-sm font-semibold text-slate-800">
-                      National Operations Center &amp; Regional Hubs
+                    <span className="text-sm font-semibold text-slate-800 block">
+                      H. No. 301, Barwa Nasirpur Vijaygaon, Akbarpur, Dist: Ambedkar Nagar-224122 (Uttar Pradesh)
                     </span>
-                    <span className="block text-xs text-slate-500">Serving Solar &amp; EV Projects Nationwide &amp; Globally</span>
+                    <span className="block text-xs text-slate-500 mt-0.5">Serving Solar &amp; EV Projects Nationwide &amp; Globally</span>
                   </div>
                 </div>
               </div>
